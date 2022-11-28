@@ -1,0 +1,46 @@
+npm init
+inter korte hobe
+description a "Test" likte hobe
+author: a name likhte hobe
+is this ok? ai lekhata asbe then inter korte hobe
+
+npm i date-format
+
+npm uninstall date-format
+
+npm i date-format
+
+npm istall date-format --save
+
+npm install bootstrap@3 --save
+
+
+
+
+npmjs.com-         
+         date
+         date-format
+
+
+21 Nov 2022
+
+npx create-react-app reactapp1
+when show a problem then use under the code
+npm uninstall -g create-react-app
+
+npx generate-react-cli 
+
+npx generate-react-cli component mycomponentname
+
+npm start
+
+npm install react-router-dom
+
+npm install axios
+
+https://www.geeksforgeeks.org/reactjs-lifecycle-components/
+
+https://devooti.com/react-crud-operations-using-php-api-and-mysqli/
+
+
+

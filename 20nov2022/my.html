@@ -1,0 +1,34 @@
+<script>
+   class Car {
+      constructor(name, color){
+         this.brand = name;
+         this.rong = color;
+      }
+
+      present(){
+         return ' I have a ' + this.brand + ' car, and this colore is ' + this.rong;
+      }
+   }
+
+   class Model extends Car{
+      constructor(name, color, mod){
+         super(name, color);
+         this.model = mod;
+      }
+
+      show(){
+        return this.present() + ' This car model is ' + this.model;
+      }
+   }
+
+   //const myCar = new Car('Rolse Royals', 'Blue');
+   const myCar = new Model('Rolse Royals', 'Blue', 2022);
+   document.write(myCar.brand);
+   document.write("<br>");
+
+   myCar.present();
+   document.write(myCar.present());
+   document.write("<br>");
+   document.write(myCar.show());
+
+</script>

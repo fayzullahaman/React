@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="show"></div>
+    <script>
+      function pass() {
+        document.getElementById("show").innerHTML = "Welcome!";
+      }
+      function faild() {
+        document.getElementById("show").innerHTML = "You are under 18";
+      }
+
+      var age = false;
+
+      age ? pass() : faild();
+      // if (age) {
+      // pass();
+      // } else {
+      // faild();
+      // }
+    </script>
+    <hr />
+    <!-- <script>
+      const age = 18;
+
+      let status = age >= 18 ? "Allowed" : "Not Allowed";
+
+      document.write(status);
+    </script> -->
+  </body>
+</html>
