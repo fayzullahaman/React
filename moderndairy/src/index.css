@@ -91,25 +91,9 @@ code {
 .owl-item{
   width: 630.984px;
 }
-/* 
-.section-title::before {
-  position: absolute;
-  content: "";
-  width: calc(100% + 80px);
-  height: 2px;
-  top: 5px;
-  left: -40px;
-  background: var(--primary);
-  z-index: -1;
-}
 
-.section-title::after {
-  position: absolute;
-  content: "";
-  width: calc(100% + 120px);
-  height: 2px;
-  bottom: 6px;
-  left: -60px;
-  background: var(--primary);
-  z-index: -1;
-} */
+.pro_card{
+  width: 50%;
+  position: relative;
+  display: flex;
+}
