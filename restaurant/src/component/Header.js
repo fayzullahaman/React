@@ -59,6 +59,9 @@ export default function Header() {
           <Link to="/booking" className="btn btn-primary py-2 px-4">
             Book A Table
           </Link>
+          <Link to="/admin" className="nav-item nav-link">
+            Admin
+          </Link>
         </div>
       </nav>
     </div>

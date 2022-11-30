@@ -9,6 +9,8 @@ import Service from "./pages/Service";
 import Team from "./pages/Team";
 import Testimonial from "./pages/Testimonial";
 
+import adMain from "./admin/pages/adMain";
+
 function App() {
   return (
     <Routes>
@@ -21,6 +23,9 @@ function App() {
         <Route path="/booking" element={<Booking />} />
         <Route path="/team" element={<Team />} />
         <Route path="/testimonial" element={<Testimonial />} />
+      </Route>
+      <Route path="/admin" element={<adMain />}>
+        {/* <Route index element={<Home />} /> */}
       </Route>
     </Routes>
   );
