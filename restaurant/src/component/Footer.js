@@ -34,14 +34,14 @@ export default function Footer() {
                 Contact
               </h4>
               <p className="mb-2">
-                <i className="fa fa-map-marker-alt me-3"></i>123 Street, New
-                York, USA
+                <i className="fa fa-map-marker-alt me-3"></i>123 Street, Paltan,
+                Dhaka
               </p>
               <p className="mb-2">
-                <i className="fa fa-phone-alt me-3"></i>+012 345 67890
+                <i className="fa fa-phone-alt me-3"></i>+88012 345 6789
               </p>
               <p className="mb-2">
-                <i className="fa fa-envelope me-3"></i>info@example.com
+                <i className="fa fa-envelope me-3"></i>restaurant@example.com
               </p>
               <div className="d-flex pt-2">
                 <a className="btn btn-outline-light btn-social" href="">
@@ -97,12 +97,9 @@ export default function Footer() {
               <div className="col-md-6 text-center text-md-start mb-3 mb-md-0">
                 &copy;{" "}
                 <a className="border-bottom" href="#">
-                  Your Site Name
+                  Restaurant
                 </a>
-                , All Right Reserved. Designed By{" "}
-                <a className="border-bottom" href="https://htmlcodex.com">
-                  HTML Codex
-                </a>
+                , All Right Reserved. Designed By{"Restaurant"}
                 <br />
                 <br />
                 Distributed By{" "}
@@ -111,7 +108,7 @@ export default function Footer() {
                   href="https://themewagon.com"
                   target="_blank"
                 >
-                  ThemeWagon
+                  Md Fayzullah Aman
                 </a>
               </div>
               <div className="col-md-6 text-center text-md-end">

@@ -144,7 +144,7 @@ export default function Home() {
                 <h1 className="mb-4">
                   Welcome to{" "}
                   <i className="fa fa-utensils text-primary me-2"></i>
-                  Restoran
+                  Restorant
                 </h1>
                 <p className="mb-4">
                   Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit.

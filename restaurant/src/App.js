@@ -1,4 +1,9 @@
 import { Route, Routes } from "react-router-dom";
+import Addmenu from "./admin/component/Addmenu";
+import Allmenu from "./admin/component/Allmenu";
+import Editmenu from "./admin/component/Editmenu";
+import Admain from "./admin/pages/Admain";
+import Dashboard from "./admin/pages/Dashboard";
 import Home from "./component/Home";
 import About from "./pages/About";
 import Booking from "./pages/Booking";
@@ -8,8 +13,6 @@ import Menu from "./pages/Menu";
 import Service from "./pages/Service";
 import Team from "./pages/Team";
 import Testimonial from "./pages/Testimonial";
-
-import adMain from "./admin/pages/adMain";
 
 function App() {
   return (
@@ -24,8 +27,11 @@ function App() {
         <Route path="/team" element={<Team />} />
         <Route path="/testimonial" element={<Testimonial />} />
       </Route>
-      <Route path="/admin" element={<adMain />}>
-        {/* <Route index element={<Home />} /> */}
+      <Route path="/" element={<Admain />}>
+        <Route path="/admin" element={<Dashboard />} />
+        <Route path="/allmenu" element={<Allmenu />} />
+        <Route path="/addmenu" element={<Addmenu />} />
+        <Route path="/editmenu/:id" element={<Editmenu />} />
       </Route>
     </Routes>
   );

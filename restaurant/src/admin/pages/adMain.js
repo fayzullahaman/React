@@ -1,10 +1,12 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import Addsidbar from "../component/Addsidbar";
+import Addtopbar from "../component/Addtopbar";
 
-export default function adMain() {
+export default function Admain() {
   return (
     <div>
-      <Outlet />
+      <Addtopbar />
+      <Addsidbar />
     </div>
   );
 }
