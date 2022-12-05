@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Addmenu from "./admin/component/Addmenu";
 import Allmenu from "./admin/component/Allmenu";
 import Editmenu from "./admin/component/Editmenu";
-import Admain from "./admin/pages/Admain";
+import Addmain from "./admin/pages/Addmain";
 import Dashboard from "./admin/pages/Dashboard";
 import Home from "./component/Home";
 import About from "./pages/About";
@@ -27,7 +27,7 @@ function App() {
         <Route path="/team" element={<Team />} />
         <Route path="/testimonial" element={<Testimonial />} />
       </Route>
-      <Route path="/" element={<Admain />}>
+      <Route path="/" element={<Addmain />}>
         <Route path="/admin" element={<Dashboard />} />
         <Route path="/allmenu" element={<Allmenu />} />
         <Route path="/addmenu" element={<Addmenu />} />
