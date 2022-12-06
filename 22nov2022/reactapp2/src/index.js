@@ -16,7 +16,7 @@ import Edit from "./users/Edit";
 import Allproduct from "./product/Allproduct";
 import Addproduct from "./product/Addproduct";
 import Comp1 from "./components/Comp1";
-import Editprod from "./product/Editprod";
+import Editproduct from "./product/Editproduct";
 
 export default function RouterApp() {
   return (
@@ -35,7 +35,7 @@ export default function RouterApp() {
           <Route path="/products" element={<Allproduct />} />
           <Route path="/products/new" element={<Addproduct />} />
           <Route path="/comp1" element={<Comp1 />} />
-          <Route path="/product/editprod/:pid" element={<Editprod />} />
+          <Route path="/product/editproduct/:pid" element={<Editproduct />} />
         </Route>
       </Routes>
     </BrowserRouter>

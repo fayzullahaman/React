@@ -7,48 +7,49 @@ const Editmenu = () => {
   const naviGator = useNavigate();
   const [menu, setMenu] = useState([]);
 
-  console.log(menu);
+  // console.log(menu);
 
-  const submitValue = (e) => {
-    e.preventDefault();
-    menuSubmit();
-  };
+  // const submitValue = (e) => {
+  //   e.preventDefault();
+  //   menuSubmit();
+  // };
 
-  const menuSubmit = () =>
-    axios
-      .post("http://localhost/restaurantApi/editmenu.php", {
-        id: menu.id,
-        name: menu.name,
-        price: menu.price,
-        details: menu.details,
-        image: menu.image,
-      })
-      .then((res) => {
-        naviGator("/allmenu");
-        // console.log(res.data);
-      });
+  // const menuSubmit = () =>
+  //   axios
+  //     .post("http://localhost/restaurantApi/editmenu.php", {
+  //       id: menu.id,
+  //       name: menu.name,
+  //       price: menu.price,
+  //       details: menu.details,
+  //       image: menu.image,
+  //     })
+  //     .then((res) => {
+  //       naviGator("/allmenu");
+  //       // console.log(res.data);
+  //     });
 
   useEffect(() => {
     menuOne(params.mid);
-    // console.log(params.pid);
+    // console.log(params.mid);
   }, []);
-  //   console.log("MyID:" + params.pid);
+  // console.log("MyID:" + params.mid);
 
   const changeValue = (e) => {
     setMenu({ ...menu, [e.target.name]: e.target.value });
   };
 
-  const menuOne = (id) => {
+  const menuOne = async (id) => {
     axios
       .post("http://localhost/restaurantApi/getmenu.php", {
         muid: id,
       })
       .then((res) => {
-        setMenu(res.data.menu.mudata[]);
+        setMenu(res.data.menu.mudata[0]);
         // console.log(res.data.menu.mudata);
-      });
-    // .catch((error) => console.log(error));
+      })
+      .catch((error) => console.log(error));
   };
+
   return (
     <>
       <div className="col-sm-10">
@@ -60,7 +61,10 @@ const Editmenu = () => {
             </div>
             <div className="card-body">
               <div className="container">
-                <form onSubmit={submitValue} className="insertproduct">
+                <form
+                  // onSubmit={submitValue}
+                  className="insertproduct"
+                >
                   <div className="form-group">
                     <label className="fw-bold">Menu Name</label>
                     <input
@@ -103,7 +107,7 @@ const Editmenu = () => {
                   </div>
                   <div className="d-grid gap-2">
                     <button type="submit" className="btn btn-primary">
-                      Submit
+                      Update
                     </button>
                   </div>
                 </form>

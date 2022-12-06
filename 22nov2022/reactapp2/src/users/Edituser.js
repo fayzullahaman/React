@@ -14,6 +14,7 @@ const Edituser = (props) => {
       [e.target.name]: e.target.value,
     });
   };
+  
   // Inserting a new user into the Database.
   const submitUser = async (event) => {
     try {

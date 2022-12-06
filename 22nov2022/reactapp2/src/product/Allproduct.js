@@ -57,7 +57,7 @@ const Allproduct = () => {
               <td>{item.price}</td>
               <td>
                 <Link
-                  to={`/product/editprod/${item.id}`}
+                  to={`/product/editproduct/${item.id}`}
                   className="btn btn-primary"
                 >
                   Edit
