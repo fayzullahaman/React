@@ -18,7 +18,8 @@ export default function Register() {
       )
       .then((res) => {
         if (res.data) {
-          console.log(res.data);
+          //  console.log(res.data);
+          alert(res.data);
         }
       });
   };
