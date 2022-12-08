@@ -108,7 +108,7 @@ export default function Booking() {
                           className="form-control"
                           placeholder="Special Request"
                           id="message"
-                          // style={{ height: "100px" }}
+                          style={{ height: "100px" }}
                         ></textarea>
                         <label for="message">Special Request</label>
                       </div>

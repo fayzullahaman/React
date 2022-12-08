@@ -89,7 +89,7 @@ export default function Menu() {
                           className="flex-shrink-0 img-fluid rounded"
                           src="assets/img/menu-1.jpg"
                           alt=""
-                          // style={{ width: "80px;" }}
+                          style={{ width: "80px" }}
                         />
                         <div className="w-100 d-flex flex-column text-start ps-4">
                           <h5 className="d-flex justify-content-between border-bottom pb-2">
@@ -108,7 +108,7 @@ export default function Menu() {
                           className="flex-shrink-0 img-fluid rounded"
                           src="assets/img/menu-2.jpg"
                           alt=""
-                          // style={{ width: "80px;" }}
+                          style={{ width: "80px" }}
                         />
                         <div className="w-100 d-flex flex-column text-start ps-4">
                           <h5 className="d-flex justify-content-between border-bottom pb-2">
@@ -127,7 +127,7 @@ export default function Menu() {
                           className="flex-shrink-0 img-fluid rounded"
                           src="assets/img/menu-3.jpg"
                           alt=""
-                          // style={{ width: "80px;" }}
+                          style={{ width: "80px" }}
                         />
                         <div className="w-100 d-flex flex-column text-start ps-4">
                           <h5 className="d-flex justify-content-between border-bottom pb-2">
@@ -146,7 +146,7 @@ export default function Menu() {
                           className="flex-shrink-0 img-fluid rounded"
                           src="assets/img/menu-4.jpg"
                           alt=""
-                          // style={{ width: "80px;" }}
+                          style={{ width: "80px" }}
                         />
                         <div className="w-100 d-flex flex-column text-start ps-4">
                           <h5 className="d-flex justify-content-between border-bottom pb-2">
@@ -165,7 +165,7 @@ export default function Menu() {
                           className="flex-shrink-0 img-fluid rounded"
                           src="assets/img/menu-5.jpg"
                           alt=""
-                          // style={{ width: "80px;" }}
+                          style={{ width: "80px" }}
                         />
                         <div className="w-100 d-flex flex-column text-start ps-4">
                           <h5 className="d-flex justify-content-between border-bottom pb-2">
@@ -184,7 +184,7 @@ export default function Menu() {
                           className="flex-shrink-0 img-fluid rounded"
                           src="assets/img/menu-6.jpg"
                           alt=""
-                          // style={{ width: "80px;" }}
+                          style={{ width: "80px" }}
                         />
                         <div className="w-100 d-flex flex-column text-start ps-4">
                           <h5 className="d-flex justify-content-between border-bottom pb-2">
@@ -203,7 +203,7 @@ export default function Menu() {
                           className="flex-shrink-0 img-fluid rounded"
                           src="assets/img/menu-7.jpg"
                           alt=""
-                          // style={{ width: "80px;" }}
+                          style={{ width: "80px" }}
                         />
                         <div className="w-100 d-flex flex-column text-start ps-4">
                           <h5 className="d-flex justify-content-between border-bottom pb-2">
@@ -222,7 +222,7 @@ export default function Menu() {
                           className="flex-shrink-0 img-fluid rounded"
                           src="assets/img/menu-8.jpg"
                           alt=""
-                          // style={{ width: "80px;" }}
+                          style={{ width: "80px" }}
                         />
                         <div className="w-100 d-flex flex-column text-start ps-4">
                           <h5 className="d-flex justify-content-between border-bottom pb-2">
@@ -245,7 +245,7 @@ export default function Menu() {
                           className="flex-shrink-0 img-fluid rounded"
                           src="assets/img/menu-1.jpg"
                           alt=""
-                          // style={{ width: "80px;" }}
+                          style={{ width: "80px" }}
                         />
                         <div className="w-100 d-flex flex-column text-start ps-4">
                           <h5 className="d-flex justify-content-between border-bottom pb-2">
@@ -264,7 +264,7 @@ export default function Menu() {
                           className="flex-shrink-0 img-fluid rounded"
                           src="assets/img/menu-2.jpg"
                           alt=""
-                          // style={{ width: "80px;" }}
+                          style={{ width: "80px" }}
                         />
                         <div className="w-100 d-flex flex-column text-start ps-4">
                           <h5 className="d-flex justify-content-between border-bottom pb-2">
@@ -283,7 +283,7 @@ export default function Menu() {
                           className="flex-shrink-0 img-fluid rounded"
                           src="assets/img/menu-3.jpg"
                           alt=""
-                          // style={{ width: "80px;" }}
+                          style={{ width: "80px" }}
                         />
                         <div className="w-100 d-flex flex-column text-start ps-4">
                           <h5 className="d-flex justify-content-between border-bottom pb-2">
@@ -302,7 +302,7 @@ export default function Menu() {
                           className="flex-shrink-0 img-fluid rounded"
                           src="assets/img/menu-4.jpg"
                           alt=""
-                          // style={{ width: "80px;" }}
+                          style={{ width: "80px" }}
                         />
                         <div className="w-100 d-flex flex-column text-start ps-4">
                           <h5 className="d-flex justify-content-between border-bottom pb-2">
@@ -321,7 +321,7 @@ export default function Menu() {
                           className="flex-shrink-0 img-fluid rounded"
                           src="assets/img/menu-5.jpg"
                           alt=""
-                          // style={{ width: "80px;" }}
+                          style={{ width: "80px" }}
                         />
                         <div className="w-100 d-flex flex-column text-start ps-4">
                           <h5 className="d-flex justify-content-between border-bottom pb-2">
@@ -340,7 +340,7 @@ export default function Menu() {
                           className="flex-shrink-0 img-fluid rounded"
                           src="assets/img/menu-6.jpg"
                           alt=""
-                          // style={{ width: "80px;" }}
+                          style={{ width: "80px" }}
                         />
                         <div className="w-100 d-flex flex-column text-start ps-4">
                           <h5 className="d-flex justify-content-between border-bottom pb-2">
@@ -359,7 +359,7 @@ export default function Menu() {
                           className="flex-shrink-0 img-fluid rounded"
                           src="assets/img/menu-7.jpg"
                           alt=""
-                          // style={{ width: "80px;" }}
+                          style={{ width: "80px" }}
                         />
                         <div className="w-100 d-flex flex-column text-start ps-4">
                           <h5 className="d-flex justify-content-between border-bottom pb-2">
@@ -378,7 +378,7 @@ export default function Menu() {
                           className="flex-shrink-0 img-fluid rounded"
                           src="assets/img/menu-8.jpg"
                           alt=""
-                          // style={{ width: "80px;" }}
+                          style={{ width: "80px" }}
                         />
                         <div className="w-100 d-flex flex-column text-start ps-4">
                           <h5 className="d-flex justify-content-between border-bottom pb-2">
@@ -401,7 +401,7 @@ export default function Menu() {
                           className="flex-shrink-0 img-fluid rounded"
                           src="assets/img/menu-1.jpg"
                           alt=""
-                          // style={{ width: "80px;" }}
+                          style={{ width: "80px" }}
                         />
                         <div className="w-100 d-flex flex-column text-start ps-4">
                           <h5 className="d-flex justify-content-between border-bottom pb-2">
@@ -420,7 +420,7 @@ export default function Menu() {
                           className="flex-shrink-0 img-fluid rounded"
                           src="assets/img/menu-2.jpg"
                           alt=""
-                          // style={{ width: "80px;" }}
+                          style={{ width: "80px" }}
                         />
                         <div className="w-100 d-flex flex-column text-start ps-4">
                           <h5 className="d-flex justify-content-between border-bottom pb-2">
@@ -439,7 +439,7 @@ export default function Menu() {
                           className="flex-shrink-0 img-fluid rounded"
                           src="assets/img/menu-3.jpg"
                           alt=""
-                          // style={{ width: "80px;" }}
+                          style={{ width: "80px" }}
                         />
                         <div className="w-100 d-flex flex-column text-start ps-4">
                           <h5 className="d-flex justify-content-between border-bottom pb-2">
@@ -458,7 +458,7 @@ export default function Menu() {
                           className="flex-shrink-0 img-fluid rounded"
                           src="assets/img/menu-4.jpg"
                           alt=""
-                          // style={{ width: "80px;" }}
+                          style={{ width: "80px" }}
                         />
                         <div className="w-100 d-flex flex-column text-start ps-4">
                           <h5 className="d-flex justify-content-between border-bottom pb-2">
@@ -477,7 +477,7 @@ export default function Menu() {
                           className="flex-shrink-0 img-fluid rounded"
                           src="assets/img/menu-5.jpg"
                           alt=""
-                          // style={{ width: "80px;" }}
+                          style={{ width: "80px" }}
                         />
                         <div className="w-100 d-flex flex-column text-start ps-4">
                           <h5 className="d-flex justify-content-between border-bottom pb-2">
@@ -496,7 +496,7 @@ export default function Menu() {
                           className="flex-shrink-0 img-fluid rounded"
                           src="assets/img/menu-6.jpg"
                           alt=""
-                          // style={{ width: "80px;" }}
+                          style={{ width: "80px" }}
                         />
                         <div className="w-100 d-flex flex-column text-start ps-4">
                           <h5 className="d-flex justify-content-between border-bottom pb-2">
@@ -515,7 +515,7 @@ export default function Menu() {
                           className="flex-shrink-0 img-fluid rounded"
                           src="assets/img/menu-7.jpg"
                           alt=""
-                          // style={{ width: "80px;" }}
+                          style={{ width: "80px" }}
                         />
                         <div className="w-100 d-flex flex-column text-start ps-4">
                           <h5 className="d-flex justify-content-between border-bottom pb-2">

@@ -49,7 +49,7 @@ export default function Addsidbar() {
                     </li>
                   </ul>
                 </li>
-                <li>
+                {/* <li>
                   <a href="#" className="nav-link px-0 align-middle">
                     <i className="fs-4 bi-table"></i>{" "}
                     <span className="ms-1 d-none d-sm-inline">Orders</span>
@@ -128,7 +128,7 @@ export default function Addsidbar() {
                     <i className="fs-4 bi-people"></i>{" "}
                     <span className="ms-1 d-none d-sm-inline">Customers</span>{" "}
                   </a>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>

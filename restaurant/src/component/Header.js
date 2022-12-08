@@ -5,11 +5,11 @@ export default function Header() {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
-        <a href="" className="navbar-brand p-0">
+        <Link to="/" className="navbar-brand p-0">
           <h1 className="text-primary m-0">
             <i className="fa fa-utensils me-3"></i>Restaurant
           </h1>
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -59,9 +59,40 @@ export default function Header() {
           <Link to="/booking" className="btn btn-primary py-2 px-4">
             Book A Table
           </Link>
-          <Link to="/admin" className="nav-item nav-link">
-            Admin
-          </Link>
+          <div className="nav-item dropdown">
+              <Link
+                to="#"
+                className="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+              >
+                Login
+              </Link>
+              <div className="dropdown-menu m-0">
+                <Link to="/admin_log" className="dropdown-item">
+                  Admin Login
+                </Link>
+                <Link to="/user_log" className="dropdown-item">
+                  User Login
+                </Link>
+              </div>
+            </div>
+            <div className="nav-item dropdown">
+              <Link
+                to="#"
+                className="nav-link dropdown-toggle"
+                data-bs-toggle="dropdown"
+              >
+                Registration
+              </Link>
+              <div className="dropdown-menu m-0">
+                <Link to="/admin_reg" className="dropdown-item">
+                  Admin Registration
+                </Link>
+                <Link to="/user" className="dropdown-item">
+                  User Registration
+                </Link>
+              </div>
+            </div>
         </div>
       </nav>
     </div>

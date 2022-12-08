@@ -1,50 +1,22 @@
-import { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const Editmenu = () => {
   const params = useParams();
-  const naviGator = useNavigate();
   const [menu, setMenu] = useState([]);
 
-  // console.log(menu);
-
-  // const submitValue = (e) => {
-  //   e.preventDefault();
-  //   menuSubmit();
-  // };
-
-  // const menuSubmit = () =>
-  //   axios
-  //     .post("http://localhost/restaurantApi/editmenu.php", {
-  //       id: menu.id,
-  //       name: menu.name,
-  //       price: menu.price,
-  //       details: menu.details,
-  //       image: menu.image,
-  //     })
-  //     .then((res) => {
-  //       naviGator("/allmenu");
-  //       // console.log(res.data);
-  //     });
+  //console.log(menu);
 
   useEffect(() => {
-    menuOne(params.mid);
-    // console.log(params.mid);
-  }, []);
-  // console.log("MyID:" + params.mid);
-
-  const changeValue = (e) => {
-    setMenu({ ...menu, [e.target.name]: e.target.value });
-  };
-
-  const menuOne = async (id) => {
+    menuOne(params.pid);
+  });
+  //console.log("MyID:" + params.pid);
+  const menuOne = (id) => {
     axios
-      .post("http://localhost/restaurantApi/getmenu.php", {
-        muid: id,
-      })
+      .post("http://localhost/restaurantApi/getmenu.php", { id: id })
       .then((res) => {
-        setMenu(res.data.menu.mudata[0]);
+        setMenu(res.data.menu.mudata);
         // console.log(res.data.menu.mudata);
       })
       .catch((error) => console.log(error));
@@ -71,7 +43,7 @@ const Editmenu = () => {
                       type="text"
                       name="name"
                       value={menu.name}
-                      onChange={changeValue}
+                      onChange={(e) => setMenu(e.target.value)}
                       placeholder="Enter Product Name"
                       className="form-control"
                     />
@@ -81,7 +53,7 @@ const Editmenu = () => {
                       type="text"
                       name="details"
                       value={menu.details}
-                      onChange={changeValue}
+                      onChange={(e) => setMenu(e.target.value)}
                       className="form-control"
                       placeholder="Enter Menu Details"
                     ></textarea>
@@ -91,7 +63,7 @@ const Editmenu = () => {
                       type="text"
                       name="price"
                       value={menu.price}
-                      onChange={changeValue}
+                      onChange={(e) => setMenu(e.target.value)}
                       placeholder="Enter Menu Price"
                       className="form-control"
                     />
@@ -100,7 +72,7 @@ const Editmenu = () => {
                       type="file"
                       name="image"
                       value={menu.image}
-                      onChange={changeValue}
+                      onChange={(e) => setMenu(e.target.value)}
                       className="form-control"
                     />
                     <br />

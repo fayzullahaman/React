@@ -46,7 +46,7 @@ export default function Testimonial() {
                   <img
                     className="img-fluid flex-shrink-0 rounded-circle"
                     src="assets/img/testimonial-1.jpg"
-                    //   style={{width: "50px; height: 50px;"}}
+                      style={{width: "50px", height: "50px"}}
                   />
                   <div className="ps-3">
                     <h5 className="mb-1">Client Name</h5>
@@ -64,7 +64,7 @@ export default function Testimonial() {
                   <img
                     className="img-fluid flex-shrink-0 rounded-circle"
                     src="assets/img/testimonial-2.jpg"
-                    style={{ width: "50px; height: 50px;" }}
+                    style={{ width: "50px", height: "50px" }}
                   />
                   <div className="ps-3">
                     <h5 className="mb-1">Client Name</h5>
@@ -82,7 +82,7 @@ export default function Testimonial() {
                   <img
                     className="img-fluid flex-shrink-0 rounded-circle"
                     src="assets/img/testimonial-3.jpg"
-                    style={{ width: "50px; height: 50px;" }}
+                    style={{ width: "50px", height: "50px" }}
                   />
                   <div className="ps-3">
                     <h5 className="mb-1">Client Name</h5>
@@ -100,7 +100,7 @@ export default function Testimonial() {
                   <img
                     className="img-fluid flex-shrink-0 rounded-circle"
                     src="assets/img/testimonial-4.jpg"
-                    style={{ width: "50px; height: 50px;" }}
+                    style={{ width: "50px", height: "50px" }}
                   />
                   <div className="ps-3">
                     <h5 className="mb-1">Client Name</h5>

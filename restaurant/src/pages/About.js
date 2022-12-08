@@ -44,7 +44,7 @@ export default function About() {
                       className="img-fluid rounded w-75 wow zoomIn"
                       data-wow-delay="0.3s"
                       src="assets/img/about-2.jpg"
-                      //   style="margin-top: 25%;"
+                        style={{marginTop: "25%"}}
                     />
                   </div>
                   <div className="col-6 text-end">
