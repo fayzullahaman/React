@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Allmenu = () => {
@@ -31,7 +31,7 @@ const Allmenu = () => {
   };
 
   return (
-    <div>
+    <>
       <div className="col-sm-10">
         <br />
         <div className="content-wrapper">
@@ -102,7 +102,7 @@ const Allmenu = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

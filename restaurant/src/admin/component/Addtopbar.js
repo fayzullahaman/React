@@ -1,9 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 export default function Addtopbar() {
   return (
-    <div>
+    <>
       <nav className="navbar navbar-expand-lg bg-dark align-items-center">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
@@ -57,6 +56,6 @@ export default function Addtopbar() {
           </div>
         </div>
       </nav>
-    </div>
+    </>
   );
 }

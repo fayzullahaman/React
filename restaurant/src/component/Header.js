@@ -68,7 +68,7 @@ export default function Header() {
                 Login
               </Link>
               <div className="dropdown-menu m-0">
-                <Link to="/admin_log" className="dropdown-item">
+                <Link to="/admin" className="dropdown-item">
                   Admin Login
                 </Link>
                 <Link to="/user_log" className="dropdown-item">

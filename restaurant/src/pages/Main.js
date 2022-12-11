@@ -5,10 +5,10 @@ import Header from "../component/Header";
 
 export default function Main() {
   return (
-    <div>
-      <Header />
-      <Outlet />
-      <Footer />
-    </div>
+    <>
+      <Header/>
+      <Outlet/>
+      <Footer/>
+    </>
   );
 }

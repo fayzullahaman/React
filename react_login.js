@@ -13,3 +13,23 @@ const handleSubmit = async (e) => {
       }
     });
 };
+
+// if ($result->num_rows === 1) {
+//   echo json_encode(['success' => true, 'msg' => 'Login Success']);
+//   return;
+// } else {
+//   echo json_encode(['success' => false, 'msg' => 'Email or password incorrect']);
+//   return;
+// }
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import './index.css';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+<React.StrictMode>
+<App />
+</React.StrictMode>
+);

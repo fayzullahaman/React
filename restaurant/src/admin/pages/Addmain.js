@@ -1,12 +1,18 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 import Addsidbar from "../component/Addsidbar";
 import Addtopbar from "../component/Addtopbar";
 
 export default function Addmain() {
   return (
-    <div>
+    <>
       <Addtopbar />
-      <Addsidbar />
-    </div>
+      <div className="container-fluid">
+        <div className="row flex-nowrap">
+          <Addsidbar />
+          <Outlet />
+        </div>
+      </div>
+    </>
   );
 }

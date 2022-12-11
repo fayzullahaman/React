@@ -1,55 +1,53 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Addsidbar() {
   return (
-    <div>
-      <div className="container-fluid">
-        <div className="row flex-nowrap">
-          <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-            <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-              <ul
-                className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
-                id="menu"
+    <>
+      <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+        <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+          <ul
+            className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+            id="menu"
+          >
+            <li className="nav-item">
+              <Link to="/admin" className="nav-link align-middle px-0">
+                <i className="fs-4 bi-speedometer2"></i>
+                <span className="ms-1 d-none d-sm-inline">Dashboard</span>
+              </Link>
+            </li>
+            <li>
+              <a
+                href="#submenu1"
+                data-bs-toggle="collapse"
+                className="nav-link px-0 align-middle"
               >
-                <li className="nav-item">
-                  <Link to="/admin" className="nav-link align-middle px-0">
-                    <i className="fs-4 bi-speedometer2"></i>{" "}
-                    <span className="ms-1 d-none d-sm-inline">Dashboard</span>
+                <i className="bi bi-menu-up mx-2"></i>
+                <span className="ms-1 d-none d-sm-inline">Menu</span>
+              </a>
+              <ul
+                className="collapse show nav flex-column ms-1"
+                id="submenu1"
+                data-bs-parent="#menu"
+              >
+                <li className="w-100">
+                  <Link to="allmenu" className="nav-link px-0">
+                    <span className="d-none d-sm-inline">Menu List</span>
                   </Link>
                 </li>
-                <li>
-                  <a
-                    href="#submenu1"
-                    data-bs-toggle="collapse"
-                    className="nav-link px-0 align-middle"
-                  >
-                    <i className="bi bi-menu-up mx-2"></i>
-                    <span className="ms-1 d-none d-sm-inline">Menu</span>
-                  </a>
-                  <ul
-                    className="collapse show nav flex-column ms-1"
-                    id="submenu1"
-                    data-bs-parent="#menu"
-                  >
-                    <li className="w-100">
-                      <Link to="/allmenu" className="nav-link px-0">
-                        <span className="d-none d-sm-inline">Menu List</span>
-                      </Link>
-                    </li>
-                    {/* <li className="w-100">
+                {/* <li className="w-100">
                       <Link to="/editmenu" className="nav-link px-0">
                         <span className="d-none d-sm-inline">Edit Menu</span>
                       </Link>
                     </li> */}
-                    <li className="w-100">
-                      <Link to="/addmenu" className="nav-link px-0">
-                        <span className="d-none d-sm-inline">Add Eew Menu</span>
-                      </Link>
-                    </li>
-                  </ul>
+                <li className="w-100">
+                  <Link to="addmenu" className="nav-link px-0">
+                    <span className="d-none d-sm-inline">Add Eew Menu</span>
+                  </Link>
                 </li>
-                {/* <li>
+              </ul>
+            </li>
+            {/* <li>
                   <a href="#" className="nav-link px-0 align-middle">
                     <i className="fs-4 bi-table"></i>{" "}
                     <span className="ms-1 d-none d-sm-inline">Orders</span>
@@ -129,12 +127,9 @@ export default function Addsidbar() {
                     <span className="ms-1 d-none d-sm-inline">Customers</span>{" "}
                   </a>
                 </li> */}
-              </ul>
-            </div>
-          </div>
-          <Outlet />
+          </ul>
         </div>
       </div>
-    </div>
+    </>
   );
 }
