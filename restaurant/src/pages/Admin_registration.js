@@ -15,13 +15,11 @@ export default function Admin_registration() {
     e.preventDefault();
     axios.post("http://localhost/restaurantApi/admin-reg.php", info).then((res)=>{if(res.data){
       console.log(res.data);
-      navigate("/admin_log");
+      navigate("/admin");
     }})
   }
 
   return (
-    <div>
-      <div>
       <div className="container-xxl bg-white p-0">
         <div className="container-xxl py-5 bg-dark hero-header mb-5">
           <div className="container text-center my-5 pt-5 pb-4">
@@ -125,8 +123,6 @@ export default function Admin_registration() {
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    </div>
+      </div>    
   )
 }

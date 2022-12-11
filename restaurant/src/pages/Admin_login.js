@@ -1,20 +1,20 @@
 import React from 'react';
 
-async function loginUser(credentials) {
-  return fetch("http://localhost:8080/Admin_login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(credentials),
-  }).then((data) => data.json());
-}
+// async function loginUser(credentials) {
+//   return fetch("http://localhost:8080/Admin_login", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(credentials),
+//   }).then((data) => data.json());
+// }
 
 export default function Admin_login() {
   return (
     
-      <div>
-      {/* <div className="container-xxl bg-white p-0">
+      <>
+      <div className="container-xxl bg-white p-0">
         <div className="container-xxl py-5 bg-dark hero-header mb-5">
           <div className="container text-center my-5 pt-5 pb-4">
             <h1 className="display-3 text-white mb-3 animated slideInDown">
@@ -49,7 +49,9 @@ export default function Admin_login() {
                   Login Form
                 </h5>
                 <h1 className="text-white mb-4">Admin Login</h1>
-                <form onSubmit={}>
+                <form 
+                // onSubmit={}
+                >
                   <div className="row g-3">                    
                     <div className="col-md-6">
                       <div className="form-floating">
@@ -57,7 +59,7 @@ export default function Admin_login() {
                           type="email"
                           className="form-control"
                           name='email'
-                          onChange={}
+                          // onChange={}
                           id="email"
                           placeholder="Your Email"
                         />
@@ -70,7 +72,7 @@ export default function Admin_login() {
                           type="password"
                           className="form-control"
                           name='password'
-                          onChange={}
+                          // onChange={}
                           id="password"
                           placeholder="Your Password"
                         />
@@ -91,8 +93,8 @@ export default function Admin_login() {
             </div>
           </div>
         </div>
-      </div> */}
-    </div>
+      </div>
+    </>
     
   )
 }
