@@ -5,7 +5,12 @@ import { useNavigate } from "react-router-dom";
 export default function Register() {
   const navigate = useNavigate();
 
-  const [info, setInfo] = useState({});
+  const [info, setInfo] = useState({
+    fname: "",
+    lname: "",
+    email: "",
+    password: "",
+  });
   const changeValue = (e) => {
     setInfo({ ...info, [e.target.name]: e.target.value });
   };
@@ -19,7 +24,16 @@ export default function Register() {
       .then((res) => {
         if (res.data) {
           //  console.log(res.data);
-          alert(res.data);
+          if (res.data.empty) {
+            alert(res.data.empty);
+          }
+          if (res.data.duplicate) {
+            alert(res.data.duplicate);
+          }
+          if (res.data.success) {
+            alert(res.data.success);
+            navigate("/login");
+          }
         }
       });
   };

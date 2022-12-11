@@ -1,7 +1,22 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Header() {
+  let fullName = sessionStorage.getItem("fullname");
+  const naviGate = useNavigate();
+
+  const logOut = () => {
+    sessionStorage.clear();
+    naviGate("/login");
+  };
+
+  // const email = sessionStorage.getItem("email");
+  // useEffect(() => {
+  //   if (email == null) {
+  //     naviGate("/login");
+  //   }
+  // }, []);
+
   return (
     <div>
       <div class="p-5 bg-primary text-white text-center">
@@ -37,14 +52,19 @@ export default function Header() {
                 </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/register">
+                <Link className="nav-link" to="/register">
                   Registe
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/login">
+                <Link className="nav-link" to="/login">
                   Login
-                </a>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/dashboard">
+                  Dashboard
+                </Link>
               </li>
               <li className="nav-item dropdown">
                 <a
@@ -79,7 +99,7 @@ export default function Header() {
                 </ul>
               </li>
             </ul>
-            <form className="d-flex">
+            {/* <form className="d-flex">
               <input
                 className="form-control me-2"
                 type="search"
@@ -88,8 +108,27 @@ export default function Header() {
               />
               <button className="btn btn-outline-success" type="submit">
                 Search
+              </button> */}
+
+            {/* <button className="btn btn-primary mx-2" onClick={logOut} href="">
+                {fullName}
+                LogOut
+              </button> */}
+            <span className="navbar-text">{fullName}</span>
+            {fullName ? (
+              <button className="btn btn-info mx-2">
+                <a className="nav-link" href="" onClick={logOut}>
+                  LogOut
+                </a>
               </button>
-            </form>
+            ) : (
+              <button className="btn btn-info">
+                <a className="nav-link" href="/login">
+                  Login
+                </a>
+              </button>
+            )}
+            {/* </form> */}
           </div>
         </div>
       </nav>
