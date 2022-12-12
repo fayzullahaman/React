@@ -20,7 +20,7 @@ const Addmenu = () => {
     e.preventDefault();
     e.persist();
     axios
-      .post("http://localhost/restaurantApi/addmenu.php", {
+      .post("http://localhost/React/restaurant/restaurantApi/addmenu.php", {
         name: menuInfo.name,
         details: menuInfo.details,
         price: menuInfo.price,

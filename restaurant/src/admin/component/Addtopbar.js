@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Addtopbar() {
   return (
@@ -23,7 +24,7 @@ export default function Addtopbar() {
                 height="30"
                 className="rounded-circle"
               />
-              <span className="d-none d-sm-inline mx-1">Admin</span>
+              <span className="d-none d-sm-inline mx-2">Admin</span>
             </a>
             <ul
               className="dropdown-menu dropdown-menu-dark text-small shadow"
@@ -48,9 +49,9 @@ export default function Addtopbar() {
                 <hr className="dropdown-divider" />
               </li>
               <li>
-                <a className="dropdown-item" href="#">
+                <Link to="#" className="dropdown-item">
                   Sign out
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

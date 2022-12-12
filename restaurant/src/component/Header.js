@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
-    <div>
+    <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
         <Link to="/" className="navbar-brand p-0">
           <h1 className="text-primary m-0">
@@ -56,45 +56,45 @@ export default function Header() {
               Contact
             </Link>
           </div>
-          <Link to="/booking" className="btn btn-primary py-2 px-4">
+          {/* <Link to="/booking" className="btn btn-primary py-2 px-4">
             Book A Table
-          </Link>
+          </Link> */}
           <div className="nav-item dropdown">
-              <Link
-                to="#"
-                className="nav-link dropdown-toggle"
-                data-bs-toggle="dropdown"
-              >
-                Login
+            <Link
+              to="#"
+              className="nav-link dropdown-toggle btn btn-primary py-1 px-3"
+              data-bs-toggle="dropdown"
+            >
+              Login
+            </Link>
+            <div className="dropdown-menu m-0">
+              <Link to="/admin_log" className="dropdown-item">
+                Admin Login
               </Link>
-              <div className="dropdown-menu m-0">
-                <Link to="/admin" className="dropdown-item">
-                  Admin Login
-                </Link>
-                <Link to="/user_log" className="dropdown-item">
-                  User Login
-                </Link>
-              </div>
-            </div>
-            <div className="nav-item dropdown">
-              <Link
-                to="#"
-                className="nav-link dropdown-toggle"
-                data-bs-toggle="dropdown"
-              >
-                Registration
+              <Link to="/user_log" className="dropdown-item">
+                User Login
               </Link>
-              <div className="dropdown-menu m-0">
-                <Link to="/admin_reg" className="dropdown-item">
-                  Admin Registration
-                </Link>
-                <Link to="/user" className="dropdown-item">
-                  User Registration
-                </Link>
-              </div>
             </div>
+          </div>
+          <div className="nav-item dropdown">
+            <Link
+              to="#"
+              className="nav-link dropdown-toggle"
+              data-bs-toggle="dropdown"
+            >
+              Registration
+            </Link>
+            <div className="dropdown-menu m-0">
+              <Link to="/admin_reg" className="dropdown-item">
+                Admin Registration
+              </Link>
+              <Link to="/user" className="dropdown-item">
+                User Registration
+              </Link>
+            </div>
+          </div>
         </div>
       </nav>
-    </div>
+    </>
   );
 }

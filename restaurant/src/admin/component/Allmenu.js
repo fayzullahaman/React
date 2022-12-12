@@ -10,9 +10,11 @@ const Allmenu = () => {
   }, []);
 
   const allMenu = async () => {
-    axios.get("http://localhost/restaurantApi/allmenu.php").then((res) => {
-      setMenu(res.data.datas.mu);
-    });
+    axios
+      .get("http://localhost/React/restaurant/restaurantApi/allmenu.php")
+      .then((res) => {
+        setMenu(res.data.datas.mu);
+      });
   };
 
   const delConfirm = (id) => {
@@ -21,7 +23,7 @@ const Allmenu = () => {
 
   const delMenu = async (id) => {
     axios
-      .post("http://localhost/restaurantApi/delmenu.php", {
+      .post("http://localhost/React/restaurant/restaurantApi/delmenu.php", {
         menuid: id,
       })
       .then((res) => {

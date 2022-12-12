@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 
 // async function loginUser(credentials) {
 //   return fetch("http://localhost:8080/Admin_login", {
@@ -12,8 +13,7 @@ import React from 'react';
 
 export default function Admin_login() {
   return (
-    
-      <>
+    <>
       <div className="container-xxl bg-white p-0">
         <div className="container-xxl py-5 bg-dark hero-header mb-5">
           <div className="container text-center my-5 pt-5 pb-4">
@@ -32,7 +32,7 @@ export default function Admin_login() {
                   className="breadcrumb-item text-white active"
                   aria-current="page"
                 >
-                  Login
+                  <a href="#">Login</a>
                 </li>
               </ol>
             </nav>
@@ -49,16 +49,16 @@ export default function Admin_login() {
                   Login Form
                 </h5>
                 <h1 className="text-white mb-4">Admin Login</h1>
-                <form 
+                <form
                 // onSubmit={}
                 >
-                  <div className="row g-3">                    
+                  <div className="row g-3">
                     <div className="col-md-6">
                       <div className="form-floating">
                         <input
                           type="email"
                           className="form-control"
-                          name='email'
+                          name="email"
                           // onChange={}
                           id="email"
                           placeholder="Your Email"
@@ -71,7 +71,7 @@ export default function Admin_login() {
                         <input
                           type="password"
                           className="form-control"
-                          name='password'
+                          name="password"
                           // onChange={}
                           id="password"
                           placeholder="Your Password"
@@ -88,6 +88,28 @@ export default function Admin_login() {
                       </button>
                     </div>
                   </div>
+                  <br />
+                  <div className="row col-12">
+                    <div className="col-4">
+                      <Link
+                        to="/admin_reg"
+                        className="btn btn-primary w-100"
+                        type="submit"
+                      >
+                        Admin Register
+                      </Link>
+                    </div>
+                    <div className="col-4">
+                      <button className="btn btn-primary w-100" type="submit">
+                        Admin Register
+                      </button>
+                    </div>
+                    <div className="col-4">
+                      <button className="btn btn-primary w-100" type="submit">
+                        Admin Register
+                      </button>
+                    </div>
+                  </div>
                 </form>
               </div>
             </div>
@@ -95,6 +117,5 @@ export default function Admin_login() {
         </div>
       </div>
     </>
-    
-  )
+  );
 }

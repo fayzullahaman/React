@@ -14,7 +14,9 @@ const Editmenu = () => {
   //console.log("MyID:" + params.pid);
   const menuOne = (id) => {
     axios
-      .post("http://localhost/restaurantApi/getmenu.php", { id: id })
+      .post("http://localhost/React/restaurant/restaurantApi/getmenu.php", {
+        id: id,
+      })
       .then((res) => {
         setMenu(res.data.menu.mudata);
         // console.log(res.data.menu.mudata);
