@@ -50,7 +50,7 @@ export default function Team() {
               </h5>
               <h1 className="mb-5">Our Master Chefs</h1>
             </div>
-            <div className="row g-3">
+            <div className="row g-4">
               {team.map((item, index) => (
                 <div
                   className="col-lg-3 col-md-6 wow fadeInUp"

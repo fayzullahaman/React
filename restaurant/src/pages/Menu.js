@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Menu() {
   return (
@@ -41,7 +42,7 @@ export default function Menu() {
             >
               <ul className="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
                 <li className="nav-item">
-                  <a
+                  <Link
                     className="d-flex align-items-center text-start mx-3 ms-0 pb-3 active"
                     data-bs-toggle="pill"
                     href="#tab-1"
@@ -51,10 +52,10 @@ export default function Menu() {
                       <small className="text-body">Popular</small>
                       <h6 className="mt-n1 mb-0">Breakfast</h6>
                     </div>
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a
+                  <Link
                     className="d-flex align-items-center text-start mx-3 pb-3"
                     data-bs-toggle="pill"
                     href="#tab-2"
@@ -64,10 +65,10 @@ export default function Menu() {
                       <small className="text-body">Special</small>
                       <h6 className="mt-n1 mb-0">Launch</h6>
                     </div>
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a
+                  <Link
                     className="d-flex align-items-center text-start mx-3 me-0 pb-3"
                     data-bs-toggle="pill"
                     href="#tab-3"
@@ -77,7 +78,7 @@ export default function Menu() {
                       <small className="text-body">Lovely</small>
                       <h6 className="mt-n1 mb-0">Dinner</h6>
                     </div>
-                  </a>
+                  </Link>
                 </li>
               </ul>
               <div className="tab-content">
