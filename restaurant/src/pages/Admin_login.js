@@ -1,17 +1,36 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
-// async function loginUser(credentials) {
-//   return fetch("http://localhost:8080/Admin_login", {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify(credentials),
-//   }).then((data) => data.json());
-// }
+import axios from "axios";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Admin_login() {
+  const naviGate = useNavigate();
+  const [admin, setAdmin] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    setAdmin({ ...admin, [e.target.name]: e.target.value });
+  };
+  // console.log(admin);
+
+  const formSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost/React/restaurant/restaurantApi/login.php", admin)
+      .then((res) => {
+        // console.log(res.data);
+        if (res.data.success) {
+          // alert(res.data.success);
+          sessionStorage.setItem("email", res.data.admin.email);
+          sessionStorage.setItem("name", res.data.admin.name);
+          naviGate("/admin");
+        } else {
+          alert(res.data.error);
+        }
+      });
+  };
+
   return (
     <>
       <div className="container-xxl bg-white p-0">
@@ -49,9 +68,7 @@ export default function Admin_login() {
                   Login Form
                 </h5>
                 <h1 className="text-white mb-4">Admin Login</h1>
-                <form
-                // onSubmit={}
-                >
+                <form onSubmit={formSubmit}>
                   <div className="row g-3">
                     <div className="col-md-6">
                       <div className="form-floating">
@@ -59,7 +76,7 @@ export default function Admin_login() {
                           type="email"
                           className="form-control"
                           name="email"
-                          // onChange={}
+                          onChange={handleChange}
                           id="email"
                           placeholder="Your Email"
                         />
@@ -72,7 +89,7 @@ export default function Admin_login() {
                           type="password"
                           className="form-control"
                           name="password"
-                          // onChange={}
+                          onChange={handleChange}
                           id="password"
                           placeholder="Your Password"
                         />

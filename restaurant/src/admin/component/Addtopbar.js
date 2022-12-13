@@ -1,7 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Addtopbar() {
+  let naviGate = useNavigate();
+  const LogOut = () => {
+    sessionStorage.clear();
+    naviGate("admin_log");
+  };
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-dark align-items-center">
@@ -49,7 +54,7 @@ export default function Addtopbar() {
                 <hr className="dropdown-divider" />
               </li>
               <li>
-                <Link to="#" className="dropdown-item">
+                <Link to="#" className="dropdown-item" onClick={LogOut}>
                   Sign out
                 </Link>
               </li>

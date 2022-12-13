@@ -1,8 +1,15 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Editmenu = () => {
+  let naviGate = useNavigate();
+  const email = sessionStorage.getItem("email");
+  useEffect(() => {
+    if (email == null) {
+      naviGate("/admin_log");
+    }
+  });
   const params = useParams();
   const [menu, setMenu] = useState([]);
 

@@ -1,6 +1,20 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 export default function About() {
+  const [team, setTeam] = useState([]);
+  // console.log(team);
+  useEffect(() => {
+    allteam();
+  }, []);
+  const allteam = async () => {
+    axios
+      .get("http://localhost/React/restaurant/restaurantApi/chefs.php")
+      .then((res) => {
+        setTeam(res.data.item.chefs);
+        console.log(res.data.item.chefs);
+      });
+  };
   return (
     <div>
       <div className="container-xxl bg-white p-0">
@@ -44,7 +58,7 @@ export default function About() {
                       className="img-fluid rounded w-75 wow zoomIn"
                       data-wow-delay="0.3s"
                       src="assets/img/about-2.jpg"
-                        style={{marginTop: "25%"}}
+                      style={{ marginTop: "25%" }}
                     />
                   </div>
                   <div className="col-6 text-end">
@@ -128,115 +142,32 @@ export default function About() {
               </h5>
               <h1 className="mb-5">Our Master Chefs</h1>
             </div>
-            <div className="row g-4">
-              <div
-                className="col-lg-3 col-md-6 wow fadeInUp"
-                data-wow-delay="0.1s"
-              >
-                <div className="team-item text-center rounded overflow-hidden">
-                  <div className="rounded-circle overflow-hidden m-4">
-                    <img
-                      className="img-fluid"
-                      src="assets/img/team-1.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <h5 className="mb-0">Full Name</h5>
-                  <small>Designation</small>
-                  <div className="d-flex justify-content-center mt-3">
-                    <a className="btn btn-square btn-primary mx-1" href="">
-                      <i className="fab fa-facebook-f"></i>
-                    </a>
-                    <a className="btn btn-square btn-primary mx-1" href="">
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                    <a className="btn btn-square btn-primary mx-1" href="">
-                      <i className="fab fa-instagram"></i>
-                    </a>
+            <div className="row g-3">
+              {team.map((item, index) => (
+                <div
+                  className="col-lg-3 col-md-6 wow fadeInUp"
+                  data-wow-delay="0.1s"
+                >
+                  <div className="team-item text-center rounded overflow-hidden">
+                    <div className="rounded-circle overflow-hidden m-4">
+                      <img className="img-fluid" src={item.image} alt="" />
+                    </div>
+                    <h5 className="mb-0">{item.name}</h5>
+                    <span>{item.designation}</span>
+                    <div className="d-flex justify-content-center mt-3">
+                      <a className="btn btn-square btn-primary mx-1" href="">
+                        <i className="fab fa-facebook-f"></i>
+                      </a>
+                      <a className="btn btn-square btn-primary mx-1" href="">
+                        <i className="fab fa-twitter"></i>
+                      </a>
+                      <a className="btn btn-square btn-primary mx-1" href="">
+                        <i className="fab fa-instagram"></i>
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div
-                className="col-lg-3 col-md-6 wow fadeInUp"
-                data-wow-delay="0.3s"
-              >
-                <div className="team-item text-center rounded overflow-hidden">
-                  <div className="rounded-circle overflow-hidden m-4">
-                    <img
-                      className="img-fluid"
-                      src="assets/img/team-2.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <h5 className="mb-0">Full Name</h5>
-                  <small>Designation</small>
-                  <div className="d-flex justify-content-center mt-3">
-                    <a className="btn btn-square btn-primary mx-1" href="">
-                      <i className="fab fa-facebook-f"></i>
-                    </a>
-                    <a className="btn btn-square btn-primary mx-1" href="">
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                    <a className="btn btn-square btn-primary mx-1" href="">
-                      <i className="fab fa-instagram"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="col-lg-3 col-md-6 wow fadeInUp"
-                data-wow-delay="0.5s"
-              >
-                <div className="team-item text-center rounded overflow-hidden">
-                  <div className="rounded-circle overflow-hidden m-4">
-                    <img
-                      className="img-fluid"
-                      src="assets/img/team-3.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <h5 className="mb-0">Full Name</h5>
-                  <small>Designation</small>
-                  <div className="d-flex justify-content-center mt-3">
-                    <a className="btn btn-square btn-primary mx-1" href="">
-                      <i className="fab fa-facebook-f"></i>
-                    </a>
-                    <a className="btn btn-square btn-primary mx-1" href="">
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                    <a className="btn btn-square btn-primary mx-1" href="">
-                      <i className="fab fa-instagram"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="col-lg-3 col-md-6 wow fadeInUp"
-                data-wow-delay="0.7s"
-              >
-                <div className="team-item text-center rounded overflow-hidden">
-                  <div className="rounded-circle overflow-hidden m-4">
-                    <img
-                      className="img-fluid"
-                      src="assets/img/team-4.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <h5 className="mb-0">Full Name</h5>
-                  <small>Designation</small>
-                  <div className="d-flex justify-content-center mt-3">
-                    <a className="btn btn-square btn-primary mx-1" href="">
-                      <i className="fab fa-facebook-f"></i>
-                    </a>
-                    <a className="btn btn-square btn-primary mx-1" href="">
-                      <i className="fab fa-twitter"></i>
-                    </a>
-                    <a className="btn btn-square btn-primary mx-1" href="">
-                      <i className="fab fa-instagram"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

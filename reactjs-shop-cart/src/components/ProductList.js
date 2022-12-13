@@ -12,7 +12,7 @@ function ProductList({ product, addToCart }) {
                 {productItem.name} | {productItem.category}
               </p>
               <p> {productItem.seller} </p>
-              <p> Rs. {productItem.price} /-</p>
+              <p> Tk. {productItem.price} /-</p>
               <button onClick={() => addToCart(productItem)}>
                 Add To Cart
               </button>
