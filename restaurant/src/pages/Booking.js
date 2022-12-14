@@ -98,6 +98,8 @@ export default function Booking() {
                           <option value="1">People 1</option>
                           <option value="2">People 2</option>
                           <option value="3">People 3</option>
+                          <option value="3">People 4</option>
+                          <option value="3">People 5</option>
                         </select>
                         <label for="select1">No Of People</label>
                       </div>

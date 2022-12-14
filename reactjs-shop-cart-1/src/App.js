@@ -4,6 +4,8 @@ import ProductList from "./components/ProductList";
 import CartList from "./components/CartList";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Report from "./components/Report";
 
 function App() {
   const [product, setProduct] = useState([]);
@@ -71,15 +73,36 @@ function App() {
     setShowCart(value);
   };
 
+  const reportShow = () => {
+    // setShowCart(value);
+    alert("Will add any Component");
+  };
+
   return (
     <div>
-      <Header count={cart.length} handleShow={handleShow}></Header>
-
-      {showCart ? (
-        <CartList cart={cart}></CartList>
-      ) : (
-        <ProductList product={product} addToCart={addToCart}></ProductList>
-      )}
+      <Header
+        count={cart.length}
+        handleShow={handleShow}
+        reportShow={reportShow}
+      ></Header>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path=""
+            element={
+              showCart ? (
+                <CartList cart={cart}></CartList>
+              ) : (
+                <ProductList
+                  product={product}
+                  addToCart={addToCart}
+                ></ProductList>
+              )
+            }
+          />
+          <Route path="/report" element={<Report />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

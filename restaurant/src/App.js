@@ -17,6 +17,9 @@ import Allmenu from "./admin/component/Allmenu";
 import Editmenu from "./admin/component/Editmenu";
 import Addmain from "./admin/pages/Addmain";
 import Dashboard from "./admin/pages/Dashboard";
+import Chefs from "./admin/component/Chefs";
+import Addchefs from "./admin/component/Addchefs";
+import Editchefs from "./admin/component/Editchefs";
 
 function App() {
   return (
@@ -38,6 +41,9 @@ function App() {
         <Route path="allmenu" element={<Allmenu />} />
         <Route path="addmenu" element={<Addmenu />} />
         <Route path="editmenu/:id" element={<Editmenu />} />
+        <Route path="chefs" element={<Chefs />} />
+        <Route path="addchefs" element={<Addchefs />} />
+        <Route path="editchefs/:id" element={<Editchefs />} />
       </Route>
     </Routes>
   );

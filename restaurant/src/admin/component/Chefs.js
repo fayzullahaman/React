@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import React from "react";
 
-export default function Allmenu() {
+export default function Chefs() {
   let naviGate = useNavigate();
   const email = sessionStorage.getItem("email");
   useEffect(() => {
@@ -13,46 +13,45 @@ export default function Allmenu() {
     }
   });
 
-  const [menu, setMenu] = useState([]);
-  console.log(menu);
+  const [chefs, setChefs] = useState([]);
+  console.log(chefs);
   useEffect(() => {
-    allMenu();
+    allChefs();
   }, []);
 
-  const allMenu = async () => {
+  const allChefs = async () => {
     axios
-      .get("http://localhost/React/restaurant/restaurantApi/allmenu.php")
+      .get("http://localhost/React/restaurant/restaurantApi/chefs.php")
       .then((res) => {
-        setMenu(res.data.datas.mu);
+        setChefs(res.data.item.chefs);
       });
   };
 
   const delConfirm = (id) => {
-    delMenu(id);
+    delChefs(id);
   };
 
-  const delMenu = async (id) => {
+  const delChefs = async (id) => {
     axios
-      .post("http://localhost/React/restaurant/restaurantApi/delmenu.php", {
-        menuid: id,
+      .post("http://localhost/React/restaurant/restaurantApi/delchefs.php", {
+        chefsid: id,
       })
       .then((res) => {
         alert(res.data.msg);
-        allMenu();
+        allChefs();
       });
   };
-
   return (
     <div className="col-sm-10">
       <br />
       <div className="content-wrapper">
         <div className="card">
           <div className="card-header flex">
-            <h3 className="card-title">All Menu List</h3>
+            <h3 className="card-title">All Chefs List</h3>
             <ul className="nav d-flex justify-content-end">
               <li>
-                <Link to="/admin/addmenu">
-                  <button className="btn btn-primary">Add New Menu</button>
+                <Link to="/admin/addchefs">
+                  <button className="btn btn-primary">Add New Chefs</button>
                 </Link>
               </li>
             </ul>
@@ -64,23 +63,21 @@ export default function Allmenu() {
                 <tr>
                   <th>SL</th>
                   <th>Name</th>
-                  <th>Details</th>
-                  <th>Price</th>
+                  <th>Designation</th>
                   <th>Image</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                {menu.map((item, index) => (
+                {chefs.map((item, index) => (
                   <tr>
                     <td>{index + 1}</td>
                     <td>{item.name}</td>
-                    <td>{item.details}</td>
-                    <td>{item.price}</td>
+                    <td>{item.designation}</td>
                     <td>{item.image}</td>
                     <td>
                       <Link
-                        to={`/admin/editmenu/${item.id}`}
+                        to={`/admin/editchefs/${item.id}`}
                         className="btn btn-primary"
                       >
                         Edit
@@ -99,8 +96,7 @@ export default function Allmenu() {
                 <tr>
                   <th>SL</th>
                   <th>Name</th>
-                  <th>Details</th>
-                  <th>Price</th>
+                  <th>Designation</th>
                   <th>Image</th>
                   <th>Action</th>
                 </tr>

@@ -35,11 +35,6 @@ export default function Addsidbar() {
                     <span className="d-none d-sm-inline">Menu List</span>
                   </Link>
                 </li>
-                {/* <li className="w-100">
-                      <Link to="/editmenu" className="nav-link px-0">
-                        <span className="d-none d-sm-inline">Edit Menu</span>
-                      </Link>
-                    </li> */}
                 <li className="w-100">
                   <Link to="addmenu" className="nav-link px-0">
                     <span className="d-none d-sm-inline">Add Eew Menu</span>
@@ -47,86 +42,74 @@ export default function Addsidbar() {
                 </li>
               </ul>
             </li>
-            {/* <li>
-                  <a href="#" className="nav-link px-0 align-middle">
-                    <i className="fs-4 bi-table"></i>{" "}
-                    <span className="ms-1 d-none d-sm-inline">Orders</span>
+            <li>
+              <a
+                href="#submenu2"
+                data-bs-toggle="collapse"
+                className="nav-link px-0 align-middle "
+              >
+                <i className="fs-4 bi-bootstrap"></i>
+                <span className="ms-2 d-none d-sm-inline">Chefs</span>
+              </a>
+              <ul
+                className="collapse nav flex-column ms-1"
+                id="submenu2"
+                data-bs-parent="#menu"
+              >
+                <li className="w-100">
+                  <Link to="chefs" className="nav-link px-0">
+                    <span className="d-none d-sm-inline">All Chefs</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="addchefs" className="nav-link px-0">
+                    <span className="d-none d-sm-inline">Add New Chefs</span>
+                  </Link>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a
+                href="#submenu3"
+                data-bs-toggle="collapse"
+                className="nav-link px-0 align-middle"
+              >
+                <i className="fs-4 bi-grid"></i>
+                <span className="ms-1 d-none d-sm-inline">Products</span>
+              </a>
+              <ul
+                className="collapse nav flex-column ms-1"
+                id="submenu3"
+                data-bs-parent="#menu"
+              >
+                <li className="w-100">
+                  <a href="#" className="nav-link px-0">
+                    <span className="d-none d-sm-inline">Product</span> 1
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#submenu2"
-                    data-bs-toggle="collapse"
-                    className="nav-link px-0 align-middle "
-                  >
-                    <i className="fs-4 bi-bootstrap"></i>{" "}
-                    <span className="ms-1 d-none d-sm-inline">Bootstrap</span>
+                  <a href="#" className="nav-link px-0">
+                    <span className="d-none d-sm-inline">Product</span> 2
                   </a>
-                  <ul
-                    className="collapse nav flex-column ms-1"
-                    id="submenu2"
-                    data-bs-parent="#menu"
-                  >
-                    <li className="w-100">
-                      <a href="#" className="nav-link px-0">
-                        {" "}
-                        <span className="d-none d-sm-inline">Item</span> 1
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="nav-link px-0">
-                        {" "}
-                        <span className="d-none d-sm-inline">Item</span> 2
-                      </a>
-                    </li>
-                  </ul>
                 </li>
                 <li>
-                  <a
-                    href="#submenu3"
-                    data-bs-toggle="collapse"
-                    className="nav-link px-0 align-middle"
-                  >
-                    <i className="fs-4 bi-grid"></i>{" "}
-                    <span className="ms-1 d-none d-sm-inline">Products</span>{" "}
+                  <a href="#" className="nav-link px-0">
+                    <span className="d-none d-sm-inline">Product</span> 3
                   </a>
-                  <ul
-                    className="collapse nav flex-column ms-1"
-                    id="submenu3"
-                    data-bs-parent="#menu"
-                  >
-                    <li className="w-100">
-                      <a href="#" className="nav-link px-0">
-                        {" "}
-                        <span className="d-none d-sm-inline">Product</span> 1
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="nav-link px-0">
-                        {" "}
-                        <span className="d-none d-sm-inline">Product</span> 2
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="nav-link px-0">
-                        {" "}
-                        <span className="d-none d-sm-inline">Product</span> 3
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="nav-link px-0">
-                        {" "}
-                        <span className="d-none d-sm-inline">Product</span> 4
-                      </a>
-                    </li>
-                  </ul>
                 </li>
                 <li>
-                  <a href="#" className="nav-link px-0 align-middle">
-                    <i className="fs-4 bi-people"></i>{" "}
-                    <span className="ms-1 d-none d-sm-inline">Customers</span>{" "}
+                  <a href="#" className="nav-link px-0">
+                    <span className="d-none d-sm-inline">Product</span> 4
                   </a>
-                </li> */}
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" className="nav-link px-0 align-middle">
+                <i className="fs-4 bi-people"></i>
+                <span className="ms-1 d-none d-sm-inline">Customers</span>
+              </a>
+            </li>
           </ul>
         </div>
       </div>

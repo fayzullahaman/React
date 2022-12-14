@@ -9,7 +9,7 @@ function CartList({ cart }) {
     setCART(cart);
   }, [cart]);
   let user_id = 100;
-    console.log(CART);
+  console.log(CART);
 
   const orderHandle = () => {
     axios
