@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 
 export default function Service() {
   const [service, setService] = useState([]);
-  // console.log(team);
+  // console.log(service);
   useEffect(() => {
     allservice();
   }, []);

@@ -13,7 +13,7 @@ while ($row = mysqli_fetch_assoc($result)) {
    $menu['image'] = $row['image'];
 
 
-   $mymenus['mu'][] = $menu;
+   $mymenus['menus'][] = $menu;
 }
 
 echo json_encode(['Success' => "Yes", 'datas' => $mymenus]);

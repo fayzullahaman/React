@@ -1,7 +1,22 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Menu() {
+  const [menu, setMenu] = useState([]);
+  useEffect(() => {
+    allMenu();
+  }, []);
+  // console.log(menu);
+  const allMenu = async () => {
+    axios
+      .get("http://localhost/React/restaurant/restaurantApi/allmenu.php")
+      .then((res) => {
+        setMenu(res.data.datas.menus);
+        console.log(res.data.datas.mu);
+      });
+  };
+
   return (
     <div>
       <div className="container-xxl bg-white p-0">
@@ -49,6 +64,19 @@ export default function Menu() {
                   >
                     <i className="fa fa-coffee fa-2x text-primar"></i>
                     <div className="ps-3">
+                      <small className="text-body">Your Favorite</small>
+                      <h6 className="mt-n1 mb-0">All Menu</h6>
+                    </div>
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    className="d-flex align-items-center text-start mx-3 ms-0 pb-3"
+                    data-bs-toggle="pill"
+                    href="#tab-1"
+                  >
+                    <i className="fa fa-coffee fa-2x text-primar"></i>
+                    <div className="ps-3">
                       <small className="text-body">Popular</small>
                       <h6 className="mt-n1 mb-0">Breakfast</h6>
                     </div>
@@ -84,26 +112,30 @@ export default function Menu() {
               <div className="tab-content">
                 <div id="tab-1" className="tab-pane fade show p-0 active">
                   <div className="row g-4">
-                    <div className="col-lg-6">
-                      <div className="d-flex align-items-center">
-                        <img
-                          className="flex-shrink-0 img-fluid rounded"
-                          src="assets/img/menu-1.jpg"
-                          alt=""
-                          style={{ width: "80px" }}
-                        />
-                        <div className="w-100 d-flex flex-column text-start ps-4">
-                          <h5 className="d-flex justify-content-between border-bottom pb-2">
-                            <span>Chicken Burger</span>
-                            <span className="text-primar">$115</span>
-                          </h5>
-                          <small className="fst-italic">
-                            Ipsum ipsum clita erat amet dolor justo diam
-                          </small>
+                    {menu.map((item, index) => (
+                      <div className="col-lg-6">
+                        <div className="d-flex align-items-center">
+                          <img
+                            className="flex-shrink-0 img-fluid rounded"
+                            src="assets/img/menu-1.jpg"
+                            alt=""
+                            style={{ width: "80px" }}
+                          />
+                          <div className="w-100 d-flex flex-column text-start ps-4">
+                            <h5 className="d-flex justify-content-between border-bottom pb-2">
+                              <span>{item.name}</span>
+                              <span className="text-primar">
+                                Tk {item.price}
+                              </span>
+                            </h5>
+                            <small className="fst-italic">
+                              Ipsum ipsum clita erat amet dolor justo diam
+                            </small>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="col-lg-6">
+                    ))}
+                    {/* <div className="col-lg-6">
                       <div className="d-flex align-items-center">
                         <img
                           className="flex-shrink-0 img-fluid rounded"
@@ -235,7 +267,7 @@ export default function Menu() {
                           </small>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
                 <div id="tab-2" className="tab-pane fade show p-0">

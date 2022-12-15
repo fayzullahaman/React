@@ -23,7 +23,7 @@ export default function Allmenu() {
     axios
       .get("http://localhost/React/restaurant/restaurantApi/allmenu.php")
       .then((res) => {
-        setMenu(res.data.datas.mu);
+        setMenu(res.data.datas.menus);
       });
   };
 
