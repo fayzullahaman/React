@@ -9,7 +9,7 @@ if (
    $prid = mysqli_real_escape_string($db_conn, trim($data->prid));
    $result = mysqli_query($db_conn, "SELECT * FROM products WHERE id = '" . $prid . "'");
    if (mysqli_num_rows($result) > 0) {
-      while ($row = mysqli_fetch_array($allUsers)) {
+      while ($row = mysqli_fetch_array($result)) {
          $viewjson["id"] = $row['id'];
          $viewjson["name"] = $row['name'];
          $viewjson["details"] = $row['details'];

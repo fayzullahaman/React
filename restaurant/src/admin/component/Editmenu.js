@@ -17,16 +17,16 @@ const Editmenu = () => {
 
   useEffect(() => {
     menuOne(params.pid);
-  });
+  }, []);
   //console.log("MyID:" + params.pid);
-  const menuOne = (id) => {
+  const menuOne = async (id) => {
     axios
       .post("http://localhost/React/restaurant/restaurantApi/getmenu.php", {
-        id: id,
+        muid: id,
       })
       .then((res) => {
-        setMenu(res.data.menu.mudata);
-        // console.log(res.data.menu.mudata);
+        // setMenu(res.data.menu.mudata);
+        console.log(res.data);
       })
       .catch((error) => console.log(error));
   };

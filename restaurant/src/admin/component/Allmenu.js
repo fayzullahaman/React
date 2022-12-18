@@ -14,7 +14,7 @@ export default function Allmenu() {
   });
 
   const [menu, setMenu] = useState([]);
-  console.log(menu);
+  // console.log(menu);
   useEffect(() => {
     allMenu();
   }, []);
