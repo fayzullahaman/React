@@ -12,7 +12,7 @@ export default function Service() {
       .get("http://localhost/React/restaurant/restaurantApi/services.php")
       .then((res) => {
         setService(res.data.item.services);
-        console.log(res.data.item.services);
+        // console.log(res.data.item.services);
       });
   };
 

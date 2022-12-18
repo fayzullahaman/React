@@ -41,14 +41,15 @@ export default function UploadForm() {
         }
       )
       .then((res) => {
-        console.log(res.data);
+        alert(res.data.msg);
+        // console.log(res.data.msg);
       });
   };
 
   return (
     <div>
       <h1>File Upload</h1>
-      <form onSubmit={submitHandle} encType="">
+      <form onSubmit={submitHandle}>
         <label>User Name</label> <br />
         <input type="text" name="username" onChange={changeValue} />
         <br />

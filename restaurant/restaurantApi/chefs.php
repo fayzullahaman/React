@@ -5,7 +5,6 @@ $sql = "SELECT * FROM chefs";
 
 $result = mysqli_query($db_conn, $sql);
 
-
 while ($row = mysqli_fetch_assoc($result)) {
    // print_r($row);
    $chefs['id'] = $row['chf_id'];

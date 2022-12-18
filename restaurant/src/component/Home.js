@@ -13,7 +13,7 @@ export default function Home() {
       .get("http://localhost/React/restaurant/restaurantApi/services.php")
       .then((res) => {
         setService(res.data.item.services);
-        console.log(res.data.item.services);
+        // console.log(res.data.item.services);
       });
   };
 
@@ -26,7 +26,7 @@ export default function Home() {
     axios
       .get("http://localhost/React/restaurant/restaurantApi/chefs.php")
       .then((res) => {
-        setTeam(res.data.item.chefs);
+        // setTeam(res.data.item.chefs);
         console.log(res.data.item.chefs);
       });
   };

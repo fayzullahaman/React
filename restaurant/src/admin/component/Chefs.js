@@ -14,11 +14,11 @@ export default function Chefs() {
   });
 
   const [chefs, setChefs] = useState([]);
-  console.log(chefs);
+  // console.log(chefs);
   useEffect(() => {
     allChefs();
   }, []);
-
+  console.log(chefs);
   const allChefs = async () => {
     axios
       .get("http://localhost/React/restaurant/restaurantApi/chefs.php")
