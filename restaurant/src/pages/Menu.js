@@ -13,7 +13,7 @@ export default function Menu() {
       .get("http://localhost/React/restaurant/restaurantApi/allmenu.php")
       .then((res) => {
         setMenu(res.data.datas.menus);
-        console.log(res.data.datas.mu);
+        // console.log(res.data.datas.menus);
       });
   };
 
