@@ -10,26 +10,57 @@ const Editmenu = () => {
       naviGate("/admin_log");
     }
   });
+
   const params = useParams();
   const [menu, setMenu] = useState([]);
+  const [image, setImage] = useState({
+    file: "",
+  });
 
-  //console.log(menu);
+  const submitValue = (e) => {
+    e.preventDefault();
+    menuSubmit();
+  };
+
+  const menuSubmit = () => {
+    axios
+      .post("http://localhost/React/restaurant/restaurantApi/editmenu.php", {
+        id: menu.id,
+        name: menu.name,
+        details: menu.details,
+        price: menu.price,
+        category: menu.category,
+        image: menu.image,
+      })
+      .then((res) => {
+        naviGate("/admin/allmenu");
+        alert(res.data.msg);
+        // console.log(res.data);
+      });
+  };
+  // console.log(item);
 
   useEffect(() => {
-    menuOne(params.mid);
+    menuOne(params.id);
   }, []);
-  //console.log("MyID:" + params.pid);
+  // console.log("MyID:" + params.id);
+
+  const changeImage = (e) => {
+    setImage({ file: e.target.files[0] });
+  };
+
   const changeValue = (e) => {
     setMenu({ ...menu, [e.target.name]: e.target.value });
   };
+
   const menuOne = async (id) => {
     axios
       .post("http://localhost/React/restaurant/restaurantApi/getmenu.php", {
         muid: id,
       })
       .then((res) => {
-        // setMenu(res.data.menu.mudata);
-        console.log(res.data.items.mudata);
+        setMenu(res.data.items.mudata);
+        // console.log(res.data.items.mudata);
       })
       .catch((error) => console.log(error));
   };
@@ -44,46 +75,50 @@ const Editmenu = () => {
           </div>
           <div className="card-body">
             <div className="container">
-              <form
-                // onSubmit={submitValue}
-                className="insertproduct"
-              >
+              <form onSubmit={submitValue} className="insertproduct">
                 <div className="form-group">
-                  <label className="fw-bold">Menu Name</label>
+                  <label className="fw-bold">Name</label>
                   <input
                     type="text"
                     name="name"
                     value={menu.name}
                     onChange={changeValue}
-                    placeholder="Enter Product Name"
                     className="form-control"
                   />
 
-                  <label className="fw-bold">Menu Details</label>
+                  <label className="fw-bold">Details</label>
                   <textarea
                     type="text"
                     name="details"
                     value={menu.details}
                     onChange={changeValue}
                     className="form-control"
-                    placeholder="Enter Menu Details"
                   ></textarea>
 
-                  <label className="fw-bold">Menu Price</label>
+                  <label className="fw-bold">Price</label>
                   <input
                     type="text"
                     name="price"
                     value={menu.price}
                     onChange={changeValue}
-                    placeholder="Enter Menu Price"
                     className="form-control"
                   />
-                  <label className="fw-bold">Menu Image</label>
+
+                  <label className="fw-bold">Category</label>
+                  <input
+                    type="text"
+                    name="category"
+                    value={menu.category}
+                    onChange={changeValue}
+                    className="form-control"
+                  />
+
+                  <label className="fw-bold">Image</label>
                   <input
                     type="file"
                     name="image"
                     value={menu.image}
-                    onChange={changeValue}
+                    onChange={changeImage}
                     className="form-control"
                   />
                   <br />

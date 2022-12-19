@@ -17,13 +17,14 @@ if (
    $name = mysqli_real_escape_string($db_conn, trim($data->name));
    $details = mysqli_real_escape_string($db_conn, trim($data->details));
    $price = mysqli_real_escape_string($db_conn, trim($data->price));
+   $category = mysqli_real_escape_string($db_conn, trim($data->category));
    $image = mysqli_real_escape_string($db_conn, trim($data->image));
 
 
-   $add = mysqli_query($db_conn, "update menu set name ='$name', details ='$details', price='$price', image='$image' where id='$id'");
+   $add = mysqli_query($db_conn, "update menu set name ='$name', details ='$details', price='$price', category='$category', image='$image' where id='$id'");
 
    if ($add) {
-      echo json_encode(["success" => true]);
+      echo json_encode(["success" => true, "msg" => "Menu Update Successfully"]);
       return;
    } else {
       echo json_encode(["success" => false, "msg" => "Server Problem. Please Try Again"]);

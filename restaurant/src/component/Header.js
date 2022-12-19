@@ -74,21 +74,7 @@ export default function Header() {
               <Link to="/user_log" className="dropdown-item">
                 User Login
               </Link>
-            </div>
-          </div>
-          <div className="nav-item dropdown">
-            <Link
-              to="#"
-              className="nav-link dropdown-toggle"
-              data-bs-toggle="dropdown"
-            >
-              Registration
-            </Link>
-            <div className="dropdown-menu m-0">
-              <Link to="/admin_reg" className="dropdown-item">
-                Admin Registration
-              </Link>
-              <Link to="/user" className="dropdown-item">
+              <Link to="/user_reg" className="dropdown-item">
                 User Registration
               </Link>
             </div>

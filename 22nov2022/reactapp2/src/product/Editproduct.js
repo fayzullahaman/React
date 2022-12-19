@@ -42,7 +42,7 @@ const Editproduct = () => {
     axios
       .post("http://localhost/reactApi/getproducts.php", { prid: id })
       .then((res) => {
-        setProduct(res.data.product.prdata);
+        setProduct(res.data.items.prdata);
         //   console.log(res.data);
       })
       .catch((error) => console.log(error));
@@ -51,14 +51,16 @@ const Editproduct = () => {
   return (
     <div className="col-sm-8">
       <h1>Edit Product</h1>
-      <form onSubmit={submitValue}>
+      <form 
+      // onSubmit={submitValue}
+      >
         <div className="form-group">
           <label>Product Name</label>
           <input
             type="text"
             name="name"
             value={product.name}
-            onChange={changeValue}
+            // onChange={changeValue}
             className="form-control"
           />
         </div>
@@ -68,7 +70,7 @@ const Editproduct = () => {
             className="form-control"
             name="details"
             value={product.details}
-            onChange={changeValue}
+            // onChange={changeValue}
             type="text"
           ></textarea>
         </div>
@@ -77,7 +79,7 @@ const Editproduct = () => {
           <input
             type="text"
             className="form-control"
-            onChange={changeValue}
+            // onChange={changeValue}
             name="price"
             value={product.price}
           />

@@ -16,7 +16,7 @@ if (
          $viewjson["price"] = $row['price'];
          $json_array["prdata"] = $viewjson;
       }
-      echo json_encode(["success" => true, "product" => $json_array]);
+      echo json_encode(["success" => true, "items" => $json_array]);
       return;
    } else {
       echo json_encode(["success" => false]);

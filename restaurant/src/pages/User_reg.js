@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Admin_registration() {
+export default function User_reg() {
   const navigate = useNavigate();
 
   const [info, setInfo] = useState({});
@@ -28,7 +28,7 @@ export default function Admin_registration() {
       <div className="container-xxl py-5 bg-dark hero-header mb-5">
         <div className="container text-center my-5 pt-5 pb-4">
           <h1 className="display-3 text-white mb-3 animated slideInDown">
-            Addmin Registration
+            User Registration
           </h1>
           <nav aria-label="breadcrumb">
             <ol className="breadcrumb justify-content-center text-uppercase">
@@ -42,7 +42,7 @@ export default function Admin_registration() {
                 className="breadcrumb-item text-white active"
                 aria-current="page"
               >
-                Booking
+                Register
               </li>
             </ol>
           </nav>
@@ -58,7 +58,7 @@ export default function Admin_registration() {
               <h5 className="section-title ff-secondary text-start text-primary fw-normal">
                 Registration Form
               </h5>
-              <h1 className="text-white mb-4">Admin Registration</h1>
+              <h1 className="text-white mb-4">User Registration</h1>
               <form onSubmit={formSubmit}>
                 <div className="row g-3">
                   <div className="col-md-6">

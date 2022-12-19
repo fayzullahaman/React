@@ -12,7 +12,7 @@ export default function Team() {
       .get("http://localhost/React/restaurant/restaurantApi/chefs.php")
       .then((res) => {
         setTeam(res.data.item.chefs);
-        console.log(res.data.item.chefs);
+        // console.log(res.data.item.chefs);
       });
   };
 

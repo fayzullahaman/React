@@ -1,4 +1,3 @@
-
 <?php
 require 'db_connection.php';
 $data = json_decode(file_get_contents("php://input"));
@@ -14,6 +13,8 @@ if (
          $viewjson["name"] = $row['name'];
          $viewjson["details"] = $row['details'];
          $viewjson["price"] = $row['price'];
+         $viewjson["category"] = $row['category'];
+         $viewjson["image"] = $row['image'];
          $json_array["mudata"] = $viewjson;
       }
       echo json_encode(["success" => true, "items" => $json_array]);
@@ -23,4 +24,3 @@ if (
       return;
    }
 }
-?>

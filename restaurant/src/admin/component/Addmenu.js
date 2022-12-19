@@ -13,26 +13,56 @@ export default function Addmenu() {
     }
   });
 
+  const [image, setImage] = useState({
+    file: "",
+  });
+
+  const fileUpload = () => {
+    let datas = new FormData();
+    // datas.append("mydata", JSON.stringify(menuInfo));
+    datas.append("mydata1", image.file);
+    axios
+      .post(
+        "http://localhost/React/restaurant/restaurantApi/addmenu.php",
+        datas,
+        {
+          headers: {
+            "content-type": "multipart/form-data",
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res.data.msg);
+      });
+  };
+
+  const changeImage = (e) => {
+    setImage({ file: e.target.files[0] });
+  };
+
   const [menuInfo, menuinfoSet] = useState({
     name: "",
     details: "",
     price: "",
+    category: "",
     image: "",
   });
 
-  const onChangeValue = (e) => {
+  const changeValue = (e) => {
     menuinfoSet({ ...menuInfo, [e.target.name]: e.target.value });
   };
 
   const SubmitValue = async (e) => {
     // alert("Submitted");
     e.preventDefault();
+    fileUpload();
     e.persist();
     axios
       .post("http://localhost/React/restaurant/restaurantApi/addmenu.php", {
         name: menuInfo.name,
         details: menuInfo.details,
         price: menuInfo.price,
+        category: menuInfo.category,
         image: menuInfo.image,
       })
       .then((result) => {
@@ -58,7 +88,7 @@ export default function Addmenu() {
                     <input
                       type="text"
                       name="name"
-                      onChange={onChangeValue}
+                      onChange={changeValue}
                       placeholder="Enter Product Name"
                       className="form-control"
                     />
@@ -67,7 +97,7 @@ export default function Addmenu() {
                     <textarea
                       type="text"
                       name="details"
-                      onChange={onChangeValue}
+                      onChange={changeValue}
                       className="form-control"
                       placeholder="Enter Menu Details"
                     ></textarea>
@@ -76,15 +106,25 @@ export default function Addmenu() {
                     <input
                       type="text"
                       name="price"
-                      onChange={onChangeValue}
+                      onChange={changeValue}
                       placeholder="Enter Menu Price"
                       className="form-control"
                     />
+
+                    <label className="fw-bold">Menu Category</label>
+                    <input
+                      type="text"
+                      name="category"
+                      onChange={changeValue}
+                      placeholder="Enter Menu Category"
+                      className="form-control"
+                    />
+
                     <label className="fw-bold">Menu Image</label>
                     <input
                       type="file"
                       name="image"
-                      onChange={onChangeValue}
+                      onChange={changeImage}
                       className="form-control"
                     />
                     <br />

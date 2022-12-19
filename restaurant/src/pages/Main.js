@@ -6,9 +6,9 @@ import Header from "../component/Header";
 export default function Main() {
   return (
     <>
-      <Header/>
-      <Outlet/>
-      <Footer/>
+      <Header />
+      <Outlet />
+      <Footer />
     </>
   );
 }
