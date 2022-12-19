@@ -7,7 +7,7 @@ export default function Menu() {
   useEffect(() => {
     allMenu();
   }, []);
-  console.log(menu);
+  // console.log(menu);
 
   const [menuName, setMenuName] = useState("");
   let filteredMenu = menu;
@@ -149,6 +149,7 @@ export default function Menu() {
                         <img
                           // className="flex-shrink-0 img-fluid rounded"
                           src="assets/img/menu-9.jpg"
+                          // src={item.image}
                           alt=""
                           style={{ width: "250px" }}
                         />
@@ -164,33 +165,6 @@ export default function Menu() {
                   </div>
                 ))}
               </div>
-              {/* <div className="tab-content">
-                <div id="tab-1" className="tab-pane fade show p-0 active">
-                  <div className="row g-4">
-                    {menu.map((item, index) => (
-                      <div className="col-lg-6">
-                        <div className="d-flex align-items-center">
-                          <img
-                            className="flex-shrink-0 img-fluid rounded"
-                            src="assets/img/menu-1.jpg"
-                            alt=""
-                            style={{ width: "80px" }}
-                          />
-                          <div className="w-100 d-flex flex-column text-start ps-4">
-                            <h5 className="d-flex justify-content-between border-bottom pb-2">
-                              <span>{item.name}</span>
-                              <span className="text-primar">
-                                Tk {item.price}
-                              </span>
-                            </h5>
-                            <small className="fst-italic">{item.details}</small>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div> */}
             </div>
           </div>
         </div>

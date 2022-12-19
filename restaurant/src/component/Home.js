@@ -8,6 +8,30 @@ export default function Home() {
   useEffect(() => {
     allservice();
   }, []);
+
+  const [menu, setMenu] = useState([]);
+  useEffect(() => {
+    allMenu();
+  }, []);
+
+  const allMenu = async () => {
+    axios
+      .get("http://localhost/React/restaurant/restaurantApi/allmenu.php")
+      .then((res) => {
+        setMenu(res.data.datas.menus);
+        // console.log(res.data.datas.menus);
+      });
+  };
+
+  // filtering
+  const [menuName, setMenuName] = useState("");
+  let filteredMenu = menu;
+  // console.log(filteredMenu);
+  if (menuName != "") {
+    filteredMenu = menu.filter((e) => e.category == menuName);
+  }
+  // filtering
+
   const allservice = async () => {
     axios
       .get("http://localhost/React/restaurant/restaurantApi/services.php")
@@ -185,526 +209,133 @@ export default function Home() {
         <div className="container-xxl py-5">
           <div className="container">
             <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
-              <h5 className="section-title ff-secondary text-center text-primary fw-normal">
+              <h5 className="section-title ff-secondary text-center text-primar fw-normal">
                 Food Menu
               </h5>
               <h1 className="mb-5">Most Popular Items</h1>
             </div>
+
             <div
               className="tab-className text-center wow fadeInUp"
               data-wow-delay="0.1s"
             >
               <ul className="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
                 <li className="nav-item">
-                  <a
+                  <Link
+                    onClick={() => setMenuName("")}
                     className="d-flex align-items-center text-start mx-3 ms-0 pb-3 active"
                     data-bs-toggle="pill"
-                    href="#tab-1"
+                    to=""
                   >
-                    <i className="fa fa-coffee fa-2x text-primary"></i>
+                    <i className="fa fa-coffee fa-2x text-primar"></i>
                     <div className="ps-3">
+                      <small className="text-body">Your Favorite</small>
+                      <h6 className="mt-n1 mb-0">All Menu</h6>
+                    </div>
+                  </Link>
+                </li>
+
+                <li className="nav-item">
+                  <Link
+                    onClick={() => setMenuName("breakfast")}
+                    className="d-flex align-items-center text-start mx-3 ms-0 pb-3"
+                    data-bs-toggle="pill"
+                    to=""
+                  >
+                    <i className="fa fa-coffee fa-2x text-primar"></i>
+                    <div
+                      className="ps-3"
+                      // onChange={handleSearch}
+                      // onClick={() => filterResult("breakfast")}
+                    >
                       <small className="text-body">Popular</small>
                       <h6 className="mt-n1 mb-0">Breakfast</h6>
                     </div>
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a
+                  <Link
+                    onClick={() => setMenuName("lunch")}
                     className="d-flex align-items-center text-start mx-3 pb-3"
                     data-bs-toggle="pill"
-                    href="#tab-2"
+                    to=""
                   >
-                    <i className="fa fa-hamburger fa-2x text-primary"></i>
+                    <i className="fa fa-hamburger fa-2x text-primar"></i>
                     <div className="ps-3">
                       <small className="text-body">Special</small>
-                      <h6 className="mt-n1 mb-0">Launch</h6>
+                      <h6 className="mt-n1 mb-0">Lunch</h6>
                     </div>
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a
+                  <Link
+                    onClick={() => setMenuName("dinner")}
                     className="d-flex align-items-center text-start mx-3 me-0 pb-3"
                     data-bs-toggle="pill"
-                    href="#tab-3"
+                    to=""
                   >
-                    <i className="fa fa-utensils fa-2x text-primary"></i>
+                    <i className="fa fa-utensils fa-2x text-primar"></i>
                     <div className="ps-3">
                       <small className="text-body">Lovely</small>
                       <h6 className="mt-n1 mb-0">Dinner</h6>
                     </div>
-                  </a>
+                  </Link>
                 </li>
               </ul>
-              <div className="tab-content">
+              <div className="row g-4">
+                {filteredMenu?.map((item, index) => (
+                  <div
+                    className="col-lg-3 col-md-6 wow fadeInUp"
+                    data-wow-delay="0.1s"
+                  >
+                    <div className="team-item text-center rounded overflow-hidden">
+                      <div className=" overflow-hidden m-3">
+                        {/* <img className="img-fluid" src={item.image} alt="" /> */}
+                        <img
+                          // className="flex-shrink-0 img-fluid rounded"
+                          src="assets/img/menu-9.jpg"
+                          alt=""
+                          style={{ width: "250px" }}
+                        />
+                      </div>
+                      <h4 className="mb-3">{item.name}</h4>
+                      <h6>TK {item.price}</h6>
+                      <div className="justify-content-center mt-4">
+                        <button className="btn btn-primary" href="">
+                          Order Now
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              {/* <div className="tab-content">
                 <div id="tab-1" className="tab-pane fade show p-0 active">
                   <div className="row g-4">
-                    <div className="col-lg-6">
-                      <div className="d-flex align-items-center">
-                        <img
-                          className="flex-shrink-0 img-fluid rounded"
-                          src="assets/img/menu-1.jpg"
-                          alt=""
-                          style={{ width: "80px" }}
-                        />
-                        <div className="w-100 d-flex flex-column text-start ps-4">
-                          <h5 className="d-flex justify-content-between border-bottom pb-2">
-                            <span>Chicken Burger</span>
-                            <span className="text-primary">$115</span>
-                          </h5>
-                          <small className="fst-italic">
-                            Ipsum ipsum clita erat amet dolor justo diam
-                          </small>
+                    {menu.map((item, index) => (
+                      <div className="col-lg-6">
+                        <div className="d-flex align-items-center">
+                          <img
+                            className="flex-shrink-0 img-fluid rounded"
+                            src="assets/img/menu-1.jpg"
+                            alt=""
+                            style={{ width: "80px" }}
+                          />
+                          <div className="w-100 d-flex flex-column text-start ps-4">
+                            <h5 className="d-flex justify-content-between border-bottom pb-2">
+                              <span>{item.name}</span>
+                              <span className="text-primar">
+                                Tk {item.price}
+                              </span>
+                            </h5>
+                            <small className="fst-italic">{item.details}</small>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="d-flex align-items-center">
-                        <img
-                          className="flex-shrink-0 img-fluid rounded"
-                          src="assets/img/menu-2.jpg"
-                          alt=""
-                          style={{ width: "80px" }}
-                        />
-                        <div className="w-100 d-flex flex-column text-start ps-4">
-                          <h5 className="d-flex justify-content-between border-bottom pb-2">
-                            <span>Chicken Burger</span>
-                            <span className="text-primary">$115</span>
-                          </h5>
-                          <small className="fst-italic">
-                            Ipsum ipsum clita erat amet dolor justo diam
-                          </small>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="d-flex align-items-center">
-                        <img
-                          className="flex-shrink-0 img-fluid rounded"
-                          src="assets/img/menu-3.jpg"
-                          alt=""
-                          style={{ width: "80px" }}
-                        />
-                        <div className="w-100 d-flex flex-column text-start ps-4">
-                          <h5 className="d-flex justify-content-between border-bottom pb-2">
-                            <span>Chicken Burger</span>
-                            <span className="text-primary">$115</span>
-                          </h5>
-                          <small className="fst-italic">
-                            Ipsum ipsum clita erat amet dolor justo diam
-                          </small>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="d-flex align-items-center">
-                        <img
-                          className="flex-shrink-0 img-fluid rounded"
-                          src="assets/img/menu-4.jpg"
-                          alt=""
-                          style={{ width: "80px" }}
-                        />
-                        <div className="w-100 d-flex flex-column text-start ps-4">
-                          <h5 className="d-flex justify-content-between border-bottom pb-2">
-                            <span>Chicken Burger</span>
-                            <span className="text-primary">$115</span>
-                          </h5>
-                          <small className="fst-italic">
-                            Ipsum ipsum clita erat amet dolor justo diam
-                          </small>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="d-flex align-items-center">
-                        <img
-                          className="flex-shrink-0 img-fluid rounded"
-                          src="assets/img/menu-5.jpg"
-                          alt=""
-                          style={{ width: "80px" }}
-                        />
-                        <div className="w-100 d-flex flex-column text-start ps-4">
-                          <h5 className="d-flex justify-content-between border-bottom pb-2">
-                            <span>Chicken Burger</span>
-                            <span className="text-primary">$115</span>
-                          </h5>
-                          <small className="fst-italic">
-                            Ipsum ipsum clita erat amet dolor justo diam
-                          </small>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="d-flex align-items-center">
-                        <img
-                          className="flex-shrink-0 img-fluid rounded"
-                          src="assets/img/menu-6.jpg"
-                          alt=""
-                          style={{ width: "80px" }}
-                        />
-                        <div className="w-100 d-flex flex-column text-start ps-4">
-                          <h5 className="d-flex justify-content-between border-bottom pb-2">
-                            <span>Chicken Burger</span>
-                            <span className="text-primary">$115</span>
-                          </h5>
-                          <small className="fst-italic">
-                            Ipsum ipsum clita erat amet dolor justo diam
-                          </small>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="d-flex align-items-center">
-                        <img
-                          className="flex-shrink-0 img-fluid rounded"
-                          src="assets/img/menu-7.jpg"
-                          alt=""
-                          style={{ width: "80px" }}
-                        />
-                        <div className="w-100 d-flex flex-column text-start ps-4">
-                          <h5 className="d-flex justify-content-between border-bottom pb-2">
-                            <span>Chicken Burger</span>
-                            <span className="text-primary">$115</span>
-                          </h5>
-                          <small className="fst-italic">
-                            Ipsum ipsum clita erat amet dolor justo diam
-                          </small>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="d-flex align-items-center">
-                        <img
-                          className="flex-shrink-0 img-fluid rounded"
-                          src="assets/img/menu-8.jpg"
-                          alt=""
-                          style={{ width: "80px" }}
-                        />
-                        <div className="w-100 d-flex flex-column text-start ps-4">
-                          <h5 className="d-flex justify-content-between border-bottom pb-2">
-                            <span>Chicken Burger</span>
-                            <span className="text-primary">$115</span>
-                          </h5>
-                          <small className="fst-italic">
-                            Ipsum ipsum clita erat amet dolor justo diam
-                          </small>
-                        </div>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
-                <div id="tab-2" className="tab-pane fade show p-0">
-                  <div className="row g-4">
-                    <div className="col-lg-6">
-                      <div className="d-flex align-items-center">
-                        <img
-                          className="flex-shrink-0 img-fluid rounded"
-                          src="assets/img/menu-1.jpg"
-                          alt=""
-                          style={{ width: "80px" }}
-                        />
-                        <div className="w-100 d-flex flex-column text-start ps-4">
-                          <h5 className="d-flex justify-content-between border-bottom pb-2">
-                            <span>Chicken Burger</span>
-                            <span className="text-primary">$115</span>
-                          </h5>
-                          <small className="fst-italic">
-                            Ipsum ipsum clita erat amet dolor justo diam
-                          </small>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="d-flex align-items-center">
-                        <img
-                          className="flex-shrink-0 img-fluid rounded"
-                          src="assets/img/menu-2.jpg"
-                          alt=""
-                          style={{ width: "80px" }}
-                        />
-                        <div className="w-100 d-flex flex-column text-start ps-4">
-                          <h5 className="d-flex justify-content-between border-bottom pb-2">
-                            <span>Chicken Burger</span>
-                            <span className="text-primary">$115</span>
-                          </h5>
-                          <small className="fst-italic">
-                            Ipsum ipsum clita erat amet dolor justo diam
-                          </small>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="d-flex align-items-center">
-                        <img
-                          className="flex-shrink-0 img-fluid rounded"
-                          src="assets/img/menu-3.jpg"
-                          alt=""
-                          style={{ width: "80px" }}
-                        />
-                        <div className="w-100 d-flex flex-column text-start ps-4">
-                          <h5 className="d-flex justify-content-between border-bottom pb-2">
-                            <span>Chicken Burger</span>
-                            <span className="text-primary">$115</span>
-                          </h5>
-                          <small className="fst-italic">
-                            Ipsum ipsum clita erat amet dolor justo diam
-                          </small>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="d-flex align-items-center">
-                        <img
-                          className="flex-shrink-0 img-fluid rounded"
-                          src="assets/img/menu-4.jpg"
-                          alt=""
-                          style={{ width: "80px" }}
-                        />
-                        <div className="w-100 d-flex flex-column text-start ps-4">
-                          <h5 className="d-flex justify-content-between border-bottom pb-2">
-                            <span>Chicken Burger</span>
-                            <span className="text-primary">$115</span>
-                          </h5>
-                          <small className="fst-italic">
-                            Ipsum ipsum clita erat amet dolor justo diam
-                          </small>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="d-flex align-items-center">
-                        <img
-                          className="flex-shrink-0 img-fluid rounded"
-                          src="assets/img/menu-5.jpg"
-                          alt=""
-                          style={{ width: "80px" }}
-                        />
-                        <div className="w-100 d-flex flex-column text-start ps-4">
-                          <h5 className="d-flex justify-content-between border-bottom pb-2">
-                            <span>Chicken Burger</span>
-                            <span className="text-primary">$115</span>
-                          </h5>
-                          <small className="fst-italic">
-                            Ipsum ipsum clita erat amet dolor justo diam
-                          </small>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="d-flex align-items-center">
-                        <img
-                          className="flex-shrink-0 img-fluid rounded"
-                          src="assets/img/menu-6.jpg"
-                          alt=""
-                          style={{ width: "80px" }}
-                        />
-                        <div className="w-100 d-flex flex-column text-start ps-4">
-                          <h5 className="d-flex justify-content-between border-bottom pb-2">
-                            <span>Chicken Burger</span>
-                            <span className="text-primary">$115</span>
-                          </h5>
-                          <small className="fst-italic">
-                            Ipsum ipsum clita erat amet dolor justo diam
-                          </small>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="d-flex align-items-center">
-                        <img
-                          className="flex-shrink-0 img-fluid rounded"
-                          src="assets/img/menu-7.jpg"
-                          alt=""
-                          style={{ width: "80px" }}
-                        />
-                        <div className="w-100 d-flex flex-column text-start ps-4">
-                          <h5 className="d-flex justify-content-between border-bottom pb-2">
-                            <span>Chicken Burger</span>
-                            <span className="text-primary">$115</span>
-                          </h5>
-                          <small className="fst-italic">
-                            Ipsum ipsum clita erat amet dolor justo diam
-                          </small>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="d-flex align-items-center">
-                        <img
-                          className="flex-shrink-0 img-fluid rounded"
-                          src="assets/img/menu-8.jpg"
-                          alt=""
-                          style={{ width: "80px" }}
-                        />
-                        <div className="w-100 d-flex flex-column text-start ps-4">
-                          <h5 className="d-flex justify-content-between border-bottom pb-2">
-                            <span>Chicken Burger</span>
-                            <span className="text-primary">$115</span>
-                          </h5>
-                          <small className="fst-italic">
-                            Ipsum ipsum clita erat amet dolor justo diam
-                          </small>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div id="tab-3" className="tab-pane fade show p-0">
-                  <div className="row g-4">
-                    <div className="col-lg-6">
-                      <div className="d-flex align-items-center">
-                        <img
-                          className="flex-shrink-0 img-fluid rounded"
-                          src="assets/img/menu-1.jpg"
-                          alt=""
-                          style={{ width: "80px" }}
-                        />
-                        <div className="w-100 d-flex flex-column text-start ps-4">
-                          <h5 className="d-flex justify-content-between border-bottom pb-2">
-                            <span>Chicken Burger</span>
-                            <span className="text-primary">$115</span>
-                          </h5>
-                          <small className="fst-italic">
-                            Ipsum ipsum clita erat amet dolor justo diam
-                          </small>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="d-flex align-items-center">
-                        <img
-                          className="flex-shrink-0 img-fluid rounded"
-                          src="assets/img/menu-2.jpg"
-                          alt=""
-                          style={{ width: "80px" }}
-                        />
-                        <div className="w-100 d-flex flex-column text-start ps-4">
-                          <h5 className="d-flex justify-content-between border-bottom pb-2">
-                            <span>Chicken Burger</span>
-                            <span className="text-primary">$115</span>
-                          </h5>
-                          <small className="fst-italic">
-                            Ipsum ipsum clita erat amet dolor justo diam
-                          </small>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="d-flex align-items-center">
-                        <img
-                          className="flex-shrink-0 img-fluid rounded"
-                          src="assets/img/menu-3.jpg"
-                          alt=""
-                          style={{ width: "80px" }}
-                        />
-                        <div className="w-100 d-flex flex-column text-start ps-4">
-                          <h5 className="d-flex justify-content-between border-bottom pb-2">
-                            <span>Chicken Burger</span>
-                            <span className="text-primary">$115</span>
-                          </h5>
-                          <small className="fst-italic">
-                            Ipsum ipsum clita erat amet dolor justo diam
-                          </small>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="d-flex align-items-center">
-                        <img
-                          className="flex-shrink-0 img-fluid rounded"
-                          src="assets/img/menu-4.jpg"
-                          alt=""
-                          style={{ width: "80px" }}
-                        />
-                        <div className="w-100 d-flex flex-column text-start ps-4">
-                          <h5 className="d-flex justify-content-between border-bottom pb-2">
-                            <span>Chicken Burger</span>
-                            <span className="text-primary">$115</span>
-                          </h5>
-                          <small className="fst-italic">
-                            Ipsum ipsum clita erat amet dolor justo diam
-                          </small>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="d-flex align-items-center">
-                        <img
-                          className="flex-shrink-0 img-fluid rounded"
-                          src="assets/img/menu-5.jpg"
-                          alt=""
-                          style={{ width: "80px" }}
-                        />
-                        <div className="w-100 d-flex flex-column text-start ps-4">
-                          <h5 className="d-flex justify-content-between border-bottom pb-2">
-                            <span>Chicken Burger</span>
-                            <span className="text-primary">$115</span>
-                          </h5>
-                          <small className="fst-italic">
-                            Ipsum ipsum clita erat amet dolor justo diam
-                          </small>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="d-flex align-items-center">
-                        <img
-                          className="flex-shrink-0 img-fluid rounded"
-                          src="assets/img/menu-6.jpg"
-                          alt=""
-                          style={{ width: "80px" }}
-                        />
-                        <div className="w-100 d-flex flex-column text-start ps-4">
-                          <h5 className="d-flex justify-content-between border-bottom pb-2">
-                            <span>Chicken Burger</span>
-                            <span className="text-primary">$115</span>
-                          </h5>
-                          <small className="fst-italic">
-                            Ipsum ipsum clita erat amet dolor justo diam
-                          </small>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="d-flex align-items-center">
-                        <img
-                          className="flex-shrink-0 img-fluid rounded"
-                          src="assets/img/menu-7.jpg"
-                          alt=""
-                          style={{ width: "80px" }}
-                        />
-                        <div className="w-100 d-flex flex-column text-start ps-4">
-                          <h5 className="d-flex justify-content-between border-bottom pb-2">
-                            <span>Chicken Burger</span>
-                            <span className="text-primary">$115</span>
-                          </h5>
-                          <small className="fst-italic">
-                            Ipsum ipsum clita erat amet dolor justo diam
-                          </small>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-6">
-                      <div className="d-flex align-items-center">
-                        <img
-                          className="flex-shrink-0 img-fluid rounded"
-                          src="assets/img/menu-8.jpg"
-                          alt=""
-                          style={{ width: "80px" }}
-                        />
-                        <div className="w-100 d-flex flex-column text-start ps-4">
-                          <h5 className="d-flex justify-content-between border-bottom pb-2">
-                            <span>Chicken Burger</span>
-                            <span className="text-primary">$115</span>
-                          </h5>
-                          <small className="fst-italic">
-                            Ipsum ipsum clita erat amet dolor justo diam
-                          </small>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

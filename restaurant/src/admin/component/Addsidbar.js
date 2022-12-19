@@ -22,7 +22,7 @@ export default function Addsidbar() {
                 data-bs-toggle="collapse"
                 className="nav-link px-0 align-middle"
               >
-                <i className="bi bi-menu-up mx-2"></i>
+                <i className="fs-4 bi-menu-up"></i>
                 <span className="ms-1 d-none d-sm-inline">Menu</span>
               </a>
               <ul
@@ -48,7 +48,7 @@ export default function Addsidbar() {
                 data-bs-toggle="collapse"
                 className="nav-link px-0 align-middle "
               >
-                <i className="fs-4 bi-bootstrap"></i>
+                <i className="fs-4 bi-people"></i>
                 <span className="ms-2 d-none d-sm-inline">Chefs</span>
               </a>
               <ul

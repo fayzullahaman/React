@@ -79,6 +79,10 @@ export default function Header() {
               </Link>
             </div>
           </div>
+
+          <Link className="mx-4" to="cart">
+            <i className="fa-solid fa-cart-shopping-fast"></i>
+          </Link>
         </div>
       </nav>
     </>

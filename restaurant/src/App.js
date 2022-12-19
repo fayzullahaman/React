@@ -20,6 +20,7 @@ import Dashboard from "./admin/pages/Dashboard";
 import Chefs from "./admin/component/Chefs";
 import Addchefs from "./admin/component/Addchefs";
 import Editchefs from "./admin/component/Editchefs";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route path="testimonial" element={<Testimonial />} />
         <Route path="user_reg" element={<User_reg />} />
         <Route path="admin_log" element={<Admin_login />} />
+        <Route path="cart" element={<Cart />} />
       </Route>
       <Route path="admin" element={<Addmain />}>
         <Route index element={<Dashboard />} />
