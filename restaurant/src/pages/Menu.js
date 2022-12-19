@@ -7,14 +7,14 @@ export default function Menu() {
   useEffect(() => {
     allMenu();
   }, []);
-  // console.log(menu);
+  console.log(menu);
 
-  // const filterResult = (catItem) => {
-  //   const result = Menu.filter((e) => {
-  //     return e.category === catItem;
-  //   });
-  //   setMenu(result);
-  // };
+  const [menuName, setMenuName] = useState("");
+  let filteredMenu = menu;
+  // console.log(filteredMenu);
+  if (menuName != "") {
+    filteredMenu = menu.filter((e) => e.category == menuName);
+  }
 
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -77,6 +77,7 @@ export default function Menu() {
               <ul className="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
                 <li className="nav-item">
                   <Link
+                    onClick={() => setMenuName("")}
                     className="d-flex align-items-center text-start mx-3 ms-0 pb-3 active"
                     data-bs-toggle="pill"
                     to=""
@@ -91,6 +92,7 @@ export default function Menu() {
 
                 <li className="nav-item">
                   <Link
+                    onClick={() => setMenuName("breakfast")}
                     className="d-flex align-items-center text-start mx-3 ms-0 pb-3"
                     data-bs-toggle="pill"
                     to=""
@@ -108,6 +110,7 @@ export default function Menu() {
                 </li>
                 <li className="nav-item">
                   <Link
+                    onClick={() => setMenuName("lunch")}
                     className="d-flex align-items-center text-start mx-3 pb-3"
                     data-bs-toggle="pill"
                     to=""
@@ -115,12 +118,13 @@ export default function Menu() {
                     <i className="fa fa-hamburger fa-2x text-primar"></i>
                     <div className="ps-3">
                       <small className="text-body">Special</small>
-                      <h6 className="mt-n1 mb-0">Launch</h6>
+                      <h6 className="mt-n1 mb-0">Lunch</h6>
                     </div>
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link
+                    onClick={() => setMenuName("dinner")}
                     className="d-flex align-items-center text-start mx-3 me-0 pb-3"
                     data-bs-toggle="pill"
                     to=""
@@ -134,7 +138,7 @@ export default function Menu() {
                 </li>
               </ul>
               <div className="row g-4">
-                {menu.map((item, index) => (
+                {filteredMenu?.map((item, index) => (
                   <div
                     className="col-lg-3 col-md-6 wow fadeInUp"
                     data-wow-delay="0.1s"

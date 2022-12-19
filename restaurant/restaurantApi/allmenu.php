@@ -10,6 +10,7 @@ while ($row = mysqli_fetch_assoc($result)) {
    $menu['name'] = $row['name'];
    $menu['details'] = $row['details'];
    $menu['price'] = $row['price'];
+   $menu['category'] = $row['category'];
    $menu['image'] = $row['image'];
 
 
