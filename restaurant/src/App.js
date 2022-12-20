@@ -20,7 +20,8 @@ import Dashboard from "./admin/pages/Dashboard";
 import Chefs from "./admin/component/Chefs";
 import Addchefs from "./admin/component/Addchefs";
 import Editchefs from "./admin/component/Editchefs";
-import Cart from "./pages/Cart";
+import Order from "./pages/Order";
+import Orders from "./admin/component/Orders";
 
 function App() {
   return (
@@ -36,7 +37,7 @@ function App() {
         <Route path="testimonial" element={<Testimonial />} />
         <Route path="user_reg" element={<User_reg />} />
         <Route path="admin_log" element={<Admin_login />} />
-        <Route path="cart" element={<Cart />} />
+        <Route path="order" element={<Order />} />
       </Route>
       <Route path="admin" element={<Addmain />}>
         <Route index element={<Dashboard />} />
@@ -46,6 +47,7 @@ function App() {
         <Route path="chefs" element={<Chefs />} />
         <Route path="addchefs" element={<Addchefs />} />
         <Route path="editchefs/:id" element={<Editchefs />} />
+        <Route path="orders" element={<Orders />} />
       </Route>
     </Routes>
   );

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2022 at 05:36 AM
+-- Generation Time: Dec 20, 2022 at 07:06 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -40,7 +40,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `name`, `email`, `password`, `image`) VALUES
-(1, 'Admin', 'admin@gmail.com', 'admin', 'admin.jpg');
+(1, 'Aman', 'admin@gmail.com', 'admin', 'admin.jpg'),
+(2, 'asdf', 'mahmud@gmail.com', 'asdf', '');
 
 -- --------------------------------------------------------
 
@@ -145,11 +146,11 @@ INSERT INTO `menu` (`id`, `name`, `details`, `price`, `category`, `image`) VALUE
 
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
-  `pr_id` int(11) NOT NULL,
-  `pr_name` varchar(100) NOT NULL,
-  `pr_price` decimal(10,2) NOT NULL,
-  `pr_qty` mediumint(9) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `contact` varchar(50) NOT NULL,
+  `message` varchar(200) NOT NULL,
   `order_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -157,12 +158,11 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `pr_id`, `pr_name`, `pr_price`, `pr_qty`, `user_id`, `order_time`) VALUES
-(1, 3, 'AMZ Laptop 8GB RAM', '50000.00', 1, 100, '2022-12-12 12:56:59'),
-(2, 4, 'Security Camera', '4000.00', 1, 100, '2022-12-12 12:56:59'),
-(3, 3, 'AMZ Laptop 8GB RAM', '50000.00', 1, 100, '2022-12-12 13:02:48'),
-(4, 4, 'Security Camera', '4000.00', 1, 100, '2022-12-12 13:02:48'),
-(5, 2, 'LOREM Watch Black', '2599.00', 1, 100, '2022-12-12 13:02:48');
+INSERT INTO `orders` (`id`, `name`, `email`, `address`, `contact`, `message`, `order_time`) VALUES
+(1, '', '', '', '', '', '2022-12-12 12:56:59'),
+(2, '', '', '', '', '', '2022-12-12 12:56:59'),
+(4, '', '', '', '', '', '2022-12-12 13:02:48'),
+(6, 'Alauddin', 'alo@gmail.com', 'Banasree', '32416598', 'Ami ki khabo', '2022-12-20 11:16:05');
 
 -- --------------------------------------------------------
 
@@ -186,6 +186,68 @@ INSERT INTO `services` (`id`, `name`, `details`, `icon`) VALUES
 (2, 'Quality Food', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'https://img.freepik.com/free-vector/burger-with-fried-chicken-french-fries-soda-cartoon-vector-icon-illustration-fast-food-icon_138676-1972.jpg?w=2000'),
 (3, 'Online Order', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'https://png.pngtree.com/png-clipart/20190520/original/pngtree-online-food-background-with-gourmet-menu-phone-interface-png-image_3683985.jpg'),
 (4, '24/7 Service', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'https://images.all-free-download.com/images/graphiclarge/service_and_support_for_customers_24_hours_a_day_and_7_days_a_week_icon_open_around_the_vector_clock_6833320.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+  `email` varchar(50) CHARACTER SET utf8mb4 NOT NULL,
+  `contact` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+  `address` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
+  `password` varchar(50) CHARACTER SET utf8mb4 NOT NULL,
+  `time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `contact`, `address`, `password`, `time`) VALUES
+(1, 'KERVIN KARL', '', '0123456789', 'PALOMA, VALLADOLID', '', '2022-09-17 06:10:08'),
+(2, 'RONALD', '', '0123456710', 'PALOMA, VALLADOLID', '', '2022-09-17 06:10:08'),
+(3, 'GERALD', '', '0123456711', 'PACOL, VALLADOLID', '', '2022-09-17 06:10:08'),
+(4, 'RAM CHRISTIAN', '', '0123456712', 'POBLACION, VALLADOLID', '', '2022-09-17 06:10:08'),
+(5, 'JAN MICHAEL', '', '0123456713', 'POBLACION, VALLADOLID', '', '2022-09-17 06:10:08'),
+(6, 'ROSIE', '', '0123456714', 'MABINI, VALLADOLID', '', '2022-09-17 06:10:08'),
+(7, 'ANDRIA', '', '0123456715', 'MABINI, VALLADOLID', '', '2022-09-17 06:10:08'),
+(8, 'ANGELA', '', '0123456716', 'MABINI, PULUPANDAN', '', '2022-09-17 06:10:08'),
+(9, 'ROWELA', '', '0123456717', 'DOLDOL, VALLADOLID', '', '2022-09-17 06:10:08'),
+(10, 'REGINE', '', '0123456718', 'MABINI, VALLADOLID', '', '2022-09-17 06:10:08'),
+(11, 'JOHN MARK', '', '0123456719', 'PALAKA SUR, PULUPANDAN', '', '2022-09-17 06:10:08'),
+(12, 'SUNDAY', '', '0123456720', 'MABINI, VALLADOLID', '', '2022-09-17 06:10:08'),
+(13, 'JOEMAR', '', '0123456721', 'MABINI, VALLADOLID', '', '2022-09-17 06:10:08'),
+(14, 'CHRISTOPHER', '', '0123456722', 'TANDANG SORA, QUEZON CITY', '', '2022-09-17 06:10:08'),
+(15, 'REYNAN', '', '0123456723', 'PALAKA, VALLADOLID', '', '2022-09-17 06:10:08'),
+(16, 'RATCHEL', '', '0123456724', 'BAYABAS, VALLADOLID', '', '2022-09-17 06:15:03'),
+(17, 'CRISTY GAYLE', '', '0123456725', 'SAGUA BANUA, VALLADOLID', '', '2022-09-17 06:27:10'),
+(18, 'ROZEL CHILES', '', '0123456726', 'PALAKA, VALLADOLID', '', '2022-09-17 06:29:55'),
+(19, 'MARY BERYL', '', '0123456727', 'POBLACION, VALLADOLID', '', '2022-09-17 06:29:55'),
+(20, 'REGINA MARIE', '', '0123456728', 'POBLACION, VALLADOLID', '', '2022-09-17 06:29:55'),
+(21, 'MARLON', '', '0123456729', 'PACOL, VALLADOLID', '', '2022-09-17 06:29:55'),
+(22, 'KENNETH', '', '0123456730', 'PALAKA SUR, PULUPANDAN', '', '2022-09-17 06:29:55'),
+(23, 'MARK ANGELO', '', '0123456731', 'POBLACION, VALLADOLID', '', '2022-09-17 06:29:55'),
+(24, 'RGEE LOUIZE', '', '0123456732', 'PALAKA SUR, PULUPANDAN', '', '2022-09-17 06:29:55'),
+(25, 'JOEZER COLENE', '', '0123456733', 'PALAKA SUR, PULUPANDAN', '', '2022-09-17 06:29:55'),
+(26, 'JULIAH', '', '0123456734', 'PACOL, VALLADOLID', '', '2022-09-17 06:29:55'),
+(27, 'CHRISTINE MAE', '', '0123456735', 'PALAKA SUR, PULUPANDAN', '', '2022-09-17 06:29:55'),
+(28, 'NICOLE ANN', '', '0123456736', 'PACOL, VALLADOLID', '', '2022-09-17 06:37:53'),
+(29, 'JANESSA', '', '0123456737', 'MABINI, VALLADOLID', '', '2022-09-17 06:37:53'),
+(30, 'MARNYL', '', '0123456738', 'PALAKA, VALLADOLID', '', '2022-09-17 06:37:53'),
+(31, 'REXXER ANDREI', '', '0123456739', 'MABINI, PULUPANDAN', '', '2022-09-17 06:37:53'),
+(32, 'JOSHUA', '', '0123456740', 'ALIJIS, VALLADOLID', '', '2022-09-17 06:37:53'),
+(33, 'JERSON', '', '0123456741', 'PALAKA, VALLADOLID', '', '2022-09-17 06:37:53'),
+(34, 'JESS LORD', '', '0123456742', 'MABINI, PULUPANDAN', '', '2022-09-17 06:37:53'),
+(35, 'RALPH JERO', '', '0123456743', 'ALIJIS, VALLADOLID', '', '2022-09-17 06:37:53'),
+(36, 'TRESHIA', '', '0123456744', 'PACOL, VALLADOLID', '', '2022-09-17 06:37:53'),
+(37, 'MA THERESA MAE', '', '0123456745', 'PALAKA, VALLADOLID', '', '2022-09-17 06:37:53'),
+(38, 'ELLA MARIE', '', '0123456746', 'PALAKA, VALLADOLID', '', '2022-09-17 06:37:53'),
+(39, 'LOVELY ANN', '', '0123456747', 'BAYABAS, VALLADOLID', '', '2022-09-17 06:37:53'),
+(40, 'CRISTALLY', '', '0123456748', 'BARANGAY 16 (POB.), BACOLOD CITY (Capital)', '', '2022-09-17 06:37:53');
 
 --
 -- Indexes for dumped tables
@@ -234,6 +296,12 @@ ALTER TABLE `services`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -241,7 +309,7 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `boking`
@@ -271,13 +339,19 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

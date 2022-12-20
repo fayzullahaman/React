@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 export default function Dashboard() {
   let naviGate = useNavigate();
@@ -8,22 +9,62 @@ export default function Dashboard() {
       naviGate("/admin_log");
     }
   });
+
+  const [adminInfo, setAdminInfo] = useState([]);
+  const [menuInfo, setMenuInfo] = useState([]);
+  // console.log(adminInfo);
+
+  useEffect(() => {
+    allAdmin();
+    allMenu();
+  }, []);
+
+  const allAdmin = async () => {
+    axios
+      .get("http://localhost/React/restaurant/restaurantApi/alladmin.php")
+      .then((res) => {
+        setAdminInfo(res.data.datas.myadmin);
+        // console.log(res.data.datas.menus);
+      });
+  };
+
+  const allMenu = async () => {
+    axios
+      .get("http://localhost/React/restaurant/restaurantApi/allmenu.php")
+      .then((res) => {
+        setMenuInfo(res.data.datas.menus);
+        // console.log(res.data.datas.menus);
+      });
+  };
+
   return (
     <>
       <div className="col-sm-12">
-        <div className="row mt-2">
+        <div className="row mt-3">
+          <div class="col-xl-2 col-sm-3">
+            <div class="card bg-success text-white h-100">
+              <div class="card-body bg-success">
+                <div class="rotate">
+                  <i class="fa fa-user fa-2x"></i>
+                </div>
+                <h6 class="text-uppercase">Users</h6>
+                <h1 class="display-6">134</h1>
+              </div>
+            </div>
+          </div>
           <div className="col-lg-2 col-6">
             <div className="small-box bg-info">
-              <div className="inner">
+              <div className="inner mx-3">
                 <h3>
-                  03<sup style={{ fontSize: "20px" }}></sup>
+                  {adminInfo.length}
+                  <sup style={{ fontSize: "20px" }}></sup>
                 </h3>
-                <p>Admin</p>
+                <p style={{ fontSize: "20px", color: "white" }}>Admin</p>
               </div>
               <div className="icon">
                 <i className="ion ion-bag"></i>
               </div>
-              <a href="#" className="small-box-footer">
+              <a href="#" className="small-box-footer mx-3">
                 More info <i className="fas fa-arrow-circle-right"></i>
               </a>
             </div>
@@ -31,9 +72,10 @@ export default function Dashboard() {
 
           <div className="col-lg-2 col-6">
             <div className="small-box bg-success">
-              <div className="inner">
+              <div className="inner mx-3">
                 <h3>
-                  15<sup style={{ fontSize: "20px" }}></sup>
+                  {menuInfo.length}
+                  <sup style={{ fontSize: "20px" }}></sup>
                 </h3>
 
                 <p>Total Menu</p>
@@ -41,7 +83,7 @@ export default function Dashboard() {
               <div className="icon">
                 <i className="ion ion-stats-bars"></i>
               </div>
-              <a href="#" className="small-box-footer">
+              <a href="#" className="small-box-footer mx-3">
                 More info <i className="fas fa-arrow-circle-right"></i>
               </a>
             </div>
@@ -49,7 +91,7 @@ export default function Dashboard() {
 
           <div className="col-lg-2 col-6">
             <div className="small-box bg-warning">
-              <div className="inner">
+              <div className="inner mx-3">
                 <h3>25</h3>
 
                 <p>Our Tem</p>
@@ -57,7 +99,7 @@ export default function Dashboard() {
               <div className="icon">
                 <i className="ion ion-person-add"></i>
               </div>
-              <a href="#" className="small-box-footer">
+              <a href="#" className="small-box-footer mx-3">
                 More info <i className="fas fa-arrow-circle-right"></i>
               </a>
             </div>
@@ -65,7 +107,7 @@ export default function Dashboard() {
 
           <div className="col-lg-2 col-6">
             <div className="small-box bg-danger">
-              <div className="inner">
+              <div className="inner mx-3">
                 <h3>5</h3>
 
                 <p>Upcoming Category</p>
@@ -73,14 +115,14 @@ export default function Dashboard() {
               <div className="icon">
                 <i className="ion ion-pie-graph"></i>
               </div>
-              <a href="#" className="small-box-footer">
+              <a href="#" className="small-box-footer mx-3">
                 More info <i className="fas fa-arrow-circle-right"></i>
               </a>
             </div>
           </div>
           <div className="col-lg-2 col-6">
             <div className="small-box bg-secondary">
-              <div className="inner">
+              <div className="inner mx-3">
                 <h3>15</h3>
 
                 <p>Upcoming Category</p>
@@ -88,7 +130,7 @@ export default function Dashboard() {
               <div className="icon">
                 <i className="ion ion-pie-graph"></i>
               </div>
-              <a href="#" className="small-box-footer">
+              <a href="#" className="small-box-footer mx-3">
                 More info <i className="fas fa-arrow-circle-right"></i>
               </a>
             </div>

@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Addtopbar() {
+  let Name = sessionStorage.getItem("name");
   let naviGate = useNavigate();
   const LogOut = () => {
     sessionStorage.clear();
@@ -27,9 +28,9 @@ export default function Addtopbar() {
                 alt="hugenerd"
                 width="30"
                 height="30"
-                className="rounded-circle"
+                className="fas fa-user-cog rounded-circle"
               />
-              <span className="d-none d-sm-inline mx-2">Admin</span>
+              <span className="d-none d-sm-inline mx-2">{Name}</span>
             </a>
             <ul
               className="dropdown-menu dropdown-menu-dark text-small shadow"

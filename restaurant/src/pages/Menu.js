@@ -158,8 +158,8 @@ export default function Menu() {
                       <div className=" overflow-hidden m-3">
                         {/* <img className="img-fluid" src={item.image} alt="" /> */}
                         <img
-                          // src="assets/img/menu-9.jpg"
-                          src={item.image}
+                          src="assets/img/menu-9.jpg"
+                          // src={item.image}
                           alt=""
                           style={{ width: "250px" }}
                         />
@@ -167,7 +167,7 @@ export default function Menu() {
                       <h4 className="mb-3">{item.name}</h4>
                       <h6>TK {item.price}</h6>
                       <div className="justify-content-center mt-4">
-                        <Link className="btn btn-primary" to="">
+                        <Link className="btn btn-primary" to="/order">
                           Order Now
                         </Link>
                       </div>
