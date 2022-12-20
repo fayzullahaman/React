@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2022 at 06:10 PM
+-- Generation Time: Dec 20, 2022 at 05:36 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -64,17 +64,17 @@ CREATE TABLE `boking` (
 --
 
 CREATE TABLE `chefs` (
-  `chf-id` int(11) NOT NULL,
-  `chf-name` varchar(100) NOT NULL,
-  `chf-designation` varchar(50) NOT NULL,
-  `chf-image` varchar(200) NOT NULL
+  `chf_id` int(11) NOT NULL,
+  `chf_name` varchar(100) NOT NULL,
+  `chf_designation` varchar(50) NOT NULL,
+  `chf_image` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `chefs`
 --
 
-INSERT INTO `chefs` (`chf-id`, `chf-name`, `chf-designation`, `chf-image`) VALUES
+INSERT INTO `chefs` (`chf_id`, `chf_name`, `chf_designation`, `chf_image`) VALUES
 (1, 'Allauddin Alo', 'Main Chef', 'https://static.vecteezy.com/system/resources/previews/002/521/567/original/cartoon-cute-italian-chef-with-tongue-out-serving-food-vector.jpg'),
 (2, 'Fayzullah Aman', 'Main Chef', 'https://img.freepik.com/premium-vector/smiling-chef-cartoon-character_8250-10.jpg?w=2000'),
 (3, 'Naymur Rahman', 'Main Chef', 'https://img.freepik.com/premium-vector/chef-mascot-cartoon-illustration_27088-397.jpg?w=2000'),
@@ -82,7 +82,8 @@ INSERT INTO `chefs` (`chf-id`, `chf-name`, `chf-designation`, `chf-image`) VALUE
 (5, 'Aklima Akter', 'Main Chef', 'https://static.vecteezy.com/system/resources/previews/005/604/210/original/a-woman-chef-wearing-a-white-coat-red-apron-and-a-kitchen-hood-on-her-head-while-smiling-free-vector.jpg'),
 (6, 'Sharmin Sultana', 'Main Chef', 'https://previews.123rf.com/images/mexart/mexart2104/mexart210400047/168248871-girl-chef-logo-cartoon-vector-icon-illustration-isolated-on-premium-vector.jpg'),
 (7, 'Jannatul Ferdaus', 'Main Chef', 'https://img.freepik.com/premium-vector/cute-chef-girl-uniform-logo-cartoon-premium-vector_511562-35.jpg?w=2000'),
-(8, 'Anamul Islam', 'Main Chef', 'https://anantacreative.com/wp-content/uploads/2020/10/Restaurant-Man-1.png');
+(8, 'Anamul Islam', 'Main Chef', 'https://anantacreative.com/wp-content/uploads/2020/10/Restaurant-Man-1.png'),
+(10, 'asdfasdf', 'main chefs', 'C:fakepathphoto_2022-03-28_19-54-35.jpg');
 
 -- --------------------------------------------------------
 
@@ -109,18 +110,32 @@ CREATE TABLE `menu` (
   `name` varchar(100) NOT NULL,
   `details` varchar(200) NOT NULL,
   `price` varchar(20) NOT NULL,
-  `image` varchar(50) NOT NULL
+  `category` varchar(50) NOT NULL,
+  `image` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `menu`
 --
 
-INSERT INTO `menu` (`id`, `name`, `details`, `price`, `image`) VALUES
-(1, 'Chicken Burger', 'Ipsum ipsum clita erat amet dolor justo diam', '115', 'menu-1.jpg'),
-(4, 'asdf', 'sadf sadf asd f', '5000.00', 'C:fakepathlogo.png'),
-(6, 'asdf', 'asdf asdf asdf', '15000', 'C:fakepath	eam-1.jpg'),
-(7, 'asdf', 'asdf', '15000', '');
+INSERT INTO `menu` (`id`, `name`, `details`, `price`, `category`, `image`) VALUES
+(1, 'Chicken Burger', 'Ipsum ipsum clita erat amet dolor justo diam', '115', 'breakfast', 'menu-1.jpg'),
+(4, 'Parata', 'If you are visiting Bangladesh, the most authentic local way of starting your day', '20.00', 'breakfast', 'C:fakepathlogo.png'),
+(6, 'asdf', 'asdf asdf asdf', '15000', '', 'C:fakepath	eam-1.jpg'),
+(8, 'Bhuna Chichuri', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '60', 'breakfast', ''),
+(9, 'Vat Dal', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '50', 'breakfast', ''),
+(10, 'Kacchi Biriyani', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '150', 'lunch', ''),
+(11, 'Beef Kala Bhuna', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '200', 'lunch', ''),
+(12, 'Bhuna Khichuri', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '80', 'lunch', ''),
+(13, 'Morog Polao', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '150', 'lunch', ''),
+(14, 'Kacchi Biriyani', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '150', 'dinner', ''),
+(15, 'Grilled Chicken', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '200', 'dinner', ''),
+(16, 'Bhuna Khichuri', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '80', 'dinner', ''),
+(17, 'Morog Polao', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '150', 'dinner', ''),
+(18, 'asdfasdf', 'asd asdf asd', '1500', '', 'C:fakepathphoto_2022-03-28_19-54-38 (2).jpg'),
+(19, 'Fuska', 'lorem lorem', '150', 'breakfast', ''),
+(21, 'asdfasdf', 'asdf', '654', 'breakfast', ''),
+(22, 'adf', 'asdf', '1500', 'breakfast', '');
 
 -- --------------------------------------------------------
 
@@ -169,7 +184,7 @@ CREATE TABLE `services` (
 INSERT INTO `services` (`id`, `name`, `details`, `icon`) VALUES
 (1, 'Master Chefs', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'https://thumbs.dreamstime.com/b/logo-template-restaurant-chef-vector-stock-happy-face-wearing-hat-69432796.jpg'),
 (2, 'Quality Food', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'https://img.freepik.com/free-vector/burger-with-fried-chicken-french-fries-soda-cartoon-vector-icon-illustration-fast-food-icon_138676-1972.jpg?w=2000'),
-(3, 'Online Order', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'https://blog.neemo.com.br/wp-content/uploads/2020/10/GettyImages-1156913565.jpg'),
+(3, 'Online Order', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'https://png.pngtree.com/png-clipart/20190520/original/pngtree-online-food-background-with-gourmet-menu-phone-interface-png-image_3683985.jpg'),
 (4, '24/7 Service', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.', 'https://images.all-free-download.com/images/graphiclarge/service_and_support_for_customers_24_hours_a_day_and_7_days_a_week_icon_open_around_the_vector_clock_6833320.jpg');
 
 --
@@ -192,7 +207,7 @@ ALTER TABLE `boking`
 -- Indexes for table `chefs`
 --
 ALTER TABLE `chefs`
-  ADD PRIMARY KEY (`chf-id`);
+  ADD PRIMARY KEY (`chf_id`);
 
 --
 -- Indexes for table `contact`
@@ -238,7 +253,7 @@ ALTER TABLE `boking`
 -- AUTO_INCREMENT for table `chefs`
 --
 ALTER TABLE `chefs`
-  MODIFY `chf-id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `chf_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `contact`
@@ -250,7 +265,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `orders`

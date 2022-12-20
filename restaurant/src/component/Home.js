@@ -32,6 +32,19 @@ export default function Home() {
   }
   // filtering
 
+  // Searching
+  const [searchTerm, setSearchTerm] = useState("");
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+  const searchedMenu = filteredMenu.filter(
+    (mu) =>
+      mu.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      mu.price.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      mu.category.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+  // Searching
+
   const allservice = async () => {
     axios
       .get("http://localhost/React/restaurant/restaurantApi/services.php")
@@ -154,9 +167,9 @@ export default function Home() {
                   About Us
                 </h5>
                 <h1 className="mb-4">
-                  Welcome to{" "}
+                  Welcome to
                   <i className="fa fa-utensils text-primary me-2"></i>
-                  Restorant
+                  Your Restaurant
                 </h1>
                 <p className="mb-4">
                   Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit.
@@ -281,9 +294,25 @@ export default function Home() {
                     </div>
                   </Link>
                 </li>
+                <div className="ps-3">
+                  <input
+                    className="btn btn-search-primary"
+                    type="search"
+                    name="search"
+                    placeholder="Search"
+                    onChange={handleSearch}
+                  />
+                  <button
+                    className="btn btn-primary"
+                    type="button"
+                    class="btn btn-primary"
+                  >
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
               </ul>
               <div className="row g-4">
-                {filteredMenu?.map((item, index) => (
+                {searchedMenu?.map((item, index) => (
                   <div
                     className="col-lg-3 col-md-6 wow fadeInUp"
                     data-wow-delay="0.1s"

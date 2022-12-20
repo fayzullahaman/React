@@ -22,9 +22,12 @@ export default function Menu() {
     setSearchTerm(event.target.value);
   };
 
-  // const searchedProduct = menu.filter((mu) =>
-  //   mu.category.toLowerCase().includes(searchTerm.toLowerCase())
-  // );
+  const searchedMenu = filteredMenu.filter(
+    (mu) =>
+      mu.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      mu.price.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      mu.category.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const allMenu = async () => {
     axios
@@ -80,7 +83,6 @@ export default function Menu() {
                     onClick={() => setMenuName("")}
                     className="d-flex align-items-center text-start mx-3 ms-0 pb-3 active"
                     data-bs-toggle="pill"
-                    to=""
                   >
                     <i className="fa fa-coffee fa-2x text-primar"></i>
                     <div className="ps-3">
@@ -95,14 +97,9 @@ export default function Menu() {
                     onClick={() => setMenuName("breakfast")}
                     className="d-flex align-items-center text-start mx-3 ms-0 pb-3"
                     data-bs-toggle="pill"
-                    to=""
                   >
                     <i className="fa fa-coffee fa-2x text-primar"></i>
-                    <div
-                      className="ps-3"
-                      onChange={handleSearch}
-                      // onClick={() => filterResult("breakfast")}
-                    >
+                    <div className="ps-3">
                       <small className="text-body">Popular</small>
                       <h6 className="mt-n1 mb-0">Breakfast</h6>
                     </div>
@@ -113,7 +110,6 @@ export default function Menu() {
                     onClick={() => setMenuName("lunch")}
                     className="d-flex align-items-center text-start mx-3 pb-3"
                     data-bs-toggle="pill"
-                    to=""
                   >
                     <i className="fa fa-hamburger fa-2x text-primar"></i>
                     <div className="ps-3">
@@ -127,7 +123,6 @@ export default function Menu() {
                     onClick={() => setMenuName("dinner")}
                     className="d-flex align-items-center text-start mx-3 me-0 pb-3"
                     data-bs-toggle="pill"
-                    to=""
                   >
                     <i className="fa fa-utensils fa-2x text-primar"></i>
                     <div className="ps-3">
@@ -136,9 +131,25 @@ export default function Menu() {
                     </div>
                   </Link>
                 </li>
+                <div className="ps-3">
+                  <input
+                    className="btn btn-search-primary"
+                    type="search"
+                    name="search"
+                    placeholder="Search"
+                    onChange={handleSearch}
+                  />
+                  <button
+                    className="btn btn-primary"
+                    type="button"
+                    class="btn btn-primary"
+                  >
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
               </ul>
               <div className="row g-4">
-                {filteredMenu?.map((item, index) => (
+                {searchedMenu?.map((item, index) => (
                   <div
                     className="col-lg-3 col-md-6 wow fadeInUp"
                     data-wow-delay="0.1s"
@@ -147,9 +158,8 @@ export default function Menu() {
                       <div className=" overflow-hidden m-3">
                         {/* <img className="img-fluid" src={item.image} alt="" /> */}
                         <img
-                          // className="flex-shrink-0 img-fluid rounded"
-                          src="assets/img/menu-9.jpg"
-                          // src={item.image}
+                          // src="assets/img/menu-9.jpg"
+                          src={item.image}
                           alt=""
                           style={{ width: "250px" }}
                         />
@@ -157,9 +167,9 @@ export default function Menu() {
                       <h4 className="mb-3">{item.name}</h4>
                       <h6>TK {item.price}</h6>
                       <div className="justify-content-center mt-4">
-                        <button className="btn btn-primary" href="">
+                        <Link className="btn btn-primary" to="">
                           Order Now
-                        </button>
+                        </Link>
                       </div>
                     </div>
                   </div>

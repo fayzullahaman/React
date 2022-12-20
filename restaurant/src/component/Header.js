@@ -80,8 +80,8 @@ export default function Header() {
             </div>
           </div>
 
-          <Link className="mx-4" to="cart">
-            <i className="fa-solid fa-cart-shopping-fast"></i>
+          <Link className="mx-4" to="/cart">
+            <i class="fas fa-cart-plus" style={{ fontSize: "30px" }}></i>
           </Link>
         </div>
       </nav>
