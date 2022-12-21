@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import React from "react";
 
-export default function Editmenu() {
+export default function Edituser() {
   let naviGate = useNavigate();
   const email = sessionStorage.getItem("email");
   useEffect(() => {
@@ -14,25 +14,24 @@ export default function Editmenu() {
   });
 
   const params = useParams();
-  const [menu, setMenu] = useState([]);
+  const [userInfo, setUserInfo] = useState([]);
 
   const submitValue = (e) => {
     e.preventDefault();
-    menuSubmit();
+    userSubmit();
   };
 
-  const menuSubmit = () => {
+  const userSubmit = () => {
     axios
-      .post("http://localhost/React/restaurant/restaurantApi/editmenu.php", {
-        id: menu.id,
-        name: menu.name,
-        details: menu.details,
-        price: menu.price,
-        category: menu.category,
-        image: menu.image,
+      .post("http://localhost/React/restaurant/restaurantApi/edituser.php", {
+        id: userInfo.id,
+        name: userInfo.name,
+        email: userInfo.email,
+        contact: userInfo.contact,
+        address: userInfo.address,
       })
       .then((res) => {
-        naviGate("/admin/allmenu");
+        naviGate("/admin/alluser");
         alert(res.data.msg);
         // console.log(res.data);
       });
@@ -40,22 +39,22 @@ export default function Editmenu() {
   // console.log(item);
 
   useEffect(() => {
-    menuOne(params.id);
+    userOne(params.id);
   }, []);
-  // console.log("MyID:" + params.id);
+  console.log("MyID:" + params.id);
 
   const changeValue = (e) => {
-    setMenu({ ...menu, [e.target.name]: e.target.value });
+    setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
   };
 
-  const menuOne = async (id) => {
+  const userOne = async (id) => {
     axios
-      .post("http://localhost/React/restaurant/restaurantApi/getmenu.php", {
-        muid: id,
+      .post("http://localhost/React/restaurant/restaurantApi/getuser.php", {
+        userid: id,
       })
       .then((res) => {
-        setMenu(res.data.items.mudata);
-        // console.log(res.data.items.mudata);
+        setUserInfo(res.data.items.userdata);
+        //   console.log(res.data.items.userdata);
       })
       .catch((error) => console.log(error));
   };
@@ -65,7 +64,7 @@ export default function Editmenu() {
       <div className="content-wrapper">
         <div className="card">
           <div className="card-header">
-            <h3 className="card-title">Edit Menu</h3>
+            <h3 className="card-title">Edit User</h3>
           </div>
           <div className="card-body">
             <div className="container">
@@ -75,43 +74,34 @@ export default function Editmenu() {
                   <input
                     type="text"
                     name="name"
-                    value={menu.name}
+                    value={userInfo.name}
                     onChange={changeValue}
                     className="form-control"
                   />
 
-                  <label className="fw-bold">Details</label>
+                  <label className="fw-bold">Email</label>
                   <textarea
-                    type="text"
-                    name="details"
-                    value={menu.details}
+                    type="Email"
+                    name="Email"
+                    value={userInfo.email}
                     onChange={changeValue}
                     className="form-control"
                   ></textarea>
 
-                  <label className="fw-bold">Price</label>
+                  <label className="fw-bold">Contact</label>
                   <input
                     type="text"
-                    name="price"
-                    value={menu.price}
+                    name="contact"
+                    value={userInfo.contact}
                     onChange={changeValue}
                     className="form-control"
                   />
 
-                  <label className="fw-bold">Category</label>
+                  <label className="fw-bold">Address</label>
                   <input
                     type="text"
-                    name="category"
-                    value={menu.category}
-                    onChange={changeValue}
-                    className="form-control"
-                  />
-
-                  <label className="fw-bold">Image</label>
-                  <input
-                    type="text"
-                    name="image"
-                    value={menu.image}
+                    name="address"
+                    value={userInfo.address}
                     onChange={changeValue}
                     className="form-control"
                   />

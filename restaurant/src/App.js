@@ -22,6 +22,13 @@ import Addchefs from "./admin/component/Addchefs";
 import Editchefs from "./admin/component/Editchefs";
 import Order from "./pages/Order";
 import Orders from "./admin/component/Orders";
+import Invoice from "./admin/component/Invoice";
+import User_login from "./pages/User_login";
+import Alladmin from "./admin/component/Alladmin";
+import Addadmin from "./admin/component/Addadmin";
+import Editadmin from "./admin/component/Editadmin";
+import Alluser from "./admin/component/Alluser";
+import Edituser from "./admin/component/Edituser";
 
 function App() {
   return (
@@ -36,6 +43,7 @@ function App() {
         <Route path="team" element={<Team />} />
         <Route path="testimonial" element={<Testimonial />} />
         <Route path="user_reg" element={<User_reg />} />
+        <Route path="user_log" element={<User_login />} />
         <Route path="admin_log" element={<Admin_login />} />
         <Route path="order" element={<Order />} />
       </Route>
@@ -47,7 +55,13 @@ function App() {
         <Route path="chefs" element={<Chefs />} />
         <Route path="addchefs" element={<Addchefs />} />
         <Route path="editchefs/:id" element={<Editchefs />} />
+        <Route path="editadmin/:id" element={<Editadmin />} />
         <Route path="orders" element={<Orders />} />
+        <Route path="invoice" element={<Invoice />} />
+        <Route path="alladmin" element={<Alladmin />} />
+        <Route path="adminentry" element={<Addadmin />} />
+        <Route path="alluser" element={<Alluser />} />
+        <Route path="edituser/:id" element={<Edituser />} />
       </Route>
     </Routes>
   );

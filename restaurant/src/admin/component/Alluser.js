@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import React from "react";
 
-export default function Orders() {
+export default function Alluser() {
   let naviGate = useNavigate();
   const email = sessionStorage.getItem("email");
   useEffect(() => {
@@ -13,33 +13,33 @@ export default function Orders() {
     }
   });
 
-  const [orders, setOrders] = useState([]);
-  //   console.log(orders);
+  const [userInfo, setUserInfo] = useState([]);
+  // console.log(menu);
   useEffect(() => {
-    allOrder();
+    allUser();
   }, []);
 
-  const allOrder = async () => {
+  const allUser = async () => {
     axios
-      .get("http://localhost/React/restaurant/restaurantApi/allorder.php")
+      .get("http://localhost/React/restaurant/restaurantApi/alluser.php")
       .then((res) => {
-        setOrders(res.data.datas.myorder);
-        //   console.log(res.data.datas.myorder);
+        setUserInfo(res.data.datas.users);
+        // console.log(res.data.datas.menus);
       });
   };
 
   const delConfirm = (id) => {
-    delOrder(id);
+    delUser(id);
   };
 
-  const delOrder = async (id) => {
+  const delUser = async (id) => {
     axios
-      .post("http://localhost/React/restaurant/restaurantApi/delorder.php", {
-        orderid: id,
+      .post("http://localhost/React/restaurant/restaurantApi/deluser.php", {
+        userid: id,
       })
       .then((res) => {
         alert(res.data.msg);
-        allOrder();
+        allUser();
       });
   };
 
@@ -49,7 +49,14 @@ export default function Orders() {
       <div className="content-wrapper">
         <div className="card">
           <div className="card-header flex">
-            <h3 className="card-title">All Order List</h3>
+            <h3 className="card-title">All User List</h3>
+            <ul className="nav d-flex justify-content-end">
+              <li>
+                <Link to="/admin/adduser">
+                  <button className="btn btn-primary">Add New User</button>
+                </Link>
+              </li>
+            </ul>
           </div>
 
           <div className="card-body">
@@ -59,37 +66,32 @@ export default function Orders() {
                   <th>SL</th>
                   <th>Name</th>
                   <th>Email</th>
-                  <th>Address</th>
                   <th>Contact</th>
-                  <th>Message</th>
+                  <th>Address</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                {orders.map((item, index) => (
+                {userInfo.map((item, index) => (
                   <tr>
                     <td>{index + 1}</td>
                     <td>{item.name}</td>
                     <td>{item.email}</td>
-                    <td>{item.address}</td>
                     <td>{item.contact}</td>
-                    <td>{item.message}</td>
+                    <td>{item.address}</td>
                     <td>
-                      <button
-                        onClick={() => delConfirm(item.id)}
+                      <Link
+                        to={`/admin/edituser/${item.id}`}
                         className="btn btn-primary"
                       >
-                        Reject
-                      </button>
+                        Edit
+                      </Link>
                       <button
                         onClick={() => delConfirm(item.id)}
-                        className="btn btn-info"
+                        className="btn btn-danger mx-2"
                       >
-                        Confirm
+                        Delete
                       </button>
-                      <Link to="/admin/invoice/" className="btn btn-info mx-2">
-                        Invoice
-                      </Link>
                     </td>
                   </tr>
                 ))}
@@ -99,9 +101,8 @@ export default function Orders() {
                   <th>SL</th>
                   <th>Name</th>
                   <th>Email</th>
-                  <th>Address</th>
                   <th>Contact</th>
-                  <th>Message</th>
+                  <th>Address</th>
                   <th>Action</th>
                 </tr>
               </tfoot>

@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import React from "react";
 
-export default function Orders() {
+export default function Alladmin() {
   let naviGate = useNavigate();
   const email = sessionStorage.getItem("email");
   useEffect(() => {
@@ -13,33 +13,32 @@ export default function Orders() {
     }
   });
 
-  const [orders, setOrders] = useState([]);
-  //   console.log(orders);
+  const [admin, setAdmin] = useState([]);
+  // console.log(menu);
   useEffect(() => {
-    allOrder();
+    allAdmin();
   }, []);
 
-  const allOrder = async () => {
+  const allAdmin = async () => {
     axios
-      .get("http://localhost/React/restaurant/restaurantApi/allorder.php")
+      .get("http://localhost/React/restaurant/restaurantApi/alladmin.php")
       .then((res) => {
-        setOrders(res.data.datas.myorder);
-        //   console.log(res.data.datas.myorder);
+        setAdmin(res.data.datas.myadmin);
       });
   };
 
   const delConfirm = (id) => {
-    delOrder(id);
+    delAdmin(id);
   };
 
-  const delOrder = async (id) => {
+  const delAdmin = async (id) => {
     axios
-      .post("http://localhost/React/restaurant/restaurantApi/delorder.php", {
-        orderid: id,
+      .post("http://localhost/React/restaurant/restaurantApi/deladmin.php", {
+        adminid: id,
       })
       .then((res) => {
         alert(res.data.msg);
-        allOrder();
+        allAdmin();
       });
   };
 
@@ -49,7 +48,14 @@ export default function Orders() {
       <div className="content-wrapper">
         <div className="card">
           <div className="card-header flex">
-            <h3 className="card-title">All Order List</h3>
+            <h3 className="card-title">All Admin List</h3>
+            <ul className="nav d-flex justify-content-end">
+              <li>
+                <Link to="/admin/adminentry">
+                  <button className="btn btn-primary">Add New Admin</button>
+                </Link>
+              </li>
+            </ul>
           </div>
 
           <div className="card-body">
@@ -59,37 +65,30 @@ export default function Orders() {
                   <th>SL</th>
                   <th>Name</th>
                   <th>Email</th>
-                  <th>Address</th>
-                  <th>Contact</th>
-                  <th>Message</th>
+                  <th>Image</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                {orders.map((item, index) => (
+                {admin.map((item, index) => (
                   <tr>
                     <td>{index + 1}</td>
                     <td>{item.name}</td>
                     <td>{item.email}</td>
-                    <td>{item.address}</td>
-                    <td>{item.contact}</td>
-                    <td>{item.message}</td>
+                    <td>{item.image}</td>
                     <td>
-                      <button
-                        onClick={() => delConfirm(item.id)}
+                      <Link
+                        to={`/admin/editadmin/${item.id}`}
                         className="btn btn-primary"
                       >
-                        Reject
-                      </button>
+                        Edit
+                      </Link>
                       <button
                         onClick={() => delConfirm(item.id)}
-                        className="btn btn-info"
+                        className="btn btn-danger mx-2"
                       >
-                        Confirm
+                        Delete
                       </button>
-                      <Link to="/admin/invoice/" className="btn btn-info mx-2">
-                        Invoice
-                      </Link>
                     </td>
                   </tr>
                 ))}
@@ -99,9 +98,7 @@ export default function Orders() {
                   <th>SL</th>
                   <th>Name</th>
                   <th>Email</th>
-                  <th>Address</th>
-                  <th>Contact</th>
-                  <th>Message</th>
+                  <th>Image</th>
                   <th>Action</th>
                 </tr>
               </tfoot>

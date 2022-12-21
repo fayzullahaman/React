@@ -158,8 +158,8 @@ export default function Menu() {
                       <div className=" overflow-hidden m-3">
                         {/* <img className="img-fluid" src={item.image} alt="" /> */}
                         <img
-                          src="assets/img/menu-9.jpg"
-                          // src={item.image}
+                          // src="assets/img/menu-9.jpg"
+                          src={item.image}
                           alt=""
                           style={{ width: "250px" }}
                         />

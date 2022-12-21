@@ -24,6 +24,7 @@ export default function Allmenu() {
       .get("http://localhost/React/restaurant/restaurantApi/allmenu.php")
       .then((res) => {
         setMenu(res.data.datas.menus);
+        // console.log(res.data.datas.menus);
       });
   };
 

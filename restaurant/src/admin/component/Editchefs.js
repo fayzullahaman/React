@@ -17,21 +17,41 @@ export default function Editchefs() {
 
   //   console.log(chefs);
 
+  const submitValue = (e) => {
+    e.preventDefault();
+    chefsSubmit();
+  };
+
+  const chefsSubmit = () => {
+    axios
+      .post("http://localhost/React/restaurant/restaurantApi/editchefs.php", {
+        id: chefs.chf_id,
+        name: chefs.chf_name,
+        designation: chefs.chf_designation,
+        image: chefs.chf_image,
+      })
+      .then((res) => {
+        naviGate("/admin/allchefs");
+        alert(res.data.msg);
+        // console.log(res.data);
+      });
+  };
+
   useEffect(() => {
-    chefsOne(params.cheid);
+    chefsOne(params.id);
   }, []);
-  //   console.log("MyID:" + params.cheid);
+  // console.log("MyID:" + params.id);
   const changeValue = (e) => {
     setChefs({ ...chefs, [e.target.name]: e.target.value });
   };
   const chefsOne = async (id) => {
     axios
       .post("http://localhost/React/restaurant/restaurantApi/getchefs.php", {
-        id: id,
+        chid: id,
       })
       .then((res) => {
-        //   setChefs(res.data.item.chdata);
-        console.log(res.data.item.chdata);
+        setChefs(res.data.item.chdata);
+        // console.log(res.data.item.chdata);
       })
       .catch((error) => console.log(error));
   };
@@ -46,10 +66,7 @@ export default function Editchefs() {
             </div>
             <div className="card-body">
               <div className="container">
-                <form
-                  // onSubmit={submitValue}
-                  className="insertproduct"
-                >
+                <form onSubmit={submitValue} className="insertproduct">
                   <div className="form-group">
                     <label className="fw-bold">Chefs Name</label>
                     <input
@@ -73,7 +90,7 @@ export default function Editchefs() {
 
                     <label className="fw-bold">Chefs Image</label>
                     <input
-                      type="file"
+                      type="text"
                       name="image"
                       value={chefs.chf_image}
                       onChange={changeValue}

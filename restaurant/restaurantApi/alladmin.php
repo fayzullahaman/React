@@ -9,6 +9,7 @@ while ($row = mysqli_fetch_assoc($result)) {
    $admin['id'] = $row['id'];
    $admin['name'] = $row['name'];
    $admin['email'] = $row['email'];
+   $admin['image'] = $row['image'];
 
    $myadmins['myadmin'][] = $admin;
 }

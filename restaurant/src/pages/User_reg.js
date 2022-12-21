@@ -5,21 +5,33 @@ import { useNavigate } from "react-router-dom";
 export default function User_reg() {
   const navigate = useNavigate();
 
-  const [info, setInfo] = useState({});
+  const [userInfo, setUserInfo] = useState({
+    name: "",
+    email: "",
+    contact: "",
+    address: "",
+    password: "",
+  });
 
   const changeValue = (e) => {
-    setInfo({ ...info, [e.target.name]: e.target.value });
+    setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
   };
-  // console.log(info);
-  const formSubmit = (e) => {
+  // console.log(userInfo);
+  const formSubmit = async (e) => {
     e.preventDefault();
+    // e.persist();
     axios
-      .post("http://localhost/restaurantApi/admin-reg.php", info)
+      .post("http://localhost/React/restaurant/restaurantApi/addusers.php", {
+        name: userInfo.name,
+        email: userInfo.email,
+        contact: userInfo.contact,
+        address: userInfo.address,
+        password: userInfo.password,
+      })
       .then((res) => {
-        if (res.data) {
-          console.log(res.data);
-          navigate("/admin");
-        }
+        alert(res.data.msg);
+        // console.log(res.data.msg);
+        navigate("/user_log");
       });
   };
 
@@ -65,26 +77,12 @@ export default function User_reg() {
                     <div className="form-floating">
                       <input
                         type="text"
-                        name="fname"
+                        name="name"
                         className="form-control"
-                        id="fname"
                         onChange={changeValue}
-                        placeholder="Your First Name"
+                        placeholder="Your Name"
                       />
-                      <label for="name">Your First Name</label>
-                    </div>
-                  </div>
-                  <div className="col-md-6">
-                    <div className="form-floating">
-                      <input
-                        type="text"
-                        name="lname"
-                        onChange={changeValue}
-                        className="form-control"
-                        id="lname"
-                        placeholder="Your Last Name"
-                      />
-                      <label for="name">Your Last Name</label>
+                      <label for="name">Your Name</label>
                     </div>
                   </div>
                   <div className="col-md-6">
@@ -94,10 +92,21 @@ export default function User_reg() {
                         className="form-control"
                         name="email"
                         onChange={changeValue}
-                        id="email"
                         placeholder="Your Email"
                       />
                       <label for="email">Your Email</label>
+                    </div>
+                  </div>
+                  <div className="col-md-6">
+                    <div className="form-floating">
+                      <input
+                        type="text"
+                        name="contact"
+                        onChange={changeValue}
+                        className="form-control"
+                        placeholder="Your Contact"
+                      />
+                      <label for="name">Your Contact</label>
                     </div>
                   </div>
                   <div className="col-md-6">
@@ -107,10 +116,21 @@ export default function User_reg() {
                         className="form-control"
                         name="password"
                         onChange={changeValue}
-                        id="password"
                         placeholder="Your Password"
                       />
                       <label for="email">Your Password</label>
+                    </div>
+                  </div>
+                  <div className="col-md-12">
+                    <div className="form-floating">
+                      <textarea
+                        type="text"
+                        className="form-control"
+                        name="address"
+                        onChange={changeValue}
+                        placeholder="Your Address"
+                      ></textarea>
+                      <label for="email">Your Address</label>
                     </div>
                   </div>
                   <div className="col-12">

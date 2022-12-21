@@ -47,18 +47,12 @@ export default function Header() {
                 <Link to="/team" className="dropdown-item">
                   Our Team
                 </Link>
-                <Link to="/testimonial" className="dropdown-item">
-                  Testimonial
-                </Link>
               </div>
             </div>
             <Link to="/contact" className="nav-item nav-link">
               Contact
             </Link>
           </div>
-          {/* <Link to="/booking" className="btn btn-primary py-2 px-4">
-            Book A Table
-          </Link> */}
           <div className="nav-item dropdown">
             <Link
               to="#"
@@ -79,10 +73,6 @@ export default function Header() {
               </Link>
             </div>
           </div>
-
-          <Link className="mx-4" to="/cart">
-            <i class="fas fa-cart-plus" style={{ fontSize: "30px" }}></i>
-          </Link>
         </div>
       </nav>
     </>

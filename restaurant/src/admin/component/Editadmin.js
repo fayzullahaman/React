@@ -4,8 +4,9 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import React from "react";
 
-export default function Editmenu() {
+export default function Editadmin() {
   let naviGate = useNavigate();
+  const params = useParams();
   const email = sessionStorage.getItem("email");
   useEffect(() => {
     if (email == null) {
@@ -13,49 +14,46 @@ export default function Editmenu() {
     }
   });
 
-  const params = useParams();
-  const [menu, setMenu] = useState([]);
+  const [adminInfo, setAdminInfo] = useState([]);
 
   const submitValue = (e) => {
     e.preventDefault();
-    menuSubmit();
+    adminSubmit();
   };
 
-  const menuSubmit = () => {
+  const adminSubmit = () => {
     axios
-      .post("http://localhost/React/restaurant/restaurantApi/editmenu.php", {
-        id: menu.id,
-        name: menu.name,
-        details: menu.details,
-        price: menu.price,
-        category: menu.category,
-        image: menu.image,
+      .post("http://localhost/React/restaurant/restaurantApi/editadmin.php", {
+        id: adminInfo.id,
+        name: adminInfo.name,
+        details: adminInfo.email,
+        image: adminInfo.image,
       })
       .then((res) => {
-        naviGate("/admin/allmenu");
-        alert(res.data.msg);
-        // console.log(res.data);
+        naviGate("/admin/alladmin");
+        //   alert(res.data.msg);
+        //   console.log(res.data);
       });
   };
   // console.log(item);
 
   useEffect(() => {
-    menuOne(params.id);
+    adminOne(params.id);
   }, []);
-  // console.log("MyID:" + params.id);
+  //   console.log("MyID:" + params.id);
 
   const changeValue = (e) => {
-    setMenu({ ...menu, [e.target.name]: e.target.value });
+    setAdminInfo({ ...adminInfo, [e.target.name]: e.target.value });
   };
 
-  const menuOne = async (id) => {
+  const adminOne = async (id) => {
     axios
-      .post("http://localhost/React/restaurant/restaurantApi/getmenu.php", {
-        muid: id,
+      .post("http://localhost/React/restaurant/restaurantApi/getadmin.php", {
+        adminid: id,
       })
       .then((res) => {
-        setMenu(res.data.items.mudata);
-        // console.log(res.data.items.mudata);
+        setAdminInfo(res.data.items.admindata);
+        //   console.log(res.data.items.admindata);
       })
       .catch((error) => console.log(error));
   };
@@ -75,43 +73,25 @@ export default function Editmenu() {
                   <input
                     type="text"
                     name="name"
-                    value={menu.name}
+                    value={adminInfo.name}
                     onChange={changeValue}
                     className="form-control"
                   />
 
-                  <label className="fw-bold">Details</label>
+                  <label className="fw-bold">Email</label>
                   <textarea
-                    type="text"
-                    name="details"
-                    value={menu.details}
+                    type="email"
+                    name="email"
+                    value={adminInfo.email}
                     onChange={changeValue}
                     className="form-control"
                   ></textarea>
-
-                  <label className="fw-bold">Price</label>
-                  <input
-                    type="text"
-                    name="price"
-                    value={menu.price}
-                    onChange={changeValue}
-                    className="form-control"
-                  />
-
-                  <label className="fw-bold">Category</label>
-                  <input
-                    type="text"
-                    name="category"
-                    value={menu.category}
-                    onChange={changeValue}
-                    className="form-control"
-                  />
 
                   <label className="fw-bold">Image</label>
                   <input
                     type="text"
                     name="image"
-                    value={menu.image}
+                    value={adminInfo.image}
                     onChange={changeValue}
                     className="form-control"
                   />

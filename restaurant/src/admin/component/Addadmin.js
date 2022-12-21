@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import React from "react";
 
-export default function Addmenu() {
+export default function Addadmin() {
   const navigate = useNavigate();
   const email = sessionStorage.getItem("email");
   useEffect(() => {
@@ -13,61 +13,31 @@ export default function Addmenu() {
     }
   });
 
-  const [image, setImage] = useState({
-    file: "",
-  });
-
-  const fileUpload = () => {
-    let datas = new FormData();
-    // datas.append("mydata", JSON.stringify(menuInfo));
-    datas.append("mydata1", image.file);
-    axios
-      .post(
-        "http://localhost/React/restaurant/restaurantApi/addmenu.php",
-        datas,
-        {
-          headers: {
-            "content-type": "multipart/form-data",
-          },
-        }
-      )
-      .then((res) => {
-        console.log(res.data.msg);
-      });
-  };
-
-  const changeImage = (e) => {
-    setImage({ file: e.target.files[0] });
-  };
-
-  const [menuInfo, menuinfoSet] = useState({
+  const [adminInfo, setAdminInfo] = useState({
     name: "",
-    details: "",
-    price: "",
-    category: "",
+    email: "",
+    passwor: "",
     image: "",
   });
 
   const changeValue = (e) => {
-    menuinfoSet({ ...menuInfo, [e.target.name]: e.target.value });
+    setAdminInfo({ ...adminInfo, [e.target.name]: e.target.value });
   };
 
   const SubmitValue = async (e) => {
     // alert("Submitted");
     e.preventDefault();
-    fileUpload();
     e.persist();
     axios
-      .post("http://localhost/React/restaurant/restaurantApi/addmenu.php", {
-        name: menuInfo.name,
-        details: menuInfo.details,
-        price: menuInfo.price,
-        category: menuInfo.category,
-        image: menuInfo.image,
+      .post("http://localhost/React/restaurant/restaurantApi/addadmin.php", {
+        name: adminInfo.name,
+        email: adminInfo.email,
+        password: adminInfo.password,
+        image: adminInfo.image,
       })
       .then((result) => {
         alert(result.data.msg);
-        navigate("/admin/allmenu");
+        navigate("/admin/alladmin");
       });
   };
   return (
@@ -77,54 +47,45 @@ export default function Addmenu() {
         <div className="content-wrapper">
           <div className="card">
             <div className="card-header">
-              <h3 className="card-title">Add New Menu</h3>
+              <h3 className="card-title">Add New Admin</h3>
             </div>
 
             <div className="card-body">
               <div className="container">
                 <form className="insertproduct" onSubmit={SubmitValue}>
                   <div className="form-group">
-                    <label className="fw-bold">Menu Name</label>
+                    <label className="fw-bold">Admin Name</label>
                     <input
                       type="text"
                       name="name"
                       onChange={changeValue}
-                      placeholder="Enter Menu Name"
+                      placeholder="Enter Name"
                       className="form-control"
                     />
 
-                    <label className="fw-bold">Menu Details</label>
+                    <label className="fw-bold">Admin Email</label>
                     <textarea
-                      type="text"
-                      name="details"
+                      type="email"
+                      name="email"
                       onChange={changeValue}
                       className="form-control"
-                      placeholder="Enter Menu Details"
+                      placeholder="Enter Email"
                     ></textarea>
 
-                    <label className="fw-bold">Menu Price</label>
+                    <label className="fw-bold">Admin Password</label>
                     <input
-                      type="text"
-                      name="price"
+                      type="password"
+                      name="password"
                       onChange={changeValue}
-                      placeholder="Enter Menu Price"
-                      className="form-control"
-                    />
-
-                    <label className="fw-bold">Menu Category</label>
-                    <input
-                      type="text"
-                      name="category"
-                      onChange={changeValue}
-                      placeholder="Enter Menu Category"
+                      placeholder="Enter Password"
                       className="form-control"
                     />
 
                     <label className="fw-bold">Menu Image</label>
                     <input
-                      type="file"
+                      type="text"
                       name="image"
-                      onChange={changeImage}
+                      onChange={changeValue}
                       className="form-control"
                     />
                     <br />

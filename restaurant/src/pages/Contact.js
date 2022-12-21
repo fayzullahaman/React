@@ -1,6 +1,38 @@
+import axios from "axios";
 import React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Contact() {
+  let naviGate = useNavigate();
+  const [contactinfo, setContactinfo] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const ChangeValue = (e) => {
+    setContactinfo({ ...contactinfo, [e.target.name]: e.target.value });
+  };
+
+  const SubmitValue = async (e) => {
+    //  alert("Submitted");
+    e.preventDefault();
+    e.persist();
+    axios
+      .post("http://localhost/React/restaurant/restaurantApi/contact.php", {
+        name: contactinfo.name,
+        email: contactinfo.email,
+        subject: contactinfo.subject,
+        message: contactinfo.message,
+      })
+      .then((result) => {
+        alert(result.data.msg);
+        // console.log(result.data.msg);
+        naviGate("/menu");
+      });
+  };
   return (
     <div>
       <div className="container-xxl bg-white p-0">
@@ -79,14 +111,15 @@ export default function Contact() {
               </div>
               <div className="col-md-6">
                 <div className="wow fadeInUp" data-wow-delay="0.2s">
-                  <form>
+                  <form onSubmit={SubmitValue}>
                     <div className="row g-3">
                       <div className="col-md-6">
                         <div className="form-floating">
                           <input
                             type="text"
+                            name="name"
                             className="form-control"
-                            id="name"
+                            onChange={ChangeValue}
                             placeholder="Your Name"
                           />
                           <label for="name">Your Name</label>
@@ -96,8 +129,9 @@ export default function Contact() {
                         <div className="form-floating">
                           <input
                             type="email"
+                            name="email"
                             className="form-control"
-                            id="email"
+                            onChange={ChangeValue}
                             placeholder="Your Email"
                           />
                           <label for="email">Your Email</label>
@@ -107,8 +141,9 @@ export default function Contact() {
                         <div className="form-floating">
                           <input
                             type="text"
+                            name="subject"
                             className="form-control"
-                            id="subject"
+                            onChange={ChangeValue}
                             placeholder="Subject"
                           />
                           <label for="subject">Subject</label>
@@ -118,8 +153,9 @@ export default function Contact() {
                         <div className="form-floating">
                           <textarea
                             className="form-control"
+                            name="message"
                             placeholder="Leave a message here"
-                            id="message"
+                            onChange={ChangeValue}
                           ></textarea>
                           <label for="message">Message</label>
                         </div>

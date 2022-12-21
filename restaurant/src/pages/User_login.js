@@ -1,30 +1,33 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-export default function Admin_login() {
+export default function User_login() {
   const naviGate = useNavigate();
-  const [admin, setAdmin] = useState({
+  const [user, setUser] = useState({
     email: "",
     password: "",
   });
 
   const handleChange = (e) => {
-    setAdmin({ ...admin, [e.target.name]: e.target.value });
+    setUser({ ...user, [e.target.name]: e.target.value });
   };
   // console.log(admin);
 
   const formSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost/React/restaurant/restaurantApi/login.php", admin)
+      .post(
+        "http://localhost/React/restaurant/restaurantApi/userlogin.php",
+        user
+      )
       .then((res) => {
         // console.log(res.data);
         if (res.data.success) {
           // alert(res.data.success);
-          sessionStorage.setItem("email", res.data.admin.email);
-          sessionStorage.setItem("name", res.data.admin.name);
-          naviGate("/admin");
+          sessionStorage.setItem("email", res.data.user.email);
+          sessionStorage.setItem("name", res.data.user.name);
+          naviGate("/menu");
         } else {
           alert(res.data.error);
         }
@@ -37,7 +40,7 @@ export default function Admin_login() {
         <div className="container-xxl py-5 bg-dark hero-header mb-5">
           <div className="container text-center my-5 pt-5 pb-4">
             <h1 className="display-3 text-white mb-3 animated slideInDown">
-              Addmin Login
+              User Login
             </h1>
             <nav aria-label="breadcrumb">
               <ol className="breadcrumb justify-content-center text-uppercase">
@@ -65,9 +68,9 @@ export default function Admin_login() {
             <div className="col-md-6 bg-dark d-flex align-items-center">
               <div className="p-5 wow fadeInUp" data-wow-delay="0.2s">
                 <h5 className="section-title ff-secondary text-start text-primary fw-normal">
-                  Admin Login Form
+                  User Login Form
                 </h5>
-                <h1 className="text-white mb-4">Admin Login</h1>
+                <h1 className="text-white mb-4">User Login</h1>
                 <form onSubmit={formSubmit}>
                   <div className="row g-3">
                     <div className="col-md-6">
@@ -77,7 +80,6 @@ export default function Admin_login() {
                           className="form-control"
                           name="email"
                           onChange={handleChange}
-                          id="email"
                           placeholder="Your Email"
                         />
                         <label for="email">Your Email</label>
@@ -90,7 +92,6 @@ export default function Admin_login() {
                           className="form-control"
                           name="password"
                           onChange={handleChange}
-                          id="password"
                           placeholder="Your Password"
                         />
                         <label for="email">Your Password</label>

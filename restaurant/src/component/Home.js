@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Home() {
   const [service, setService] = useState([]);
@@ -16,7 +16,7 @@ export default function Home() {
 
   const allMenu = async () => {
     axios
-      .get("http://localhost/React/restaurant/restaurantApi/allmenu.php")
+      .get("https://restaurant.bdprogrammers.com/restaurantApi/allmenu.php")
       .then((res) => {
         setMenu(res.data.datas.menus);
         // console.log(res.data.datas.menus);
@@ -47,7 +47,7 @@ export default function Home() {
 
   const allservice = async () => {
     axios
-      .get("http://localhost/React/restaurant/restaurantApi/services.php")
+      .get("https://restaurant.bdprogrammers.com/restaurantApi/services.php")
       .then((res) => {
         setService(res.data.item.services);
         // console.log(res.data.item.services);
@@ -61,12 +61,45 @@ export default function Home() {
   }, []);
   const allteam = async () => {
     axios
-      .get("http://localhost/React/restaurant/restaurantApi/chefs.php")
+      .get("https://restaurant.bdprogrammers.com/restaurantApi/chefs.php")
       .then((res) => {
         setTeam(res.data.item.chefs);
         // console.log(res.data.item.chefs);
       });
   };
+
+  // Boking part
+  const naviGate = useNavigate();
+  const [orderInfo, setOrderInfo] = useState({
+    name: "",
+    email: "",
+    address: "",
+    contact: "",
+    message: "",
+  });
+
+  const changeValue = (e) => {
+    setOrderInfo({ ...orderInfo, [e.target.name]: e.target.value });
+  };
+
+  const SubmitValue = async (e) => {
+    //  alert("Submitted");
+    e.preventDefault();
+    e.persist();
+    axios
+      .post("https://restaurant.bdprogrammers.com/restaurantApi/order.php", {
+        name: orderInfo.name,
+        email: orderInfo.email,
+        address: orderInfo.address,
+        contact: orderInfo.contact,
+        message: orderInfo.message,
+      })
+      .then((result) => {
+        alert(result.data.msg);
+        naviGate("/menu");
+      });
+  };
+  // Boking part
   return (
     <div>
       <div className="container-xxl bg-white p-0">
@@ -330,9 +363,9 @@ export default function Home() {
                       <h4 className="mb-3">{item.name}</h4>
                       <h6>TK {item.price}</h6>
                       <div className="justify-content-center mt-4">
-                        <button className="btn btn-primary" href="">
+                        <Link className="btn btn-primary" to="/order">
                           Order Now
-                        </button>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -393,17 +426,18 @@ export default function Home() {
                   Reservation
                 </h5>
                 <h1 className="text-white mb-4">Book A Table Online</h1>
-                <form>
+                <form onSubmit={SubmitValue}>
                   <div className="row g-3">
                     <div className="col-md-6">
                       <div className="form-floating">
                         <input
                           type="text"
                           className="form-control"
-                          id="name"
+                          name="name"
+                          onChange={changeValue}
                           placeholder="Your Name"
                         />
-                        <label for="name">Your Name</label>
+                        <label for="email">Your Name</label>
                       </div>
                     </div>
                     <div className="col-md-6">
@@ -411,48 +445,47 @@ export default function Home() {
                         <input
                           type="email"
                           className="form-control"
-                          id="email"
+                          name="email"
+                          onChange={changeValue}
                           placeholder="Your Email"
                         />
                         <label for="email">Your Email</label>
                       </div>
                     </div>
                     <div className="col-md-6">
-                      <div
-                        className="form-floating date"
-                        id="date3"
-                        data-target-input="nearest"
-                      >
+                      <div className="form-floating">
                         <input
                           type="text"
-                          className="form-control datetimepicker-input"
-                          id="datetime"
-                          placeholder="Date & Time"
-                          data-target="#date3"
-                          data-toggle="datetimepicker"
+                          className="form-control"
+                          name="address"
+                          onChange={changeValue}
+                          placeholder="Your Address"
                         />
-                        <label for="datetime">Date & Time</label>
+                        <label for="email">Your Address</label>
                       </div>
                     </div>
                     <div className="col-md-6">
                       <div className="form-floating">
-                        <select className="form-select" id="select1">
-                          <option value="1">People 1</option>
-                          <option value="2">People 2</option>
-                          <option value="3">People 3</option>
-                        </select>
-                        <label for="select1">No Of People</label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          name="contact"
+                          onChange={changeValue}
+                          placeholder="Your Contact"
+                        />
+                        <label for="email">Your Contact</label>
                       </div>
                     </div>
-                    <div className="col-12">
+                    <div className="col-md-12">
                       <div className="form-floating">
                         <textarea
+                          type="text"
                           className="form-control"
-                          placeholder="Special Request"
-                          id="message"
-                          style={{ height: "100px" }}
+                          name="message"
+                          onChange={changeValue}
+                          placeholder="Your Message"
                         ></textarea>
-                        <label for="message">Special Request</label>
+                        <label for="email">Your Special Request</label>
                       </div>
                     </div>
                     <div className="col-12">

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 export default function Dashboard() {
   let naviGate = useNavigate();
   const email = sessionStorage.getItem("email");
@@ -12,11 +13,17 @@ export default function Dashboard() {
 
   const [adminInfo, setAdminInfo] = useState([]);
   const [menuInfo, setMenuInfo] = useState([]);
+  const [teamInfo, setTeamInfo] = useState([]);
+  const [orderInfo, setOrderInfo] = useState([]);
+  const [userInfo, setUserInfo] = useState([]);
   // console.log(adminInfo);
 
   useEffect(() => {
     allAdmin();
     allMenu();
+    allTeam();
+    allOrder();
+    allUser();
   }, []);
 
   const allAdmin = async () => {
@@ -37,36 +44,51 @@ export default function Dashboard() {
       });
   };
 
+  const allTeam = async () => {
+    axios
+      .get("http://localhost/React/restaurant/restaurantApi/chefs.php")
+      .then((res) => {
+        setTeamInfo(res.data.item.chefs);
+        // console.log(res.data.datas.menus);
+      });
+  };
+
+  const allOrder = async () => {
+    axios
+      .get("http://localhost/React/restaurant/restaurantApi/allorder.php")
+      .then((res) => {
+        setOrderInfo(res.data.datas.myorder);
+        // console.log(res.data.datas.menus);
+      });
+  };
+
+  const allUser = async () => {
+    axios
+      .get("http://localhost/React/restaurant/restaurantApi/alluser.php")
+      .then((res) => {
+        setUserInfo(res.data.datas.users);
+        // console.log(res.data.datas.menus);
+      });
+  };
+
   return (
     <>
       <div className="col-sm-12">
         <div className="row mt-3">
-          <div class="col-xl-2 col-sm-3">
-            <div class="card bg-success text-white h-100">
-              <div class="card-body bg-success">
-                <div class="rotate">
-                  <i class="fa fa-user fa-2x"></i>
-                </div>
-                <h6 class="text-uppercase">Users</h6>
-                <h1 class="display-6">134</h1>
-              </div>
-            </div>
-          </div>
-          <div className="col-lg-2 col-6">
+          <div className="col-lg-2 col-6 ">
             <div className="small-box bg-info">
-              <div className="inner mx-3">
+              <div className="inner mx-3 ">
                 <h3>
                   {adminInfo.length}
-                  <sup style={{ fontSize: "20px" }}></sup>
+                  <p style={{ fontSize: "20px" }}>Total Admins</p>
                 </h3>
-                <p style={{ fontSize: "20px", color: "white" }}>Admin</p>
               </div>
               <div className="icon">
                 <i className="ion ion-bag"></i>
               </div>
-              <a href="#" className="small-box-footer mx-3">
+              <Link to="/admin/alladmin/" className="small-box-footer mx-3">
                 More info <i className="fas fa-arrow-circle-right"></i>
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -75,64 +97,65 @@ export default function Dashboard() {
               <div className="inner mx-3">
                 <h3>
                   {menuInfo.length}
-                  <sup style={{ fontSize: "20px" }}></sup>
+                  <p style={{ fontSize: "20px" }}>Total Menus</p>
                 </h3>
-
-                <p>Total Menu</p>
               </div>
               <div className="icon">
                 <i className="ion ion-stats-bars"></i>
               </div>
-              <a href="#" className="small-box-footer mx-3">
+              <Link to="/admin/allmenu/" className="small-box-footer mx-3">
                 More info <i className="fas fa-arrow-circle-right"></i>
-              </a>
+              </Link>
             </div>
           </div>
 
           <div className="col-lg-2 col-6">
             <div className="small-box bg-warning">
               <div className="inner mx-3">
-                <h3>25</h3>
-
-                <p>Our Tem</p>
+                <h3>
+                  {teamInfo.length}
+                  <p style={{ fontSize: "20px" }}>Total Chefs</p>
+                </h3>
               </div>
               <div className="icon">
                 <i className="ion ion-person-add"></i>
               </div>
-              <a href="#" className="small-box-footer mx-3">
+              <Link to="/admin/chefs/" className="small-box-footer mx-3">
                 More info <i className="fas fa-arrow-circle-right"></i>
-              </a>
+              </Link>
             </div>
           </div>
 
           <div className="col-lg-2 col-6">
             <div className="small-box bg-danger">
               <div className="inner mx-3">
-                <h3>5</h3>
-
-                <p>Upcoming Category</p>
+                <h3>
+                  {orderInfo.length}
+                  <p style={{ fontSize: "20px" }}>Total Orders</p>
+                </h3>
               </div>
               <div className="icon">
                 <i className="ion ion-pie-graph"></i>
               </div>
-              <a href="#" className="small-box-footer mx-3">
+              <Link to="/admin/orders/" className="small-box-footer mx-3">
                 More info <i className="fas fa-arrow-circle-right"></i>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="col-lg-2 col-6">
             <div className="small-box bg-secondary">
               <div className="inner mx-3">
-                <h3>15</h3>
-
-                <p>Upcoming Category</p>
+                <h3>
+                  {userInfo.length}
+                  <p style={{ fontSize: "20px" }}>Total Users</p>
+                </h3>
               </div>
               <div className="icon">
                 <i className="ion ion-pie-graph"></i>
               </div>
-              <a href="#" className="small-box-footer mx-3">
+              <Link to="/admin/alluser/" className="small-box-footer mx-3">
                 More info <i className="fas fa-arrow-circle-right"></i>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

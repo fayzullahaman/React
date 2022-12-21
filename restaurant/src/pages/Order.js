@@ -1,8 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Order() {
+  const naviGate = useNavigate();
   const [orderInfo, setOrderInfo] = useState({
     name: "",
     email: "",
@@ -29,7 +30,7 @@ export default function Order() {
       })
       .then((result) => {
         alert(result.data.msg);
-        //   navigate("/admin/chefs");
+        naviGate("/menu");
       });
   };
 

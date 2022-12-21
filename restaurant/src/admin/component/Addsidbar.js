@@ -69,37 +69,27 @@ export default function Addsidbar() {
               </ul>
             </li>
             <li>
-              <Link
+              <a
                 href="#submenu3"
                 data-bs-toggle="collapse"
                 className="nav-link px-0 align-middle"
               >
                 <i className="fs-4 bi-grid"></i>
-                <span className="ms-1 d-none d-sm-inline">Products</span>
-              </Link>
+                <span className="ms-1 d-none d-sm-inline">Users</span>
+              </a>
               <ul
                 className="collapse nav flex-column ms-1"
                 id="submenu3"
                 data-bs-parent="#menu"
               >
                 <li className="w-100">
-                  <Link href="#" className="nav-link px-0">
-                    <span className="d-none d-sm-inline">Product</span> 1
+                  <Link to="alluser" className="nav-link px-0">
+                    <span className="d-none d-sm-inline">All Users</span>
                   </Link>
                 </li>
                 <li>
                   <Link href="#" className="nav-link px-0">
-                    <span className="d-none d-sm-inline">Product</span> 2
-                  </Link>
-                </li>
-                <li>
-                  <a href="#" className="nav-link px-0">
-                    <span className="d-none d-sm-inline">Product</span> 3
-                  </a>
-                </li>
-                <li>
-                  <Link href="#" className="nav-link px-0">
-                    <span className="d-none d-sm-inline">Product</span> 4
+                    <span className="d-none d-sm-inline">Add User</span>
                   </Link>
                 </li>
               </ul>
@@ -111,9 +101,9 @@ export default function Addsidbar() {
               </Link>
             </li>
             <li>
-              <Link href="#" className="nav-link px-0 align-middle">
+              <Link to="alladmin" className="nav-link px-0 align-middle">
                 <i className="fs-4 bi-people"></i>
-                <span className="ms-1 d-none d-sm-inline">Customers</span>
+                <span className="ms-1 d-none d-sm-inline">Admin</span>
               </Link>
             </li>
           </ul>

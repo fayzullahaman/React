@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2022 at 07:06 PM
+-- Generation Time: Dec 21, 2022 at 12:20 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -41,7 +41,7 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`id`, `name`, `email`, `password`, `image`) VALUES
 (1, 'Aman', 'admin@gmail.com', 'admin', 'admin.jpg'),
-(2, 'asdf', 'mahmud@gmail.com', 'asdf', '');
+(3, 'asdf', 'asd@gmail.com', '1234', 'image.jpg');
 
 -- --------------------------------------------------------
 
@@ -93,12 +93,20 @@ INSERT INTO `chefs` (`chf_id`, `chf_name`, `chf_designation`, `chf_image`) VALUE
 --
 
 CREATE TABLE `contact` (
-  `con-id` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `email` varchar(30) NOT NULL,
   `subject` varchar(20) NOT NULL,
   `message` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`id`, `name`, `email`, `subject`, `message`) VALUES
+(1, 'aman', 'aman@gmail.com', 'food', 'asd asdf asdf '),
+(2, 'asdfasdf', 'alo@gmail.com', 'food', 'asdf asdf asd fasdf');
 
 -- --------------------------------------------------------
 
@@ -120,23 +128,19 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`id`, `name`, `details`, `price`, `category`, `image`) VALUES
-(1, 'Chicken Burger', 'Ipsum ipsum clita erat amet dolor justo diam', '115', 'breakfast', 'menu-1.jpg'),
-(4, 'Parata', 'If you are visiting Bangladesh, the most authentic local way of starting your day', '20.00', 'breakfast', 'C:fakepathlogo.png'),
-(6, 'asdf', 'asdf asdf asdf', '15000', '', 'C:fakepath	eam-1.jpg'),
-(8, 'Bhuna Chichuri', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '60', 'breakfast', ''),
-(9, 'Vat Dal', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '50', 'breakfast', ''),
-(10, 'Kacchi Biriyani', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '150', 'lunch', ''),
-(11, 'Beef Kala Bhuna', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '200', 'lunch', ''),
-(12, 'Bhuna Khichuri', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '80', 'lunch', ''),
-(13, 'Morog Polao', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '150', 'lunch', ''),
-(14, 'Kacchi Biriyani', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '150', 'dinner', ''),
-(15, 'Grilled Chicken', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '200', 'dinner', ''),
-(16, 'Bhuna Khichuri', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '80', 'dinner', ''),
-(17, 'Morog Polao', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '150', 'dinner', ''),
-(18, 'asdfasdf', 'asd asdf asd', '1500', '', 'C:fakepathphoto_2022-03-28_19-54-38 (2).jpg'),
-(19, 'Fuska', 'lorem lorem', '150', 'breakfast', ''),
-(21, 'asdfasdf', 'asdf', '654', 'breakfast', ''),
-(22, 'adf', 'asdf', '1500', 'breakfast', '');
+(1, 'Chicken Burger', 'Ipsum ipsum clita erat amet dolor justo diam', '115', 'breakfast', 'https://simply-delicious-food.com/wp-content/uploads/2022/06/Grilled-chicken-burgers2-500x500.jpg'),
+(4, 'Parata', 'If you are visiting Bangladesh, the most authentic local way of starting your day', '20.00', 'breakfast', 'https://getyourfish.com/wp-content/uploads/2021/01/Parata-iii.jpg'),
+(8, 'Bhuna Chichuri', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '60', 'breakfast', 'https://cookishcreation.com/wp-content/uploads/2022/05/Beef-Khichuri-500x500.jpg'),
+(9, 'Vat Dal', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '50', 'breakfast', 'https://static.hungrynaki.com/hungrynaki-v4/restaurants/nababi_voj_restaurant/items/nababi_voj_restaurant_sada_vat_thumbnail_1623501021410.png'),
+(10, 'Kacchi Biriyani', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '150', 'lunch', 'https://cdn.shopify.com/s/files/1/0576/5355/9461/products/KacchiBiryaniMutton_large.jpg?v=1625888199'),
+(11, 'Beef Kala Bhuna', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '200', 'lunch', 'https://foodsfinding.com/wp-content/uploads/2022/07/beef-kala-bhuna-recipe.jpg'),
+(12, 'Bhuna Khichuri', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '80', 'lunch', 'https://cookishcreation.com/wp-content/uploads/2022/05/Beef-Khichuri-500x500.jpg'),
+(13, 'Morog Polao', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '150', 'lunch', 'https://www.chinipatadoi.com/wp-content/uploads/2020/06/Morog-Polao-3-1-500x500.jpg'),
+(14, 'Kacchi Biriyani', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '150', 'dinner', 'https://cdn.shopify.com/s/files/1/0576/5355/9461/products/KacchiBiryaniMutton_large.jpg?v=1625888199'),
+(15, 'Grilled Chicken', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '200', 'dinner', 'https://easychickenrecipes.com/wp-content/uploads/2020/06/grilled-chicken-recipe-best-5-of-6-500x500.jpg'),
+(16, 'Bhuna Khichuri', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '80', 'dinner', 'https://cookishcreation.com/wp-content/uploads/2022/05/Beef-Khichuri-500x500.jpg'),
+(17, 'Morog Polao', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce volutpat sit amet arcu eu congue.', '150', 'dinner', 'https://www.chinipatadoi.com/wp-content/uploads/2020/06/Morog-Polao-3-1-500x500.jpg'),
+(19, 'Fuska', 'lorem lorem', '150', 'breakfast', 'https://cdn3.foodviva.com/static-content/food-images/snacks-recipes/dahi-puri/dahi-puri.jpg');
 
 -- --------------------------------------------------------
 
@@ -159,10 +163,10 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `name`, `email`, `address`, `contact`, `message`, `order_time`) VALUES
-(1, '', '', '', '', '', '2022-12-12 12:56:59'),
-(2, '', '', '', '', '', '2022-12-12 12:56:59'),
-(4, '', '', '', '', '', '2022-12-12 13:02:48'),
-(6, 'Alauddin', 'alo@gmail.com', 'Banasree', '32416598', 'Ami ki khabo', '2022-12-20 11:16:05');
+(6, 'Alauddin', 'alo@gmail.com', 'Banasree', '32416598', 'Ami ki khabo', '2022-12-20 11:16:05'),
+(8, 'asdfasd', 'asdf@example.com', 'Badda', '86154354', 'asdf asdf asdf ', '2022-12-20 15:06:26'),
+(9, 'asdf', 'alo@gmail.com', 'Banasree', '861543546546', 'sadf asdf ', '2022-12-20 16:28:20'),
+(10, 'asdf', 'asdf@example.com', 'Banasree', '86154354', 'asdf asdf asd', '2022-12-20 19:08:13');
 
 -- --------------------------------------------------------
 
@@ -195,59 +199,25 @@ INSERT INTO `services` (`id`, `name`, `details`, `icon`) VALUES
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `name` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
-  `email` varchar(50) CHARACTER SET utf8mb4 NOT NULL,
-  `contact` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
-  `address` varchar(100) CHARACTER SET utf8mb4 NOT NULL,
-  `password` varchar(50) CHARACTER SET utf8mb4 NOT NULL,
-  `time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `name` varchar(100) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `contact` varchar(20) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `create_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `contact`, `address`, `password`, `time`) VALUES
-(1, 'KERVIN KARL', '', '0123456789', 'PALOMA, VALLADOLID', '', '2022-09-17 06:10:08'),
-(2, 'RONALD', '', '0123456710', 'PALOMA, VALLADOLID', '', '2022-09-17 06:10:08'),
-(3, 'GERALD', '', '0123456711', 'PACOL, VALLADOLID', '', '2022-09-17 06:10:08'),
-(4, 'RAM CHRISTIAN', '', '0123456712', 'POBLACION, VALLADOLID', '', '2022-09-17 06:10:08'),
-(5, 'JAN MICHAEL', '', '0123456713', 'POBLACION, VALLADOLID', '', '2022-09-17 06:10:08'),
-(6, 'ROSIE', '', '0123456714', 'MABINI, VALLADOLID', '', '2022-09-17 06:10:08'),
-(7, 'ANDRIA', '', '0123456715', 'MABINI, VALLADOLID', '', '2022-09-17 06:10:08'),
-(8, 'ANGELA', '', '0123456716', 'MABINI, PULUPANDAN', '', '2022-09-17 06:10:08'),
-(9, 'ROWELA', '', '0123456717', 'DOLDOL, VALLADOLID', '', '2022-09-17 06:10:08'),
-(10, 'REGINE', '', '0123456718', 'MABINI, VALLADOLID', '', '2022-09-17 06:10:08'),
-(11, 'JOHN MARK', '', '0123456719', 'PALAKA SUR, PULUPANDAN', '', '2022-09-17 06:10:08'),
-(12, 'SUNDAY', '', '0123456720', 'MABINI, VALLADOLID', '', '2022-09-17 06:10:08'),
-(13, 'JOEMAR', '', '0123456721', 'MABINI, VALLADOLID', '', '2022-09-17 06:10:08'),
-(14, 'CHRISTOPHER', '', '0123456722', 'TANDANG SORA, QUEZON CITY', '', '2022-09-17 06:10:08'),
-(15, 'REYNAN', '', '0123456723', 'PALAKA, VALLADOLID', '', '2022-09-17 06:10:08'),
-(16, 'RATCHEL', '', '0123456724', 'BAYABAS, VALLADOLID', '', '2022-09-17 06:15:03'),
-(17, 'CRISTY GAYLE', '', '0123456725', 'SAGUA BANUA, VALLADOLID', '', '2022-09-17 06:27:10'),
-(18, 'ROZEL CHILES', '', '0123456726', 'PALAKA, VALLADOLID', '', '2022-09-17 06:29:55'),
-(19, 'MARY BERYL', '', '0123456727', 'POBLACION, VALLADOLID', '', '2022-09-17 06:29:55'),
-(20, 'REGINA MARIE', '', '0123456728', 'POBLACION, VALLADOLID', '', '2022-09-17 06:29:55'),
-(21, 'MARLON', '', '0123456729', 'PACOL, VALLADOLID', '', '2022-09-17 06:29:55'),
-(22, 'KENNETH', '', '0123456730', 'PALAKA SUR, PULUPANDAN', '', '2022-09-17 06:29:55'),
-(23, 'MARK ANGELO', '', '0123456731', 'POBLACION, VALLADOLID', '', '2022-09-17 06:29:55'),
-(24, 'RGEE LOUIZE', '', '0123456732', 'PALAKA SUR, PULUPANDAN', '', '2022-09-17 06:29:55'),
-(25, 'JOEZER COLENE', '', '0123456733', 'PALAKA SUR, PULUPANDAN', '', '2022-09-17 06:29:55'),
-(26, 'JULIAH', '', '0123456734', 'PACOL, VALLADOLID', '', '2022-09-17 06:29:55'),
-(27, 'CHRISTINE MAE', '', '0123456735', 'PALAKA SUR, PULUPANDAN', '', '2022-09-17 06:29:55'),
-(28, 'NICOLE ANN', '', '0123456736', 'PACOL, VALLADOLID', '', '2022-09-17 06:37:53'),
-(29, 'JANESSA', '', '0123456737', 'MABINI, VALLADOLID', '', '2022-09-17 06:37:53'),
-(30, 'MARNYL', '', '0123456738', 'PALAKA, VALLADOLID', '', '2022-09-17 06:37:53'),
-(31, 'REXXER ANDREI', '', '0123456739', 'MABINI, PULUPANDAN', '', '2022-09-17 06:37:53'),
-(32, 'JOSHUA', '', '0123456740', 'ALIJIS, VALLADOLID', '', '2022-09-17 06:37:53'),
-(33, 'JERSON', '', '0123456741', 'PALAKA, VALLADOLID', '', '2022-09-17 06:37:53'),
-(34, 'JESS LORD', '', '0123456742', 'MABINI, PULUPANDAN', '', '2022-09-17 06:37:53'),
-(35, 'RALPH JERO', '', '0123456743', 'ALIJIS, VALLADOLID', '', '2022-09-17 06:37:53'),
-(36, 'TRESHIA', '', '0123456744', 'PACOL, VALLADOLID', '', '2022-09-17 06:37:53'),
-(37, 'MA THERESA MAE', '', '0123456745', 'PALAKA, VALLADOLID', '', '2022-09-17 06:37:53'),
-(38, 'ELLA MARIE', '', '0123456746', 'PALAKA, VALLADOLID', '', '2022-09-17 06:37:53'),
-(39, 'LOVELY ANN', '', '0123456747', 'BAYABAS, VALLADOLID', '', '2022-09-17 06:37:53'),
-(40, 'CRISTALLY', '', '0123456748', 'BARANGAY 16 (POB.), BACOLOD CITY (Capital)', '', '2022-09-17 06:37:53');
+INSERT INTO `users` (`id`, `name`, `email`, `contact`, `address`, `password`, `create_time`) VALUES
+(1, 'asdfasdf', 'asdf@example.com', '86154354', 'fds gfdg ghfdy hgf', '1234', '2022-12-20 17:45:47'),
+(2, 'Aman', 'aman@gmail.com', '86154354', 'badda', '1234', '2022-12-20 18:44:37'),
+(3, 'Aman', 'aman@gmail.com', '86154354', 'badda', '1234', '2022-12-20 18:44:41'),
+(4, 'Aman', 'aman@gmail.com', '86154354', 'badda', '1234', '2022-12-20 18:44:50'),
+(5, 'Aman', 'aman@gmail.com', '86154354', 'badda', '1234', '2022-12-20 18:44:51'),
+(6, 'Aman', 'aman@gmail.com', '86154354', 'badda', '1234', '2022-12-20 18:44:51');
 
 --
 -- Indexes for dumped tables
@@ -275,7 +245,7 @@ ALTER TABLE `chefs`
 -- Indexes for table `contact`
 --
 ALTER TABLE `contact`
-  ADD PRIMARY KEY (`con-id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `menu`
@@ -309,7 +279,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `boking`
@@ -327,7 +297,7 @@ ALTER TABLE `chefs`
 -- AUTO_INCREMENT for table `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `con-id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `menu`
@@ -339,7 +309,7 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `services`
@@ -351,7 +321,7 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
