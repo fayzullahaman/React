@@ -28,7 +28,9 @@ export default function Dashboard() {
 
   const allAdmin = async () => {
     axios
-      .get("http://localhost/React/restaurant/restaurantApi/alladmin.php")
+      .get(
+        "http://localhost/React/restaurant/public/restaurantApi/alladmin.php"
+      )
       .then((res) => {
         setAdminInfo(res.data.datas.myadmin);
         // console.log(res.data.datas.menus);
@@ -37,7 +39,7 @@ export default function Dashboard() {
 
   const allMenu = async () => {
     axios
-      .get("http://localhost/React/restaurant/restaurantApi/allmenu.php")
+      .get("http://localhost/React/restaurant/public/restaurantApi/allmenu.php")
       .then((res) => {
         setMenuInfo(res.data.datas.menus);
         // console.log(res.data.datas.menus);
@@ -46,7 +48,7 @@ export default function Dashboard() {
 
   const allTeam = async () => {
     axios
-      .get("http://localhost/React/restaurant/restaurantApi/chefs.php")
+      .get("http://localhost/React/restaurant/public/restaurantApi/chefs.php")
       .then((res) => {
         setTeamInfo(res.data.item.chefs);
         // console.log(res.data.datas.menus);
@@ -55,7 +57,9 @@ export default function Dashboard() {
 
   const allOrder = async () => {
     axios
-      .get("http://localhost/React/restaurant/restaurantApi/allorder.php")
+      .get(
+        "http://localhost/React/restaurant/public/restaurantApi/allorder.php"
+      )
       .then((res) => {
         setOrderInfo(res.data.datas.myorder);
         // console.log(res.data.datas.menus);
@@ -64,7 +68,7 @@ export default function Dashboard() {
 
   const allUser = async () => {
     axios
-      .get("http://localhost/React/restaurant/restaurantApi/alluser.php")
+      .get("http://localhost/React/restaurant/public/restaurantApi/alluser.php")
       .then((res) => {
         setUserInfo(res.data.datas.users);
         // console.log(res.data.datas.menus);

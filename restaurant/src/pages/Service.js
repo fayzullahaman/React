@@ -9,7 +9,9 @@ export default function Service() {
   }, []);
   const allservice = async () => {
     axios
-      .get("http://localhost/React/restaurant/restaurantApi/services.php")
+      .get(
+        "http://localhost/React/restaurant/public/restaurantApi/services.php"
+      )
       .then((res) => {
         setService(res.data.item.services);
         // console.log(res.data.item.services);

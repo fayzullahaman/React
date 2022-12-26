@@ -14,12 +14,12 @@ export default function UploadForm() {
   const changeValue = (e) => {
     setInfo({ ...info, [e.target.name]: e.target.value });
   };
-  //   console.log(info);
+  // console.log(info);
 
   const changePhoto = (e) => {
     setPhotoInfo({ file: e.target.files[0] });
   };
-  //   console.log(photoInfo);
+  // console.log(photoInfo);
 
   const submitHandle = (e) => {
     e.preventDefault();

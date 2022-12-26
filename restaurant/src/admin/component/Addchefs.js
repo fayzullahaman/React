@@ -27,11 +27,14 @@ export default function Addchefs() {
     e.preventDefault();
     e.persist();
     axios
-      .post("http://localhost/React/restaurant/restaurantApi/addchefs.php", {
-        name: chefsinfo.name,
-        designation: chefsinfo.designation,
-        image: chefsinfo.image,
-      })
+      .post(
+        "http://localhost/React/restaurant/public/restaurantApi/addchefs.php",
+        {
+          name: chefsinfo.name,
+          designation: chefsinfo.designation,
+          image: chefsinfo.image,
+        }
+      )
       .then((result) => {
         alert(result.data.msg);
         //   navigate("/admin/chefs");

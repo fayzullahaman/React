@@ -31,7 +31,7 @@ export default function Menu() {
 
   const allMenu = async () => {
     axios
-      .get("http://localhost/React/restaurant/restaurantApi/allmenu.php")
+      .get("http://localhost/React/restaurant/public/restaurantApi/allmenu.php")
       .then((res) => {
         setMenu(res.data.datas.menus);
         // console.log(res.data.datas.menus);
@@ -160,7 +160,7 @@ export default function Menu() {
                         <img
                           // src="assets/img/menu-9.jpg"
                           src={item.image}
-                          alt=""
+                          alt="Phood-image"
                           style={{ width: "250px" }}
                         />
                       </div>

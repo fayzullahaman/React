@@ -18,7 +18,7 @@ export default function User_login() {
     e.preventDefault();
     axios
       .post(
-        "http://localhost/React/restaurant/restaurantApi/userlogin.php",
+        "http://localhost/React/restaurant/public/restaurantApi/userlogin.php",
         user
       )
       .then((res) => {

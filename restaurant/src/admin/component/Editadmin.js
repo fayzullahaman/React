@@ -23,12 +23,15 @@ export default function Editadmin() {
 
   const adminSubmit = () => {
     axios
-      .post("http://localhost/React/restaurant/restaurantApi/editadmin.php", {
-        id: adminInfo.id,
-        name: adminInfo.name,
-        details: adminInfo.email,
-        image: adminInfo.image,
-      })
+      .post(
+        "http://localhost/React/restaurant/public/restaurantApi/editadmin.php",
+        {
+          id: adminInfo.id,
+          name: adminInfo.name,
+          details: adminInfo.email,
+          image: adminInfo.image,
+        }
+      )
       .then((res) => {
         naviGate("/admin/alladmin");
         //   alert(res.data.msg);
@@ -48,9 +51,12 @@ export default function Editadmin() {
 
   const adminOne = async (id) => {
     axios
-      .post("http://localhost/React/restaurant/restaurantApi/getadmin.php", {
-        adminid: id,
-      })
+      .post(
+        "http://localhost/React/restaurant/public/restaurantApi/getadmin.php",
+        {
+          adminid: id,
+        }
+      )
       .then((res) => {
         setAdminInfo(res.data.items.admindata);
         //   console.log(res.data.items.admindata);

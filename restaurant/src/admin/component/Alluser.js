@@ -21,7 +21,7 @@ export default function Alluser() {
 
   const allUser = async () => {
     axios
-      .get("http://localhost/React/restaurant/restaurantApi/alluser.php")
+      .get("http://localhost/React/restaurant/public/restaurantApi/alluser.php")
       .then((res) => {
         setUserInfo(res.data.datas.users);
         // console.log(res.data.datas.menus);
@@ -34,9 +34,12 @@ export default function Alluser() {
 
   const delUser = async (id) => {
     axios
-      .post("http://localhost/React/restaurant/restaurantApi/deluser.php", {
-        userid: id,
-      })
+      .post(
+        "http://localhost/React/restaurant/public/restaurantApi/deluser.php",
+        {
+          userid: id,
+        }
+      )
       .then((res) => {
         alert(res.data.msg);
         allUser();

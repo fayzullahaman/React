@@ -21,13 +21,16 @@ export default function User_reg() {
     e.preventDefault();
     // e.persist();
     axios
-      .post("http://localhost/React/restaurant/restaurantApi/addusers.php", {
-        name: userInfo.name,
-        email: userInfo.email,
-        contact: userInfo.contact,
-        address: userInfo.address,
-        password: userInfo.password,
-      })
+      .post(
+        "http://localhost/React/restaurant/public/restaurantApi/addusers.php",
+        {
+          name: userInfo.name,
+          email: userInfo.email,
+          contact: userInfo.contact,
+          address: userInfo.address,
+          password: userInfo.password,
+        }
+      )
       .then((res) => {
         alert(res.data.msg);
         // console.log(res.data.msg);
