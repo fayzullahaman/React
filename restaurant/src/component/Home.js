@@ -355,7 +355,8 @@ export default function Home() {
                         {/* <img className="img-fluid" src={item.image} alt="" /> */}
                         <img
                           // className="flex-shrink-0 img-fluid rounded"
-                          src="assets/img/menu-9.jpg"
+                          // src="assets/img/menu-9.jpg"
+                          src={item.image}
                           alt=""
                           style={{ width: "250px" }}
                         />
