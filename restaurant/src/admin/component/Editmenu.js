@@ -86,7 +86,7 @@ export default function Editmenu() {
                     className="form-control"
                   />
 
-                  <label className="fw-bold">Details</label>
+                  <label className="fw-bold mt-2">Details</label>
                   <textarea
                     type="text"
                     name="details"
@@ -95,7 +95,7 @@ export default function Editmenu() {
                     className="form-control"
                   ></textarea>
 
-                  <label className="fw-bold">Price</label>
+                  <label className="fw-bold mt-2">Price</label>
                   <input
                     type="text"
                     name="price"
@@ -104,7 +104,7 @@ export default function Editmenu() {
                     className="form-control"
                   />
 
-                  <label className="fw-bold">Category</label>
+                  <label className="fw-bold mt-2">Category</label>
                   <input
                     type="text"
                     name="category"
@@ -113,7 +113,7 @@ export default function Editmenu() {
                     className="form-control"
                   />
 
-                  <label className="fw-bold">Image</label>
+                  <label className="fw-bold mt-2">Image</label>
                   <input
                     type="text"
                     name="image"

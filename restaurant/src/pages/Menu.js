@@ -159,7 +159,7 @@ export default function Menu() {
                         {/* <img className="img-fluid" src={item.image} alt="" /> */}
                         <img
                           // src="assets/img/menu-9.jpg"
-                          src={item.image}
+                          src={`/assets/img/uploads/${item.image}`}
                           alt="Phood-image"
                           style={{ width: "250px" }}
                         />
