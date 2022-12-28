@@ -94,16 +94,17 @@ function App() {
               <h1 className="title pb-3 mb-5">About Me</h1>
               <p style={{ textAlign: "justify" }}>
                 Assalamu Alaikum. <br />
-                Nice to meet you! I have done web design and development
-                training from IsDB-BISEW. Now I am working in web design and
-                development. Languages I know are HTML, CSS, Bootstrap,
-                JavaScript, Jquery, PHP, MySQL, WordPress, Angular, React js,
-                CodeIgniter. I am very interested in sharing my skills in web
-                development to the public. My passion is creating and developing
-                a professional, beautiful website. I am committed to maintain a
-                professional relationship with my clients and provide efficient
-                and reliable service according to their needs. Contact me now to
-                discuss your next project.
+                Nice to meet you! I have 5 years of experience as computer
+                operator. Recently I completed web development course from
+                IsDB-BISEW and gained experience in web development. Now I am
+                working in web design and development. Languages I know are
+                HTML, CSS, Bootstrap, JavaScript, Jquery, PHP, MySQL, WordPress,
+                Angular, React js, CodeIgniter. I am very interested in sharing
+                my skills in web development to the public. My passion is
+                creating and developing a professional, beautiful website. I am
+                committed to maintain a professional relationship with my
+                clients and provide efficient and reliable service according to
+                their needs. Contact me now to discuss your next project.
               </p>
               <div className="row mb-4">
                 <div className="col-sm-6 py-1">

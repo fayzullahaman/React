@@ -45,6 +45,14 @@ export default function Allmenu() {
         allMenu();
       });
   };
+  // pagination
+
+  // const []
+  // const
+  // const
+  // const
+
+  // pagination
 
   return (
     <div className="col-sm-10">
@@ -67,10 +75,10 @@ export default function Allmenu() {
               <thead>
                 <tr>
                   <th>SL</th>
+                  <th>Image</th>
                   <th>Name</th>
                   <th>Details</th>
                   <th>Price</th>
-                  <th>Image</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -78,10 +86,17 @@ export default function Allmenu() {
                 {menu.map((item, index) => (
                   <tr>
                     <td>{index + 1}</td>
+                    <td>
+                      <img
+                        src={`/assets/img/uploads/${item.image}`}
+                        alt="Phood-image"
+                        style={{ width: "70px" }}
+                      />
+                      {/* {item.image} */}
+                    </td>
                     <td>{item.name}</td>
                     <td>{item.details}</td>
                     <td>{item.price}</td>
-                    <td>{item.image}</td>
                     <td>
                       <Link
                         to={`/admin/editmenu/${item.id}`}
@@ -102,10 +117,10 @@ export default function Allmenu() {
               <tfoot>
                 <tr>
                   <th>SL</th>
+                  <th>Image</th>
                   <th>Name</th>
                   <th>Details</th>
                   <th>Price</th>
-                  <th>Image</th>
                   <th>Action</th>
                 </tr>
               </tfoot>

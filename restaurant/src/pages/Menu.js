@@ -164,7 +164,7 @@ export default function Menu() {
                           alt=""
 =======
                           // src="assets/img/menu-9.jpg"
-                          src={item.image}
+                          src={`/assets/img/uploads/${item.image}`}
                           alt="Phood-image"
 >>>>>>> 4a78a0a3b1290b06d0c2905805acaf8573ec3896
                           style={{ width: "250px" }}

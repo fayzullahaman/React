@@ -12,14 +12,14 @@ if (isset($_POST['mydata']) && isset($_FILES['mydata1'])) {
    $category = $data->category;
 
    $file = $_FILES['mydata1'];
-   print_r($file);
+   // print_r($file);
 
    $image_name = $file["name"];
    $image_tmp_name = $file["tmp_name"];
    $image_size = $file["size"];
    $error = $file["error"];
 
-   $url = "uploads/";
+   $url = "../assets/img/uploads/";
    $imagepath = $url . $image_name;
 
    $image_name = time() . $image_name;
@@ -28,7 +28,7 @@ if (isset($_POST['mydata']) && isset($_FILES['mydata1'])) {
 
    if (empty($error) === true) {
       move_uploaded_file($image_tmp_name, $url . $image_name);
-      $db_conn->query("INSERT INTO menu (name, details, price, category, image) VALUES ('$name', '$details', '$price', '$category', '$imagepath')");
+      $db_conn->query("INSERT INTO menu (name, details, price, category, image) VALUES ('$name', '$details', '$price', '$category', '$image_name')");
    }
    echo json_encode(["msg" => "Successfully Inserted"]);
 } else {
