@@ -43,8 +43,6 @@ https://www.geeksforgeeks.org/reactjs-lifecycle-components/
 https://devooti.com/react-crud-operations-using-php-api-and-mysqli/
 
 
-
-
 07/12/2022
 
 reactjs_login_registration
@@ -60,3 +58,7 @@ axios
 api
 -Registration.php
 -login.php
+
+npm install react-owl-carousel --save
+
+npm i react-simple-typewriter

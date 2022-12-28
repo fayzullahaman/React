@@ -23,13 +23,16 @@ export default function Edituser() {
 
   const userSubmit = () => {
     axios
-      .post("http://localhost/React/restaurant/restaurantApi/edituser.php", {
-        id: userInfo.id,
-        name: userInfo.name,
-        email: userInfo.email,
-        contact: userInfo.contact,
-        address: userInfo.address,
-      })
+      .post(
+        "http://localhost/React/restaurant/public/restaurantApi/edituser.php",
+        {
+          id: userInfo.id,
+          name: userInfo.name,
+          email: userInfo.email,
+          contact: userInfo.contact,
+          address: userInfo.address,
+        }
+      )
       .then((res) => {
         naviGate("/admin/alluser");
         alert(res.data.msg);
@@ -49,9 +52,12 @@ export default function Edituser() {
 
   const userOne = async (id) => {
     axios
-      .post("http://localhost/React/restaurant/restaurantApi/getuser.php", {
-        userid: id,
-      })
+      .post(
+        "http://localhost/React/restaurant/public/restaurantApi/getuser.php",
+        {
+          userid: id,
+        }
+      )
       .then((res) => {
         setUserInfo(res.data.items.userdata);
         //   console.log(res.data.items.userdata);

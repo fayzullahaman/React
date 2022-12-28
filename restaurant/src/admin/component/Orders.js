@@ -21,7 +21,9 @@ export default function Orders() {
 
   const allOrder = async () => {
     axios
-      .get("http://localhost/React/restaurant/restaurantApi/allorder.php")
+      .get(
+        "http://localhost/React/restaurant/public/restaurantApi/allorder.php"
+      )
       .then((res) => {
         setOrders(res.data.datas.myorder);
         //   console.log(res.data.datas.myorder);
@@ -34,9 +36,12 @@ export default function Orders() {
 
   const delOrder = async (id) => {
     axios
-      .post("http://localhost/React/restaurant/restaurantApi/delorder.php", {
-        orderid: id,
-      })
+      .post(
+        "http://localhost/React/restaurant/public/restaurantApi/delorder.php",
+        {
+          orderid: id,
+        }
+      )
       .then((res) => {
         alert(res.data.msg);
         allOrder();

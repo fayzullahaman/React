@@ -24,12 +24,15 @@ export default function Editchefs() {
 
   const chefsSubmit = () => {
     axios
-      .post("http://localhost/React/restaurant/restaurantApi/editchefs.php", {
-        id: chefs.chf_id,
-        name: chefs.chf_name,
-        designation: chefs.chf_designation,
-        image: chefs.chf_image,
-      })
+      .post(
+        "http://localhost/React/restaurant/public/restaurantApi/editchefs.php",
+        {
+          id: chefs.chf_id,
+          name: chefs.chf_name,
+          designation: chefs.chf_designation,
+          image: chefs.chf_image,
+        }
+      )
       .then((res) => {
         naviGate("/admin/allchefs");
         alert(res.data.msg);
@@ -46,9 +49,12 @@ export default function Editchefs() {
   };
   const chefsOne = async (id) => {
     axios
-      .post("http://localhost/React/restaurant/restaurantApi/getchefs.php", {
-        chid: id,
-      })
+      .post(
+        "http://localhost/React/restaurant/public/restaurantApi/getchefs.php",
+        {
+          chid: id,
+        }
+      )
       .then((res) => {
         setChefs(res.data.item.chdata);
         // console.log(res.data.item.chdata);

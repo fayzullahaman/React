@@ -21,12 +21,15 @@ export default function Contact() {
     e.preventDefault();
     e.persist();
     axios
-      .post("http://localhost/React/restaurant/restaurantApi/contact.php", {
-        name: contactinfo.name,
-        email: contactinfo.email,
-        subject: contactinfo.subject,
-        message: contactinfo.message,
-      })
+      .post(
+        "http://localhost/React/restaurant/public/restaurantApi/contact.php",
+        {
+          name: contactinfo.name,
+          email: contactinfo.email,
+          subject: contactinfo.subject,
+          message: contactinfo.message,
+        }
+      )
       .then((result) => {
         alert(result.data.msg);
         // console.log(result.data.msg);

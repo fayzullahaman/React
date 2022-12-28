@@ -31,7 +31,7 @@ export default function Menu() {
 
   const allMenu = async () => {
     axios
-      .get("http://localhost/React/restaurant/restaurantApi/allmenu.php")
+      .get("http://localhost/React/restaurant/public/restaurantApi/allmenu.php")
       .then((res) => {
         setMenu(res.data.datas.menus);
         // console.log(res.data.datas.menus);
@@ -158,9 +158,15 @@ export default function Menu() {
                       <div className=" overflow-hidden m-3">
                         {/* <img className="img-fluid" src={item.image} alt="" /> */}
                         <img
+<<<<<<< HEAD
                           src="assets/img/menu-9.jpg"
                           // src={item.image}
                           alt=""
+=======
+                          // src="assets/img/menu-9.jpg"
+                          src={item.image}
+                          alt="Phood-image"
+>>>>>>> 4a78a0a3b1290b06d0c2905805acaf8573ec3896
                           style={{ width: "250px" }}
                         />
                       </div>

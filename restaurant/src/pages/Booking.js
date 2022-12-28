@@ -21,13 +21,16 @@ export default function Booking() {
     e.preventDefault();
     e.persist();
     axios
-      .post("http://localhost/React/restaurant/restaurantApi/order.php", {
-        name: orderInfo.name,
-        email: orderInfo.email,
-        address: orderInfo.address,
-        contact: orderInfo.contact,
-        message: orderInfo.message,
-      })
+      .post(
+        "http://localhost/React/restaurant/public/restaurantApi/order.php",
+        {
+          name: orderInfo.name,
+          email: orderInfo.email,
+          address: orderInfo.address,
+          contact: orderInfo.contact,
+          message: orderInfo.message,
+        }
+      )
       .then((result) => {
         alert(result.data.msg);
         naviGate("/menu");

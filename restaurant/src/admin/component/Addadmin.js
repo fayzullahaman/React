@@ -29,12 +29,15 @@ export default function Addadmin() {
     e.preventDefault();
     e.persist();
     axios
-      .post("http://localhost/React/restaurant/restaurantApi/addadmin.php", {
-        name: adminInfo.name,
-        email: adminInfo.email,
-        password: adminInfo.password,
-        image: adminInfo.image,
-      })
+      .post(
+        "http://localhost/React/restaurant/public/restaurantApi/addadmin.php",
+        {
+          name: adminInfo.name,
+          email: adminInfo.email,
+          password: adminInfo.password,
+          image: adminInfo.image,
+        }
+      )
       .then((result) => {
         alert(result.data.msg);
         navigate("/admin/alladmin");

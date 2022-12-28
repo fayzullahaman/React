@@ -13,17 +13,37 @@ export default function Addmenu() {
     }
   });
 
+  const [menuInfo, menuinfoSet] = useState({
+    name: "",
+    details: "",
+    price: "",
+    category: "",
+  });
+
   const [image, setImage] = useState({
     file: "",
   });
 
+  const changeValue = (e) => {
+    menuinfoSet({ ...menuInfo, [e.target.name]: e.target.value });
+  };
+
+  const changeImage = (e) => {
+    setImage({ file: e.target.files[0] });
+  };
+  const SubmitValue = (e) => {
+    // alert("Submitted");
+    e.preventDefault();
+    fileUpload();
+  };
+
   const fileUpload = () => {
     let datas = new FormData();
-    // datas.append("mydata", JSON.stringify(menuInfo));
+    datas.append("mydata", JSON.stringify(menuInfo));
     datas.append("mydata1", image.file);
     axios
       .post(
-        "http://localhost/React/restaurant/restaurantApi/addmenu.php",
+        "http://localhost/React/restaurant/public/restaurantApi/addmenu.php",
         datas,
         {
           headers: {
@@ -32,44 +52,12 @@ export default function Addmenu() {
         }
       )
       .then((res) => {
-        console.log(res.data.msg);
-      });
-  };
-
-  const changeImage = (e) => {
-    setImage({ file: e.target.files[0] });
-  };
-
-  const [menuInfo, menuinfoSet] = useState({
-    name: "",
-    details: "",
-    price: "",
-    category: "",
-    image: "",
-  });
-
-  const changeValue = (e) => {
-    menuinfoSet({ ...menuInfo, [e.target.name]: e.target.value });
-  };
-
-  const SubmitValue = async (e) => {
-    // alert("Submitted");
-    e.preventDefault();
-    fileUpload();
-    e.persist();
-    axios
-      .post("http://localhost/React/restaurant/restaurantApi/addmenu.php", {
-        name: menuInfo.name,
-        details: menuInfo.details,
-        price: menuInfo.price,
-        category: menuInfo.category,
-        image: menuInfo.image,
-      })
-      .then((result) => {
-        alert(result.data.msg);
+        alert(res.data.msg);
+        // console.log(res.data.msg);
         navigate("/admin/allmenu");
       });
   };
+
   return (
     <>
       <div className="col-sm-10">

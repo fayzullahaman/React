@@ -21,7 +21,7 @@ export default function Allmenu() {
 
   const allMenu = async () => {
     axios
-      .get("http://localhost/React/restaurant/restaurantApi/allmenu.php")
+      .get("http://localhost/React/restaurant/public/restaurantApi/allmenu.php")
       .then((res) => {
         setMenu(res.data.datas.menus);
         // console.log(res.data.datas.menus);
@@ -34,9 +34,12 @@ export default function Allmenu() {
 
   const delMenu = async (id) => {
     axios
-      .post("http://localhost/React/restaurant/restaurantApi/delmenu.php", {
-        menuid: id,
-      })
+      .post(
+        "http://localhost/React/restaurant/public/restaurantApi/delmenu.php",
+        {
+          menuid: id,
+        }
+      )
       .then((res) => {
         alert(res.data.msg);
         allMenu();
@@ -59,7 +62,7 @@ export default function Allmenu() {
             </ul>
           </div>
 
-          <div className="card-body">
+          <div className="card-body ">
             <table id="example1" className="table table-bordered table-striped">
               <thead>
                 <tr>

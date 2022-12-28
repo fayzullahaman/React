@@ -21,7 +21,9 @@ export default function Alladmin() {
 
   const allAdmin = async () => {
     axios
-      .get("http://localhost/React/restaurant/restaurantApi/alladmin.php")
+      .get(
+        "http://localhost/React/restaurant/public/restaurantApi/alladmin.php"
+      )
       .then((res) => {
         setAdmin(res.data.datas.myadmin);
       });
@@ -33,9 +35,12 @@ export default function Alladmin() {
 
   const delAdmin = async (id) => {
     axios
-      .post("http://localhost/React/restaurant/restaurantApi/deladmin.php", {
-        adminid: id,
-      })
+      .post(
+        "http://localhost/React/restaurant/public/restaurantApi/deladmin.php",
+        {
+          adminid: id,
+        }
+      )
       .then((res) => {
         alert(res.data.msg);
         allAdmin();

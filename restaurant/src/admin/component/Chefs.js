@@ -21,7 +21,7 @@ export default function Chefs() {
   console.log(chefs);
   const allChefs = async () => {
     axios
-      .get("http://localhost/React/restaurant/restaurantApi/chefs.php")
+      .get("http://localhost/React/restaurant/public/restaurantApi/chefs.php")
       .then((res) => {
         setChefs(res.data.item.chefs);
       });
@@ -33,9 +33,12 @@ export default function Chefs() {
 
   const delChefs = async (id) => {
     axios
-      .post("http://localhost/React/restaurant/restaurantApi/delchefs.php", {
-        chefsid: id,
-      })
+      .post(
+        "http://localhost/React/restaurant/public/restaurantApi/delchefs.php",
+        {
+          chefsid: id,
+        }
+      )
       .then((res) => {
         alert(res.data.msg);
         allChefs();

@@ -16,7 +16,7 @@ export default function Home() {
 
   const allMenu = async () => {
     axios
-      .get("https://restaurant.bdprogrammers.com/restaurantApi/allmenu.php")
+      .get("http://localhost/React/restaurant/public/restaurantApi/allmenu.php")
       .then((res) => {
         setMenu(res.data.datas.menus);
         // console.log(res.data.datas.menus);
@@ -47,7 +47,9 @@ export default function Home() {
 
   const allservice = async () => {
     axios
-      .get("https://restaurant.bdprogrammers.com/restaurantApi/services.php")
+      .get(
+        "http://localhost/React/restaurant/public/restaurantApi/services.php"
+      )
       .then((res) => {
         setService(res.data.item.services);
         // console.log(res.data.item.services);
@@ -61,7 +63,7 @@ export default function Home() {
   }, []);
   const allteam = async () => {
     axios
-      .get("https://restaurant.bdprogrammers.com/restaurantApi/chefs.php")
+      .get("http://localhost/React/restaurant/public/restaurantApi/chefs.php")
       .then((res) => {
         setTeam(res.data.item.chefs);
         // console.log(res.data.item.chefs);
@@ -87,13 +89,16 @@ export default function Home() {
     e.preventDefault();
     e.persist();
     axios
-      .post("https://restaurant.bdprogrammers.com/restaurantApi/order.php", {
-        name: orderInfo.name,
-        email: orderInfo.email,
-        address: orderInfo.address,
-        contact: orderInfo.contact,
-        message: orderInfo.message,
-      })
+      .post(
+        "http://localhost/React/restaurant/public/restaurantApi/order.php",
+        {
+          name: orderInfo.name,
+          email: orderInfo.email,
+          address: orderInfo.address,
+          contact: orderInfo.contact,
+          message: orderInfo.message,
+        }
+      )
       .then((result) => {
         alert(result.data.msg);
         naviGate("/menu");

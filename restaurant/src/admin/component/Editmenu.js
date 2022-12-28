@@ -23,14 +23,17 @@ export default function Editmenu() {
 
   const menuSubmit = () => {
     axios
-      .post("http://localhost/React/restaurant/restaurantApi/editmenu.php", {
-        id: menu.id,
-        name: menu.name,
-        details: menu.details,
-        price: menu.price,
-        category: menu.category,
-        image: menu.image,
-      })
+      .post(
+        "http://localhost/React/restaurant/public/restaurantApi/editmenu.php",
+        {
+          id: menu.id,
+          name: menu.name,
+          details: menu.details,
+          price: menu.price,
+          category: menu.category,
+          image: menu.image,
+        }
+      )
       .then((res) => {
         naviGate("/admin/allmenu");
         alert(res.data.msg);
@@ -50,9 +53,12 @@ export default function Editmenu() {
 
   const menuOne = async (id) => {
     axios
-      .post("http://localhost/React/restaurant/restaurantApi/getmenu.php", {
-        muid: id,
-      })
+      .post(
+        "http://localhost/React/restaurant/public/restaurantApi/getmenu.php",
+        {
+          muid: id,
+        }
+      )
       .then((res) => {
         setMenu(res.data.items.mudata);
         // console.log(res.data.items.mudata);

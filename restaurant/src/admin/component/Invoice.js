@@ -10,7 +10,9 @@ export default function Invoice() {
 
   const allOrder = async () => {
     axios
-      .get("http://localhost/React/restaurant/restaurantApi/allorder.php")
+      .get(
+        "http://localhost/React/restaurant/public/restaurantApi/allorder.php"
+      )
       .then((res) => {
         setOrderInfo(res.data.datas.myorder);
         // console.log(res.data.datas.menus);

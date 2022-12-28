@@ -17,7 +17,10 @@ export default function Admin_login() {
   const formSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost/React/restaurant/restaurantApi/login.php", admin)
+      .post(
+        "http://localhost/React/restaurant/public/restaurantApi/login.php",
+        admin
+      )
       .then((res) => {
         // console.log(res.data);
         if (res.data.success) {
