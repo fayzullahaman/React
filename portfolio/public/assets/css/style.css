@@ -122,14 +122,78 @@
   background: var(--primary);
 }
 
-.progress {
-  height: 5px;
+.progress {  
+  height: 10px;
+  width: 350px;
 }
 
-.progress .progress-bar {
-  width: 0px;
-  transition: 2s;
+.progress-value {
+  animation: load 3s normal forwards;  
+  height: 10px;   
 }
+@keyframes load {
+  0% { width: 0; }
+  100% { width: 95%; }
+}
+
+.progress-value1 {
+  animation: load1 3s normal forwards;  
+  height: 10px;   
+}
+@keyframes load1 {
+  0% { width: 0; }
+  100% { width: 75%; }
+}
+
+.progress-value2 {
+  animation: load2 3s normal forwards;  
+  height: 10px;
+}
+@keyframes load2 {
+  0% { width: 0; }
+  100% { width: 70%; }
+}
+.progress-value3 {
+  animation: load3 3s normal forwards;  
+  height: 10px;   
+}
+@keyframes load3 {
+  0% { width: 0; }
+  100% { width: 60%; }
+}
+.progress-value4 {
+  animation: load4 3s normal forwards;  
+  height: 10px;   
+}
+@keyframes load4 {
+  0% { width: 0; }
+  100% { width: 65%; }
+}
+.progress-value5 {
+  animation: load5 3s normal forwards;  
+  height: 10px;   
+}
+@keyframes load5 {
+  0% { width: 0; }
+  100% { width: 75%; }
+}
+.progress-value6 {
+  animation: load6 3s normal forwards;  
+  height: 10px;   
+}
+@keyframes load6 {
+  0% { width: 0; }
+  100% { width: 65%; }
+}
+.progress-value7 {
+  animation: load7 3s normal forwards;  
+  height: 10px;   
+}
+@keyframes load7 {
+  0% { width: 0; }
+  100% { width: 75%; }
+}
+
 
 .service-item {
   padding: 30px;
@@ -200,16 +264,11 @@
 .testimonial-carousel .owl-dot.active {
   background: var(--primary);
 }
-
-ul li {
-  list-style: none;
-  width: 50px;
-  height: 20px;
-  text-align: center;
-  margin-left: 100px;
-  border-radius: 10%;
+/* 
+ul li {    
+  width: 120px !important;
+  font-size: 18px !important;  
 }
 ul li:hover{
-  background-color: #009cb8;
-  
-}
+  background-color: #009cb8 !important;
+} */

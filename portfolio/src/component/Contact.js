@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { Link } from "react-router-dom";
 
 export default function Contact() {
   const form = useRef();
@@ -15,7 +16,7 @@ export default function Contact() {
       .then(
         (result) => {
           console.log(result.text);
-          console.log("message sent");
+          alert("Message sent successfully");
         },
         (error) => {
           console.log(error.text);
@@ -25,7 +26,17 @@ export default function Contact() {
   return (
     <div className="col-lg-8">
       <section className="py-5 wow fadeInUp" data-wow-delay="0.1s" id="contact">
-        <h1 className="title pb-3 mb-5">Contact Me</h1>
+        <div className="d-flex justify-content-between">
+          <h1 className="title pb-3 mb-5">Contact Me</h1>
+          <Link
+            to="/"
+            className="btn btn-info mt-2"
+            style={{ width: "130px", height: "40px" }}
+          >
+            Back To Home
+          </Link>
+        </div>
+
         <form ref={form} onSubmit={sendEmail}>
           <div className="row g-3">
             <div className="col-md-6">

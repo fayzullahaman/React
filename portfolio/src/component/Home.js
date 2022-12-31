@@ -1,8 +1,19 @@
 import React, { useRef } from "react";
 import OwlCarousel from "react-owl-carousel";
 import emailjs from "@emailjs/browser";
+import { useSpring, animated } from "react-spring";
 
 export default function Home() {
+  function Number({ n }) {
+    const { number } = useSpring({
+      from: { number: 0 },
+      number: n,
+      delay: 200,
+      config: { mass: 1, tension: 20, friction: 10 },
+    });
+    return <animated.div>{number.to((n) => n.toFixed(0))}</animated.div>;
+  }
+
   const form = useRef();
   const sendEmail = (e) => {
     e.preventDefault();
@@ -16,7 +27,7 @@ export default function Home() {
       .then(
         (result) => {
           console.log(result.text);
-          console.log("message sent");
+          alert("Message sent successfully");
         },
         (error) => {
           console.log(error.text);
@@ -36,12 +47,13 @@ export default function Home() {
           Recently I completed web development course from IsDB-BISEW and gained
           experience in web development. Now I am working in web design and
           development. Languages I know are HTML, CSS, Bootstrap, JavaScript,
-          Jquery, PHP, MySQL, WordPress, Angular, React js, CodeIgniter. I am
-          very interested in sharing my skills in web development to the public.
-          My passion is creating and developing a professional, beautiful
-          website. I am committed to maintain a professional relationship with
-          my clients and provide efficient and reliable service according to
-          their needs. Contact me now to discuss your next project.
+          jQuery, PHP, MySQL, WordPress, Angular, React js, CodeIgniter, Laravel
+          and Vue. I am very interested in sharing my skills in web development
+          to the public. My passion is creating and developing a professional,
+          beautiful website. I am committed to maintain a professional
+          relationship with my clients and provide efficient and reliable
+          service according to their needs. Contact me now to discuss your next
+          project.
         </p>
         <div className="row mb-4">
           <div className="col-sm-6 py-1">
@@ -52,7 +64,7 @@ export default function Home() {
             1995
           </div>
           <div className="col-sm-6 py-1">
-            <span className="fw-medium text-info">Degree:</span> Master
+            <span className="fw-medium text-info">Degree:</span> Master's
           </div>
           <div className="col-sm-6 py-1">
             <span className="fw-medium text-info">Experience:</span> 1 Years
@@ -62,7 +74,7 @@ export default function Home() {
             +01916 955766
           </div>
           <div className="col-sm-6 py-1">
-            <span className="fw-medium text-info">Email:</span>{" "}
+            <span className="fw-medium text-info">Email: </span>
             fayzullahaman@gmail.com
           </div>
           <div className="col-sm-6 py-1">
@@ -80,7 +92,7 @@ export default function Home() {
                 className="flex-shrink-0 display-5 text-info mb-0"
                 data-toggle="counter-up"
               >
-                01
+                <Number n={1} />
               </h1>
               <div className="ps-3">
                 <p className="mb-0">Years of</p>
@@ -94,7 +106,7 @@ export default function Home() {
                 className="flex-shrink-0 display-5 text-info mb-0"
                 data-toggle="counter-up"
               >
-                00
+                <Number n={0} />
               </h1>
               <div className="ps-3">
                 <p className="mb-0">Happy</p>
@@ -108,7 +120,7 @@ export default function Home() {
                 className="flex-shrink-0 display-5 text-info mb-0"
                 data-toggle="counter-up"
               >
-                05
+                <Number n={5} />
               </h1>
               <div className="ps-3">
                 <p className="mb-0">Complete</p>
@@ -128,65 +140,45 @@ export default function Home() {
             <div className="skill mb-4">
               <div className="d-flex justify-content-between">
                 <p className="mb-2">HTML</p>
-                <p className="mb-2">95%</p>
+                <p className="mb-2 d-flex">
+                  <Number n={95} />%
+                </p>
               </div>
               <div className="progress">
-                <div
-                  className="progress-bar bg-info"
-                  role="progressbar"
-                  aria-valuenow={95}
-                  aria-valuemin={0}
-                  aria-valuemax={100}
-                  style={{ width: "95%" }}
-                ></div>
+                <div className="bg-info progress-value"></div>
               </div>
             </div>
             <div className="skill mb-4">
               <div className="d-flex justify-content-between">
                 <p className="mb-2">CSS</p>
-                <p className="mb-2">75%</p>
+                <p className="mb-2 d-flex">
+                  <Number n={75} />%
+                </p>
               </div>
               <div className="progress">
-                <div
-                  className="progress-bar bg-warning"
-                  role="progressbar"
-                  aria-valuenow={75}
-                  aria-valuemin={0}
-                  aria-valuemax={100}
-                  style={{ width: "75%" }}
-                ></div>
+                <div className="bg-primary progress-value1"></div>
               </div>
             </div>
             <div className="skill mb-4">
               <div className="d-flex justify-content-between">
                 <p className="mb-2">PHP</p>
-                <p className="mb-2">70%</p>
+                <p className="mb-2 d-flex">
+                  <Number n={70} />%
+                </p>
               </div>
               <div className="progress">
-                <div
-                  className="progress-bar bg-danger"
-                  role="progressbar"
-                  aria-valuenow={70}
-                  aria-valuemin={0}
-                  aria-valuemax={100}
-                  style={{ width: "70%" }}
-                ></div>
+                <div className="progress-value2 bg-danger"></div>
               </div>
             </div>
             <div className="skill mb-4">
               <div className="d-flex justify-content-between">
                 <p className="mb-2">Javascript</p>
-                <p className="mb-2">60%</p>
+                <p className="mb-2 d-flex">
+                  <Number n={60} />%
+                </p>
               </div>
               <div className="progress">
-                <div
-                  className="progress-bar bg-info"
-                  role="progressbar"
-                  aria-valuenow={60}
-                  aria-valuemin={0}
-                  aria-valuemax={100}
-                  style={{ width: "60%" }}
-                ></div>
+                <div className="progress-value3 bg-warning"></div>
               </div>
             </div>
           </div>
@@ -194,65 +186,45 @@ export default function Home() {
             <div className="skill mb-4">
               <div className="d-flex justify-content-between">
                 <p className="mb-2">Jquery</p>
-                <p className="mb-2">65%</p>
+                <p className="mb-2 d-flex">
+                  <Number n={65} />%
+                </p>
               </div>
               <div className="progress">
-                <div
-                  className="progress-bar bg-info"
-                  role="progressbar"
-                  aria-valuenow={65}
-                  aria-valuemin={0}
-                  aria-valuemax={100}
-                  style={{ width: "65%" }}
-                ></div>
+                <div className="progress-value4 bg-success"></div>
               </div>
             </div>
             <div className="skill mb-4">
               <div className="d-flex justify-content-between">
                 <p className="mb-2">React js</p>
-                <p className="mb-2">75%</p>
+                <p className="mb-2 d-flex">
+                  <Number n={75} />%
+                </p>
               </div>
               <div className="progress">
-                <div
-                  className="progress-bar bg-warning"
-                  role="progressbar"
-                  aria-valuenow={75}
-                  aria-valuemin={0}
-                  aria-valuemax={100}
-                  style={{ width: "75%" }}
-                ></div>
+                <div className="progress-value5 bg-warning"></div>
               </div>
             </div>
             <div className="skill mb-4">
               <div className="d-flex justify-content-between">
                 <p className="mb-2">Angular JS</p>
-                <p className="mb-2">65%</p>
+                <p className="mb-2 d-flex">
+                  <Number n={65} />%
+                </p>
               </div>
               <div className="progress">
-                <div
-                  className="progress-bar bg-success"
-                  role="progressbar"
-                  aria-valuenow={65}
-                  aria-valuemin={0}
-                  aria-valuemax={100}
-                  style={{ width: "65%" }}
-                ></div>
+                <div className="progress-value6 bg-secondary"></div>
               </div>
             </div>
             <div className="skill mb-4">
               <div className="d-flex justify-content-between">
                 <p className="mb-2">Wordpress</p>
-                <p className="mb-2">75%</p>
+                <p className="mb-2 d-flex">
+                  <Number n={75} />%
+                </p>
               </div>
               <div className="progress">
-                <div
-                  className="progress-bar bg-danger"
-                  role="progressbar"
-                  aria-valuenow={75}
-                  aria-valuemin={0}
-                  aria-valuemax={100}
-                  style={{ width: "75%" }}
-                ></div>
+                <div className="progress-value7 bg-info"></div>
               </div>
             </div>
           </div>
@@ -265,62 +237,71 @@ export default function Home() {
         <h1 className="title pb-3 mb-5">Expericence</h1>
         <div className="position-relative mb-4">
           <h5 className="mb-1">Computer Operator</h5>
-          <p className="mb-2">
-            The Royal Scintific Publication | <small>2018 - 2022</small>
-          </p>
-          <p>
-            Tempor eos dolore amet tempor dolor tempor. Dolore ea magna sit amet
-            dolor eirmod. Eos ipsum est tempor dolor. Clita lorem kasd sed ea
-            lorem diam ea lorem eirmod duo sit ipsum stet lorem diam
-          </p>
+          <p className="mb-2">The Royal Scintific Publication</p>
+          <small>2018 - 2022</small>
         </div>
         <div className="position-relative mb-4">
-          <h5 className="mb-1">Computer Operator</h5>
-          <p className="mb-2">
-            Golden Harvest | <small>2017 - 2018</small>
-          </p>
-          <p>
-            Tempor eos dolore amet tempor dolor tempor. Dolore ea magna sit amet
-            dolor eirmod. Eos ipsum est tempor dolor. Clita lorem kasd sed ea
-            lorem diam ea lorem eirmod duo sit ipsum stet lorem diam
-          </p>
+          <h5 className="mb-1">Data Entry Operator</h5>
+          <p className="mb-2">Golden Harvest</p>
+          <small>2017 - 2018</small>
         </div>
         <div className="position-relative mb-4">
-          <h5 className="mb-1">Computer Operator</h5>
-          <p className="mb-2">
-            Computer Graphic Design Ltd | <small>2016 - 2017</small>
-          </p>
-          <p>
-            Tempor eos dolore amet tempor dolor tempor. Dolore ea magna sit amet
-            dolor eirmod. Eos ipsum est tempor dolor. Clita lorem kasd sed ea
-            lorem diam ea lorem eirmod duo sit ipsum stet lorem diam
-          </p>
+          <h5 className="mb-1">Data Entry Operator</h5>
+          <p className="mb-2">Computer Graphic Design Ltd</p>
+          <small>2016 - 2017</small>
         </div>
       </section>
-
       <section
         className="py-5 border-bottom wow fadeInUp"
         data-wow-delay="0.1s"
       >
-        <div className="bg-secondary text-center p-5">
-          <h1 className="text-white font-weight-bold">
-            Subscribe My Newsletter
-          </h1>
-          <p className="text-white">
-            Subscribe and get my latest article in your inbox
-          </p>
-          <div className="position-relative w-100">
-            <input
-              className="form-control bg-dark border-0 w-100 py-3 ps-4 pe-5"
-              type="text"
-              placeholder="Your email"
-            />
-            <button
-              type="button"
-              className="btn btn-info py-2 position-absolute top-0 end-0 mt-2 me-2"
-            >
-              Subscribe
-            </button>
+        <h1 className="title pb-3 mb-5">Education</h1>
+        <div className="position-relative mb-4">
+          <div className="row g-4">
+            <div className="col-md-4 col-lg-6 col-xl-6">
+              <div className="d-flex bg-secondary p-4">
+                <div className="ps-3">
+                  <h4 className="mb-1">MA / Masters</h4>
+                  <p className="mb-2">Al-Hadith & islamic Studies</p>
+                  <p>
+                    Islamic University Kushtia <br /> 2016-2017
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-4 col-lg-6 col-xl-6">
+              <div className="d-flex bg-secondary p-4">
+                <div className="ps-3">
+                  <h4 className="mb-1">BA / Honours</h4>
+                  <p className="mb-2">Al-Hadith & islamic Studies</p>
+                  <p>
+                    Islamic University Kushtia <br /> 2012-2016
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-4 col-lg-6 col-xl-6">
+              <div className="d-flex bg-secondary p-4">
+                <div className="ps-3">
+                  <h5 className="mb-1">HSC / Alim</h5>
+                  <p className="mb-2">Humanities</p>
+                  <p>
+                    Khamar Bari Nesaria Fazil Madrasah <br /> 2012
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-4 col-lg-6 col-xl-6">
+              <div className="d-flex bg-secondary p-4">
+                <div className="ps-3">
+                  <h5 className="mb-1">SSC / Dakhil</h5>
+                  <p className="mb-2">Science</p>
+                  <p>
+                    Darunnazat Siddikia Kamil Madrasah <br /> 2010
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -406,11 +387,8 @@ export default function Home() {
                     alt="Protfolio Image"
                   />
                   <div className="portfolio-btn d-flex align-items-center justify-content-center">
-                    <a
-                      href="https://restaurant.bdprogrammers.com"
-                      // data-lightbox="portfolio"
-                    >
-                      {/* <i className="bi bi-plus text-light"></i> */}
+                    <a href="https://restaurant.bdprogrammers.com">
+                      <i className="bi bi-plus text-light"></i>
                     </a>
                   </div>
                 </div>
@@ -424,10 +402,7 @@ export default function Home() {
                     alt="Protfolio Image"
                   />
                   <div className="portfolio-btn d-flex align-items-center justify-content-center">
-                    <a
-                      href="/assets/img/portfolio-2.jpg"
-                      data-lightbox="portfolio"
-                    >
+                    <a href="https://employee.bdprogrammers.com/">
                       <i className="bi bi-plus text-light"></i>
                     </a>
                   </div>
@@ -606,9 +581,9 @@ export default function Home() {
       <section className="wow fadeIn" data-wow-delay="0.1s">
         <div className="bg-secondary text-light text-center p-5">
           <div className="d-flex justify-content-center mb-4">
-            <a className="btn btn-dark btn-square mx-1" href="#">
+            {/* <a className="btn btn-dark btn-square mx-1" href="#">
               <i className="fab fa-twitter" style={{ color: "#009cb8" }}></i>
-            </a>
+            </a> */}
             <a
               className="btn btn-dark btn-square mx-1"
               href="https://www.facebook.com/md.fayzullah.aman/"

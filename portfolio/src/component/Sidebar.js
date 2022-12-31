@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Typewriter } from "react-simple-typewriter";
 // import { Link } from "react-router-dom";
 
@@ -28,18 +29,28 @@ export default function Sidebar() {
             delaySpeed={1000}
           />
         </span>
-        <div>
+        {/* <div>
           <ul>
-            <li className="nav-item">{/* <Link to="">About</Link> */}</li>
-
-            <li>sadf</li>
-            <li>sadf</li>
+            <li className="btn btn-secondary">About Me</li>
+            <br />
+            <li className="btn btn-secondary my-1">Skills</li>
+            <br />
+            <li className="btn btn-secondary">Expericence</li>
+            <br />
+            <li className="btn btn-secondary my-1">Services</li>
+            <br />
+            <li className="btn btn-secondary">Portfolio</li>
+            <br />
+            <li className="btn btn-secondary my-1">Testimonial</li>
+            <br />
+            <li className="btn btn-secondary">Contact Me</li>
+            <br />
           </ul>
-        </div>
+        </div> */}
         <div className="d-flex justify-content-center mt-auto mb-3">
-          <a className="btn btn-secondary btn-square mx-1" to="#">
+          {/* <a className="btn btn-secondary btn-square mx-1" to="#">
             <i className="fab fa-twitter" style={{ color: "#009cb8" }}></i>
-          </a>
+          </a> */}
           <a
             className="btn btn-secondary btn-square mx-1"
             href="https://www.facebook.com/md.fayzullah.aman/"
@@ -67,9 +78,9 @@ export default function Sidebar() {
           >
             Download CV
           </a>
-          <a href="/contact" className="btn w-50 btn-scroll">
+          <Link to="contact" className="btn w-50 btn-scroll">
             Contact Me
-          </a>
+          </Link>
         </div>
       </div>
     </div>
