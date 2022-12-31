@@ -200,3 +200,11 @@
 .testimonial-carousel .owl-dot.active {
   background: var(--primary);
 }
+
+ul li {
+  list-style: none;
+  
+}
+ul li:hover{
+  background-color: #009cb8;  
+}
