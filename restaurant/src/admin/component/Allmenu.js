@@ -45,22 +45,14 @@ export default function Allmenu() {
         allMenu();
       });
   };
-  // pagination
-
-  // const []
-  // const
-  // const
-  // const
-
-  // pagination
 
   return (
     <div className="col-sm-10">
       <br />
       <div className="content-wrapper">
         <div className="card">
-          <div className="card-header flex">
-            <h3 className="card-title">All Menu List</h3>
+          <div className="card-header d-flex">
+            <h3 className="card-title ">All Menu List</h3>
             <ul className="nav d-flex justify-content-end">
               <li>
                 <Link to="/admin/addmenu">
@@ -69,7 +61,12 @@ export default function Allmenu() {
               </li>
             </ul>
           </div>
-
+          <div className="col-4 justify-content-end">
+            <button className="btn btn-primary">
+              <input type="text" name="search" placeholder="Search Your Item" />{" "}
+              Search
+            </button>
+          </div>
           <div className="card-body ">
             <table id="example1" className="table table-bordered table-striped">
               <thead>
@@ -97,7 +94,7 @@ export default function Allmenu() {
                     <td>{item.name}</td>
                     <td>{item.details}</td>
                     <td>{item.price}</td>
-                    <td>
+                    <td className="d-flex">
                       <Link
                         to={`/admin/editmenu/${item.id}`}
                         className="btn btn-primary"
