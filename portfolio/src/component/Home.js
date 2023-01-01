@@ -57,7 +57,8 @@ export default function Home() {
         </p>
         <div className="row mb-4">
           <div className="col-sm-6 py-1">
-            <span className="fw-medium text-info">Name:</span> Md Fayzullah Aman
+            <span className="fw-medium text-info">Name:</span> Md. Fayzullah
+            Aman
           </div>
           <div className="col-sm-6 py-1">
             <span className="fw-medium text-info">Birthday:</span> 29 December
@@ -237,17 +238,17 @@ export default function Home() {
         <h1 className="title pb-3 mb-5">Expericence</h1>
         <div className="position-relative mb-4">
           <h5 className="mb-1">Computer Operator</h5>
-          <p className="mb-2">The Royal Scintific Publication</p>
+          <p className="mb-2">The Royal Scientific Publications</p>
           <small>2018 - 2022</small>
         </div>
         <div className="position-relative mb-4">
           <h5 className="mb-1">Data Entry Operator</h5>
-          <p className="mb-2">Golden Harvest</p>
+          <p className="mb-2">Golden Harvest InfoTech Ltd.</p>
           <small>2017 - 2018</small>
         </div>
         <div className="position-relative mb-4">
           <h5 className="mb-1">Data Entry Operator</h5>
-          <p className="mb-2">Computer Graphic Design Ltd</p>
+          <p className="mb-2">Computer Graphics & Design Ltd.</p>
           <small>2016 - 2017</small>
         </div>
       </section>
