@@ -17,6 +17,7 @@ export default function Contact() {
         (result) => {
           console.log(result.text);
           alert("Message sent successfully");
+          document.getElementById("reset").reset();
         },
         (error) => {
           console.log(error.text);
@@ -37,7 +38,7 @@ export default function Contact() {
           </Link>
         </div>
 
-        <form ref={form} onSubmit={sendEmail}>
+        <form ref={form} id="reset" onSubmit={sendEmail}>
           <div className="row g-3">
             <div className="col-md-6">
               <div className="form-floating">

@@ -15,6 +15,7 @@ export default function Home() {
   }
 
   const form = useRef();
+
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
@@ -28,6 +29,7 @@ export default function Home() {
         (result) => {
           console.log(result.text);
           alert("Message sent successfully");
+          document.getElementById("reset").reset();
         },
         (error) => {
           console.log(error.text);
@@ -518,7 +520,7 @@ export default function Home() {
       </section>
       <section className="py-5 wow fadeInUp" data-wow-delay="0.1s" id="contact">
         <h1 className="title pb-3 mb-5">Contact Me</h1>
-        <form ref={form} onSubmit={sendEmail}>
+        <form ref={form} id="reset" onSubmit={sendEmail}>
           <div className="row g-3">
             <div className="col-md-6">
               <div className="form-floating">
