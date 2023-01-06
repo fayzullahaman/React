@@ -34,7 +34,7 @@ const Insert = () => {
           userpass: userInfo.password,
         })
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           navigate(`/users`);
           return;
         });

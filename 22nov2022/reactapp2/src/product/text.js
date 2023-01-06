@@ -7,7 +7,7 @@ const EditProduct = () => {
   const navigate = useNavigate();
   const [product, setProduct] = useState([]);
 
-  console.log(product);
+  // console.log(product);
 
   const submitValue = (e) => {
     e.preventDefault();

@@ -12,7 +12,7 @@ const UserList = () => {
   const alluser = async (ids) => {
     try {
       axios.get(`http://localhost/reactApi/users.php`).then((res) => {
-        console.log(res.data.userlist.userdata);
+        // console.log(res.data.userlist.userdata);
         setuser(res.data.userlist.userdata);
       });
     } catch (error) {

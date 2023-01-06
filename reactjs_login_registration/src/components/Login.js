@@ -26,7 +26,7 @@ export default function Login() {
         // console.log(response.data);
         if (response.data.success) {
           // alert(response.data.success);
-          console.log(response.data.user.email);
+          // console.log(response.data.user.email);
           sessionStorage.setItem("email", response.data.user.email);
           sessionStorage.setItem(
             "fullname",

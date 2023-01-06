@@ -32,7 +32,7 @@ export default class ModalComponent extends React.Component {
     event.preventDefault();
     alert("Submitted");
     this.toggle();
-    console.log(this.state);
+    // console.log(this.state);
   }
 
   render() {

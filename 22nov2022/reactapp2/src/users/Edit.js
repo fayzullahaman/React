@@ -21,7 +21,7 @@ const Edit = () => {
           userids: ids,
         })
         .then((res) => {
-          console.log(res.data.userlist.userdata[0]);
+          // console.log(res.data.userlist.userdata[0]);
           setuser(res.data.userlist.userdata);
           setloaduser(true);
         });

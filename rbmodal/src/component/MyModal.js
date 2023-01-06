@@ -19,7 +19,7 @@ export default function MyModal() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(info);
+    // console.log(info);
     toggle();
     dataSubmit();
   };
