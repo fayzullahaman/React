@@ -184,8 +184,6 @@ export default function Home() {
                 <div className="progress-value3 bg-warning"></div>
               </div>
             </div>
-          </div>
-          <div className="col-sm-6">
             <div className="skill mb-4">
               <div className="d-flex justify-content-between">
                 <p className="mb-2">Jquery</p>
@@ -194,9 +192,11 @@ export default function Home() {
                 </p>
               </div>
               <div className="progress">
-                <div className="progress-value4 bg-success"></div>
+                <div className="progress-value4 bg-secondary"></div>
               </div>
             </div>
+          </div>
+          <div className="col-sm-6">
             <div className="skill mb-4">
               <div className="d-flex justify-content-between">
                 <p className="mb-2">React js</p>
@@ -228,6 +228,28 @@ export default function Home() {
               </div>
               <div className="progress">
                 <div className="progress-value7 bg-info"></div>
+              </div>
+            </div>
+            <div className="skill mb-4">
+              <div className="d-flex justify-content-between">
+                <p className="mb-2">Laravel</p>
+                <p className="mb-2 d-flex">
+                  <Number n={65} />%
+                </p>
+              </div>
+              <div className="progress">
+                <div className="progress-value4 bg-primary"></div>
+              </div>
+            </div>
+            <div className="skill mb-4">
+              <div className="d-flex justify-content-between">
+                <p className="mb-2">Vue</p>
+                <p className="mb-2 d-flex">
+                  <Number n={60} />%
+                </p>
+              </div>
+              <div className="progress">
+                <div className="progress-value3 bg-danger"></div>
               </div>
             </div>
           </div>
@@ -361,6 +383,7 @@ export default function Home() {
         data-wow-delay="0.1s"
       >
         <h1 className="title pb-3 mb-5">Portfolio</h1>
+        <p>Click on the images- to chack my project's</p>
         <div className="row">
           <div className="col-12">
             <div className="row">
@@ -419,10 +442,7 @@ export default function Home() {
                     alt="Protfolio Image"
                   />
                   <div className="portfolio-btn d-flex align-items-center justify-content-center">
-                    <a
-                      href="/assets/img/portfolio-3.jpg"
-                      data-lightbox="portfolio"
-                    >
+                    <a href="https://realestate.bdprogrammers.com/">
                       <i className="bi bi-plus text-light"></i>
                     </a>
                   </div>

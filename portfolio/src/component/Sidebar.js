@@ -5,14 +5,14 @@ import { Typewriter } from "react-simple-typewriter";
 export default function Sidebar() {
   return (
     <div className="col-lg-4 sticky-lg-top vh-100">
-      <div className="d-flex flex-column h-100 text-center overflow-auto shadow">
+      <div className="d-flex flex-column h-100 text-center no-scrollbar shadow">
         <img
           className="w-100 img-fluid mb-4"
           src="/assets/img/profile.jpg"
           alt="Image"
         />
-        <h1 className="text-info mt-2 text-uppercase">Md. Fayzullah Aman</h1>
-        <span className="mb-4" style={{ fontWeight: "bold", fontSize: "22px" }}>
+        <h1 className="text-info">Md Fayzullah Aman</h1>
+        <span className="mb-4" style={{ fontWeight: "bold", fontSize: "20px" }}>
           <Typewriter
             words={[
               "Front End Developer",
