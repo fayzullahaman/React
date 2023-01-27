@@ -13,9 +13,7 @@ export default function Home() {
     });
     return <animated.div>{number.to((n) => n.toFixed(0))}</animated.div>;
   }
-
   const form = useRef();
-
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
@@ -45,17 +43,7 @@ export default function Home() {
         <h1 className="title pb-3 mb-5">About Me</h1>
         <p style={{ textAlign: "justify" }}>
           Assalamu Alaikum. <br />
-          Nice to meet you! I have 5 years of experience as computer operator.
-          Recently I completed web development course from IsDB-BISEW and gained
-          experience in web development. Now I am working in web design and
-          development. Languages I know are HTML, CSS, Bootstrap, JavaScript,
-          jQuery, PHP, MySQL, WordPress, Angular, React js, CodeIgniter, Laravel
-          and Vue. I am very interested in sharing my skills in web development
-          to the public. My passion is creating and developing a professional,
-          beautiful website. I am committed to maintain a professional
-          relationship with my clients and provide efficient and reliable
-          service according to their needs. Contact me now to discuss your next
-          project.
+          Nice to meet you! I have 5 years of experience as computer operator. Recently I completed web development course from IsDB-BISEW and gained experience in web development. Now I am working in web design and development. Languages I know are HTML, CSS, Bootstrap, JavaScript, jQuery, PHP, MySQL, WordPress, Angular, React js, CodeIgniter, Laravel and Vue. I am very interested in sharing my skills in web development to the public. My passion is creating and developing a professional, beautiful website. I am committed to maintain a professional relationship with my clients and provide efficient and reliable service according to their needs. Contact me now to discuss your next project.
         </p>
         <div className="row mb-4">
           <div className="col-sm-6 py-1">
@@ -386,23 +374,7 @@ export default function Home() {
         <p>Click on the images- to chack my project's</p>
         <div className="row">
           <div className="col-12">
-            <div className="row">
-              {/* <div className="col-12 text-center mb-2">
-             <ul className="list-inline mb-4" id="portfolio-flters">
-               <li
-                 className="btn btn-secondary active"
-                 data-filter="*"
-               >
-                 <i className="fa fa-star me-2"></i>All
-               </li>
-               <li className="btn btn-secondary" data-filter=".first">
-                 <i className="fa fa-laptop-code me-2"></i>Design
-               </li>
-               <li className="btn btn-secondary" data-filter=".second">
-                 <i className="fa fa-mobile-alt me-2"></i>Development
-               </li>
-             </ul>
-           </div> */}
+            <div className="row">              
             </div>
             <div className="row portfolio-container">
               <div className="col-md-6 mb-4 portfolio-item first">
@@ -414,12 +386,11 @@ export default function Home() {
                   />
                   <div className="portfolio-btn d-flex align-items-center justify-content-center">
                     <a href="https://restaurant.bdprogrammers.com">
-                      <i className="bi bi-plus text-light"></i>
+                      <i className="bi bi-link text-light"></i>
                     </a>
                   </div>
                 </div>
               </div>
-
               <div className="col-md-6 mb-4 portfolio-item second">
                 <div className="position-relative overflow-hidden mb-2">
                   <img
@@ -429,7 +400,7 @@ export default function Home() {
                   />
                   <div className="portfolio-btn d-flex align-items-center justify-content-center">
                     <a href="https://employee.bdprogrammers.com/">
-                      <i className="bi bi-plus text-light"></i>
+                      <i className="bi bi-link text-light"></i>
                     </a>
                   </div>
                 </div>
@@ -443,7 +414,7 @@ export default function Home() {
                   />
                   <div className="portfolio-btn d-flex align-items-center justify-content-center">
                     <a href="https://realestate.bdprogrammers.com/">
-                      <i className="bi bi-plus text-light"></i>
+                      <i className="bi bi-link text-light"></i>
                     </a>
                   </div>
                 </div>
@@ -456,11 +427,8 @@ export default function Home() {
                     alt="Protfolio Image"
                   />
                   <div className="portfolio-btn d-flex align-items-center justify-content-center">
-                    <a
-                      href="/assets/img/portfolio-4.jpg"
-                      data-lightbox="portfolio"
-                    >
-                      <i className="bi bi-plus text-light"></i>
+                    <a href="https://library.bdprogrammers.com/">
+                      <i className="bi bi-link text-light"></i>
                     </a>
                   </div>
                 </div>
@@ -471,10 +439,8 @@ export default function Home() {
       </section>
       <section
         className="py-5 border-bottom wow fadeInUp"
-        data-wow-delay="0.1s"
-      >
+        data-wow-delay="0.1s">
         <h1 className="title pb-3 mb-5">Testimonial</h1>
-
         <div className="testimonial-carousel">
           <OwlCarousel items={1} className="owl-theme" loop autoplay={true}>
             <div className="text-left">
@@ -496,7 +462,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
             <div className="text-left">
               <i className="fa fa-2x fa-quote-left text-info mb-4"></i>
               <p className="fs-4 mb-4">
@@ -603,10 +568,7 @@ export default function Home() {
       </a>
       <section className="wow fadeIn" data-wow-delay="0.1s">
         <div className="bg-secondary text-light text-center p-5">
-          <div className="d-flex justify-content-center mb-4">
-            {/* <a className="btn btn-dark btn-square mx-1" href="#">
-              <i className="fab fa-twitter" style={{ color: "#009cb8" }}></i>
-            </a> */}
+          <div className="d-flex justify-content-center mb-4">            
             <a
               className="btn btn-dark btn-square mx-1"
               href="https://www.facebook.com/md.fayzullah.aman/"
