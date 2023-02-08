@@ -479,7 +479,7 @@ export default function Home() {
                   <p className="text-info fs-5 mb-1">Client Name</p>
                   <i>Profession</i>
                 </div>
-              </div>
+              </div>              
             </div>
             <div className="text-left">
               <i className="fa fa-2x fa-quote-left text-info mb-4"></i>
